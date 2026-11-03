@@ -198,6 +198,27 @@
       "status": "installed"
     },
     {
+      "name": "create-branch",
+      "source_repository": "https://github.com/getsentry/skills",
+      "source_path": "skills/create-branch",
+      "source_commit": "884f073eed4b7b615cca1a639830ad1e1a415964",
+      "installed_path": ".agents/skills/create-branch",
+      "license": "Apache-2.0",
+      "license_source": "https://github.com/getsentry/skills/blob/884f073eed4b7b615cca1a639830ad1e1a415964/LICENSE",
+      "license_copy": ".agents/skills/create-branch/LICENSE",
+      "decision": "Adopt",
+      "reason": "Create git branches with a consistent <type>/<short-description> naming convention and automatic base/collision handling, keeping branch creation non-interactive.",
+      "compatibility": "Adopted verbatim. Instructions are tool-neutral; the illustrative shell snippets are POSIX, so run the equivalent git commands under PowerShell on Windows.",
+      "dependencies": [
+        "Git >= 2.41"
+      ],
+      "reviewed_resources": [
+        "SKILL.md",
+        "LICENSE"
+      ],
+      "status": "installed"
+    },
+    {
       "name": "use-case-flowchart",
       "source_repository": "repository-local",
       "source_path": null,
