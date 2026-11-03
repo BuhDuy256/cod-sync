@@ -125,13 +125,15 @@ for a use case that already exists; Phase 0 decides which use cases should exist
 
 **Process:**
 
-1. The agent keeps the domain question checklist at `docs/research/domain/README.md`:
-   numbered questions grouped by area, the spec item each area unlocks, and sources to
-   start from.
+1. The agent keeps the domain checklist at `docs/research/domain/README.md` (areas, the
+   spec item each area unlocks, sources to start from) and opens one GitHub Issue per
+   area, label `phase:domain`. The issue holds the area's numbered questions as a task
+   list; the questions live only there.
 2. **The user researches and writes one note per area** in `docs/research/domain/`,
    following `docs/research/_STYLE.md` (problem → what was tried → what was observed →
    what it means). A question is closed by answering it in the note, or by marking it
-   out of scope with a one-line reason. The area's Status in the checklist is updated.
+   out of scope with a one-line reason, then ticking it in the issue. The area's Status
+   in the checklist is updated, and the issue is closed when every question is ticked.
 3. Each finished note feeds the spec: a glossary row in `docs/spec/_STYLE.md`, a
    business-rule value, a discrepancy type with its source, stronger `Evidence` on a
    vision `W-x` block, or a use case candidate. Who decides: `AGENTS.md` "Decision
