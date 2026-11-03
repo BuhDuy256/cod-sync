@@ -10,7 +10,7 @@ Generate the testing plan for a use case build.
 ## Input
 
 1. The UC file: `docs/spec/02-use-cases/UC-XXX.md`
-2. Every FR referenced by the UC — especially their ACs and `Kiểm` tags.
+2. Every FR referenced by the UC — especially their ACs and `Check` tags.
 3. Every NFR referenced by the UC.
 4. Decisions from Phase 1: `docs/decisions/DEC-*.md`
 5. The research checklist: `plans/UC-XXX/research-checklist.md`
@@ -21,9 +21,9 @@ Generate the testing plan for a use case build.
 
 For each FR's AC:
 
-- Read the `Kiểm` tag:
-  - `tất định` (deterministic) → acceptance test, automatable
-  - `đánh giá` (evaluation) → manual test or test with human judgment
+- Read the `Check` tag:
+  - `deterministic` → acceptance test, automatable
+  - `evaluation` → manual test or test with human judgment
 
 - Determine the test type:
   - Pure validation logic → unit test (with implementation)
@@ -48,7 +48,7 @@ For each FR's AC:
 
 | Test type | Phase | Written when |
 |---|---|---|
-| Acceptance (tất định) | Pre-implementation | Phase 2 tickets |
+| Acceptance (deterministic) | Pre-implementation | Phase 2 tickets |
 | Security | Pre-implementation | Phase 2 tickets |
 | Unit | With implementation | Bundled into Phase 4 impl tickets |
 | Integration | Post-implementation | Phase 4, blocked by impl |
@@ -68,6 +68,10 @@ shaped it (if any) — so a changed decision points to the tests that must be re
 Then update `plans/UC-XXX/traceability-matrix.md`: put each test on its FR/AC (or
 NFR) row's Test column.
 
+Follow WORKFLOW.md "Document rules": front-load the plan's `## At a glance` block, keep
+the template's section order, and reference each AC by its id and matrix row — do not
+copy the requirement text into the plan.
+
 ## Rules
 
 - Every AC must appear in the plan. No AC is skipped.
@@ -76,7 +80,7 @@ NFR) row's Test column.
   test or implementation step. Flag any gap instead of silently leaving it.
 - Every UC alternative flow with a failure condition gets a resilience test.
 - Do not invent test scenarios beyond what the spec defines.
-- Manual tests (đánh giá) are listed but marked as manual — they still need a
+- Manual tests (evaluation) are listed but marked as manual — they still need a
   description of what the evaluator checks.
 - Pre-implementation test stubs must be runnable (red) — they fail on purpose, not
   because of syntax errors.

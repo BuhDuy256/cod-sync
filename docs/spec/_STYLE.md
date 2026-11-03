@@ -1,66 +1,84 @@
-# Quy tắc viết spec
+# Spec writing rules
 
-Áp dụng cho mọi file trong `docs/spec/`. Các quy tắc 5 và 7 áp dụng cho trường `Hệ thống` và `Khi` của use case. Quy tắc 11 áp dụng cho toàn bộ use case.
+Applies to every file in `docs/spec/`. Rules 5 and 7 apply to the `System` and `When`
+fields of a use case. Rule 11 applies to the whole use case.
 
-**Vì sao:** mỗi câu chỉ có một nghĩa, để một phản hồi của hệ thống trở thành một yêu cầu kiểm thử được. Từ ngữ thường làm được cả hai điều đó.
+**Why:** each sentence must have one meaning, so one system response becomes one
+testable requirement. Everyday words do both.
 
-## Quy tắc
+## Rules
 
-| # | Quy tắc | Không viết | Viết |
+| # | Rule | Don't write | Write |
 |---|---|---|---|
-| 1 | **Một thứ, một tên.** Dùng đúng từ trong bảng thuật ngữ. Không bao giờ đổi từ đồng nghĩa. | "tiến độ" và "vị trí nghe" cho cùng một thứ | "tiến độ" mọi lúc |
-| 2 | **Dùng từ thường.** hiện, giữ, dùng, bắt đầu, kết thúc, trước, sau | hiển thị, duy trì, khởi tạo, kết thúc công việc, trước đó, sau đó | "Hệ thống phát audio." |
-| 3 | **Không thành ngữ hay cụm bóng bẩy.** | "bật đèn xanh", "chốt hạ", "quay xe" | "đồng ý", "kết thúc", "đổi ý" |
-| 4 | **Không động từ mơ hồ.** Cấm: xử lý, quản lý, hỗ trợ, đảm bảo, thực hiện, tiến hành, phù hợp, đúng cách, mượt mà. | "Hệ thống xử lý lỗi một cách mượt mà." | "Hệ thống báo không lấy được nội dung và giữ link người dùng đã nhập." |
-| 5 | **Không "có thể", "nên", "có lẽ" trong phản hồi hệ thống.** Nói điều hệ thống làm. Dùng **"được phép"** chỉ cho quyền của người dùng. | "Hệ thống có thể hiện thông báo." | "Hệ thống hiện thông báo." |
-| 6 | **Câu ngắn, chủ động.** Một hành động một câu. Trích dẫn `[BR-xxx]` không tính. | "Một thông báo được hiện rằng công việc đã dừng và có bao nhiêu chương đã xong." | "Hệ thống hiện thông báo rằng nó đã dừng. Thông báo nêu số chương đã làm." |
-| 7 | **Điều kiện để ở trường Khi.** Phản hồi hệ thống không có "nếu". Khi hành vi khác theo bước, mở đầu bằng nhãn: "Tại S3:", "Kết nối trở lại:". | "Nếu link không hợp lệ, hệ thống từ chối." | Khi: "Link không khớp nguồn [BR-?]." Hệ thống: "Nêu lý do." |
-| 8 | **Một hành động một dòng. Tối đa 7 dòng mỗi trường.** | Một ô 110 chữ | Mỗi dòng một việc người dùng thấy được |
-| 9 | **In đậm ít.** In đậm một từ trong bảng thuật ngữ ở lần dùng đầu tiên của một dòng. Tối đa 2 chỗ một dòng. | In đậm cả cụm | "Phát **audio**." |
-| 10 | **Bằng chứng ở dòng riêng.** Một thẻ cho một nhận định. Không bao giờ đặt giữa câu. | "…màn hình vẫn ở chương đầu `[observed: …]`, và không đề nghị tải chương sau." | `- **Bằng chứng:** [observed: claude-report (màn hình giữ chương đầu)]` |
-| 11 | **Ý định và phản hồi, không phải giao diện.** Bên người dùng nói người dùng muốn gì. Bên hệ thống nói hệ thống báo, giữ, đổi hay tạo gì. Không bao giờ gọi tên widget, thao tác, vị trí, kiểu dáng hay nhãn. Gọi tên một nơi chỉ bằng vùng (xem Vùng). Nếu một chi tiết giao diện mang yêu cầu, hãy viết yêu cầu đó. | "Người dùng mở menu và chọn một truyện." "Mở màn nghe ở góc dưới." "Hiện thẻ có nút nghe lại." | "Người dùng chọn một truyện." "Mở màn nghe. Tiến độ đã lưu và audio hiện tại giữ nguyên." "Cho người dùng nghe lại." |
+| 1 | **One thing, one name.** Use the exact word from the glossary. Never swap in a synonym. | "progress" and "listening position" for the same thing | "progress" everywhere |
+| 2 | **Use plain words.** show, keep, use, start, end, before, after | display, maintain, initialize, terminate, prior, subsequent | "The system plays audio." |
+| 3 | **No idioms or flowery phrases.** | "green-light", "seal the deal", "U-turn" | "agree", "end", "change its mind" |
+| 4 | **No vague verbs.** Banned: handle, manage, support, ensure, process, carry out, appropriate, properly, smoothly. | "The system handles errors smoothly." | "The system reports it could not fetch the content and keeps the link the user entered." |
+| 5 | **No "can", "should", "might", "may" in a system response.** State what the system does. Use **"is allowed to"** only for a user permission. | "The system can show a message." | "The system shows a message." |
+| 6 | **Short, active sentences.** One action per sentence. A `[BR-xxx]` citation does not count. | "A message is shown that the job has stopped and how many chapters are done." | "The system shows a message that it has stopped. The message states how many chapters were done." |
+| 7 | **Conditions go in the When field.** A system response has no "if". When behavior differs by step, open with a label: "At S3:", "On reconnect:". | "If the link is invalid, the system rejects it." | When: "The link does not match a source [BR-?]." System: "State the reason." |
+| 8 | **One action per line. At most 7 lines per field.** | One cell of 110 words | One line per thing the user can observe |
+| 9 | **Minimal bold.** Bold one glossary word on its first use in a line. At most 2 per line. | Bold a whole phrase | "Play **audio**." |
+| 10 | **Evidence on its own line.** One tag per claim. Never mid-sentence. | "…the screen stays on the first chapter `[observed: …]`, and does not offer the next chapter." | `- **Evidence:** [observed: claude-report (screen stays on first chapter)]` |
+| 11 | **Intent and response, not interface.** The user side says what the user wants. The system side says what the system reports, keeps, changes, or creates. Never name a widget, gesture, position, style, or label. Name a place only by region (see Regions). If an interface detail carries a requirement, write the requirement. | "The user opens the menu and picks a story." "Open the listening view in the bottom corner." "Show a card with a replay button." | "The user picks a story." "Open the listening view. The saved progress and the current audio stay unchanged." "Let the user replay." |
 
-Quy tắc 4 đến 7 giữ phản hồi kiểm thử được. Quy tắc 1 đến 3 và 6 giữ nó dễ đọc. Quy tắc 11 giữ spec đúng khi thiết kế thay đổi.
+Rules 4 to 7 keep a response testable. Rules 1 to 3 and 6 keep it readable. Rule 11
+keeps the spec correct when the design changes.
 
-## Thẻ bằng chứng
+## Evidence tags
 
-Một thẻ cho một nhận định. Khóa giữ tiếng Anh để grep được; nội dung nguồn viết tiếng Việt:
+One tag per claim. Keys stay in English so they are greppable; the source content is
+written in prose:
 
-- `[observed: <nguồn> (<nó cho thấy gì>)]` thấy trong bản ghi hoặc sản phẩm
-- `[inferred: <nguồn>]` suy ra từ dữ kiện đã quan sát
-- `[assumed]` hoặc `[assumed: <điều gì>]` chưa có bằng chứng
+- `[observed: <source> (<what it shows>)]` — seen in a transcript or product
+- `[inferred: <source>]` — inferred from observed facts
+- `[assumed]` or `[assumed: <what>]` — no evidence yet
 
-Trong một danh sách (bối cảnh sử dụng, kiến thức, …), dòng cuối có thể là một `- **Bằng chứng:** [assumed]`. Nó tính cho mọi mục phía trên chưa có dòng Bằng chứng riêng.
+In a list (usage context, knowledge, …), the last line can be a single
+`- **Evidence:** [assumed]`. It counts for every item above it without its own Evidence
+line.
 
-## Vùng
+## Regions
 
-Một vùng là nơi chứa một loại thông tin. Nó được định nghĩa bởi nó chứa gì, không bao giờ bởi nó nằm ở đâu hay trông thế nào. Danh sách là đóng; mỗi sản phẩm tự khai báo vùng của nó trong bảng thuật ngữ. Dự án chưa có vùng nào được chốt.
+A region is a place that holds one kind of information. It is defined by what it holds,
+never by where it is or what it looks like. The list is closed; each product declares
+its own regions in the glossary. The project has no settled regions yet.
 
-Một use case có thể nói thứ gì đó được hiện, giữ hay đổi trong một vùng. Nó không được nói vùng được bố trí hay đi tới thế nào. Để thêm vùng, thêm một dòng vào bảng thuật ngữ và nói nó chứa gì.
+A use case may say something is shown, kept, or changed in a region. It must not say how
+a region is laid out or navigated to. To add a region, add a row to the glossary and say
+what it holds.
 
-## Thuật ngữ
+## Glossary
 
-Dùng những từ này cho những thứ này. Thêm dòng khi cần từ mới. Không thêm từ đồng nghĩa. Một từ không bao giờ gọi tên widget, thao tác, vị trí hay kiểu dáng. Bảng này bắt đầu rỗng; mỗi dự án tự khai báo thuật ngữ của mình và bổ sung khi khám phá.
+Use these words for these things. Add a row when a new word is needed. Do not add a
+synonym. A word never names a widget, gesture, position, or style. This table starts
+empty; each project declares its own terms and adds to them as it learns.
 
-| Thuật ngữ | Nghĩa |
+| Term | Meaning |
 |---|---|
-| **tài khoản** | Danh tính của người dùng để truy cập và giữ dữ liệu riêng |
-| _(thêm dòng)_ | _(mô tả nghĩa, không gọi tên widget hay vị trí)_ |
+| **account** | The user's identity for access and for keeping their own data |
+| _(add a row)_ | _(describe the meaning, do not name a widget or position)_ |
 
-## Cách kiểm tra
+## How to check
 
-Chưa có công cụ, nên review làm việc này. Có hai nhóm kiểm tra.
+There is no tool yet, so review does this. There are two groups of checks.
 
-**Từ ngữ.** Chạy trên các trường `Hệ thống` và `Khi`, và trên `Tình huống và mục tiêu`. Mỗi kết quả được sửa hoặc ghi lý do. (Lưu ý: không dùng `\b` vì nó không chạy với dấu tiếng Việt.)
-
-```
-xử lý|quản lý|hỗ trợ|đảm bảo|thực hiện|tiến hành|phù hợp|đúng cách|mượt mà|có thể|có lẽ|nên
-```
-
-**Giao diện (quy tắc 11).** Chạy trên toàn use case, trừ frontmatter, khối sinh tự động và dòng `Thẻ nghiên cứu`. Mỗi kết quả được viết lại thành ý định hoặc phản hồi. Một kết quả không phải ngôn ngữ giao diện (ví dụ "phải" trong "chữ viết từ phải sang trái") có lý do ghi rõ.
+**Wording.** Run on the `System` and `When` fields, and on `Situation and goal`. Each
+hit is fixed or given a recorded reason.
 
 ```
-nút|bấm|nhấn|chạm|vuốt|cuộn|menu|dropdown|hộp thoại|popup|tab|sidebar|thanh công cụ|thẻ|chip|biểu tượng|toggle|checkbox|màn hình|trang|góc|bên trên|bên dưới|trái|phải|nhãn|trường nhập
+handle|manage|support|ensure|process|carry out|appropriate|properly|smoothly|can|could|should|might|may
 ```
 
-Sau đó áp dụng **phép thử hoán đổi** cho từng câu: hình dung cùng sản phẩm với giao diện khác, ví dụ chỉ chạm hoặc chỉ giọng nói. Nếu câu vẫn đúng, nó qua. Nếu không, nó mô tả giao diện và được viết lại.
+**Interface (rule 11).** Run on the whole use case, except the frontmatter, the
+generated block, and the `Research link` line. Each hit is rewritten as intent or
+response. A hit that is not interface language (e.g. "right" in "right-to-left text")
+gets a recorded reason.
+
+```
+button|click|tap|swipe|scroll|menu|dropdown|dialog|popup|tab|sidebar|toolbar|card|chip|icon|toggle|checkbox|screen|page|corner|above|below|left|right|label|input field
+```
+
+Then apply the **swap test** to each sentence: imagine the same product with a different
+interface, e.g. touch-only or voice-only. If the sentence is still true, it passes. If
+not, it describes the interface and is rewritten.

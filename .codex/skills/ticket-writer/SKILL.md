@@ -67,7 +67,8 @@ Update the source plan document's ticket column with issue numbers.
 Update `plans/UC-XXX/traceability-matrix.md`: fill the Test and Impl columns with
 the new ticket links. Before finishing, run the matrix's no-orphan check — no test
 or implementation ticket may exist without a matrix row (see WORKFLOW.md
-"Traceability").
+"Traceability"). Keep ticket bodies to a matrix-row reference (FR/AC id + link)
+rather than restating requirement text (WORKFLOW.md "Document rules").
 
 ## Flash-model ticket rules
 

@@ -1,78 +1,92 @@
 # Gate: Use case
 
-Template: `_TEMPLATE.md`. Phong cách: `../_STYLE.md`. Con: `../03-requirements/fr/`, `../03-requirements/nfr/`, `../04-business-rules/`.
+Template: `_TEMPLATE.md`. Style: `../_STYLE.md`. Children:
+`../03-requirements/fr/`, `../03-requirements/nfr/`, `../04-business-rules/`.
 
-## 1. Use case là gì, và không là gì
+## 1. What a use case is, and is not
 
-**Một use case mô hình hoá hành vi sản phẩm cho một mục tiêu người dùng đạt trong một lần ngồi.** Nó nói người dùng làm gì và sản phẩm phản hồi thấy được thế nào. Mỗi phản hồi hệ thống là một ứng viên yêu cầu chức năng. Mỗi nhánh thay thế là một ứng viên yêu cầu lỗi/biên. Mỗi quy tắc hay mục tiêu chất lượng mà một bước phụ thuộc được trích dẫn ở đây và định nghĩa ở nơi khác.
+**A use case models product behavior for one user goal reached in a single sitting.** It
+says what the user does and how the product responds observably. Each system response is
+a candidate functional requirement. Each alternative flow is a candidate error/edge
+requirement. Each rule or quality target a step depends on is cited here and defined
+elsewhere.
 
-**Một flow ghi lại hành vi để cân nhắc, không phải cam kết xây nó.** Use case khám phá rộng. Bằng chứng nói ý tưởng đến từ đâu; nó không chọn gì cả.
+**A flow records behavior to consider, not a commitment to build it.** A use case
+explores broadly. Evidence says where an idea came from; it does not choose anything.
 
-### Nội dung thuộc đâu
+### Where content belongs
 
-| Nếu nội dung là... | Thì nó thuộc |
+| If the content is... | Then it belongs |
 |---|---|
-| Giới hạn, ngưỡng, quota, danh sách cho phép, thời gian giữ hay giá trị khác một quy tắc định nghĩa | `../04-business-rules/`. Use case trích dẫn ID quy tắc |
-| Thời gian chờ, mục tiêu kích thước, sẵn sàng hay chất lượng khác | `../03-requirements/nfr/`. Use case trích dẫn ID NFR |
-| Phát biểu kiểm thử được của một phản hồi hệ thống | `../03-requirements/fr/`. Use case trích dẫn ID yêu cầu |
-| Quan sát thô từ bản ghi (sản phẩm làm gì, hiện giới hạn nào) | `docs/research/`. Use case liên kết thẻ nghiên cứu |
-| Hệ thống đạt phản hồi thế nào (model, queue, storage, API) | ADR hoặc công việc kiến trúc, không ở đây |
-| Người dùng vận hành sản phẩm thế nào hay nó trông thế nào: điều khiển, thao tác, vị trí, nhãn, màu, bố cục | Công việc thiết kế UI (chưa có folder). Use case chỉ viết ý định và phản hồi (UCG-09) |
+| A limit, threshold, quota, allow-list, retention time, or other value a rule defines | `../04-business-rules/`. The use case cites the rule ID |
+| A wait time, size target, availability, or another quality target | `../03-requirements/nfr/`. The use case cites the NFR ID |
+| A testable statement of a system response | `../03-requirements/fr/`. The use case cites the requirement ID |
+| A raw observation from a transcript (what a product does, what limit it shows) | `docs/research/`. The use case links the research item |
+| How the system achieves a response (model, queue, storage, API) | ADR or architecture work, not here |
+| How the user operates the product or what it looks like: controls, gestures, position, labels, color, layout | UI design work (no folder yet). The use case writes only intent and response (UCG-09) |
 
-### Hướng liên kết: chỉ từ trên xuống
+### Link direction: top-down only
 
-- Tầm nhìn (`../01-product-vision/`) là cha. Nó không liệt kê use case; để tìm cha, đọc tầm nhìn.
-- Use case trích dẫn ID yêu cầu, NFR và quy tắc. Yêu cầu, NFR và quy tắc không bao giờ trích dẫn use case, bước hay nhánh.
-- Use case liên kết thẻ nghiên cứu hỗ trợ nó. Thẻ không gọi tên use case.
+- The vision (`../01-product-vision/`) is the parent. It does not list use cases; to find the parent, read the vision.
+- A use case cites requirement, NFR, and rule IDs. Requirements, NFRs, and rules never cite a use case, step, or branch.
+- A use case links the research items that support it. A research item does not name a use case.
 
-### ID use case
+### Use case IDs
 
-- Một ID (`UC-xxx`) gọi tên một file use case. ID flow (`Sx`, `Ax`) gọi tên một khối trong file.
-- Không gian tên là `docs/spec/`. ID dùng trong folder `docs/specification/` cũ không thuộc nó.
-- Một ID không bao giờ chuyển sang mục tiêu khác hay dùng lại, kể cả sau khi file bị xóa.
-- ID mới lấy số sau ID cao nhất trong folder và trong danh sách ID đã loại bỏ. Khoảng trống giữ nguyên.
-- ID không đánh lại số.
+- One ID (`UC-xxx`) names a use case file. A flow ID (`Sx`, `Ax`) names a block in the file.
+- The namespace is `docs/spec/`. IDs used in the old `docs/specification/` folder do not belong to it.
+- An ID never moves to a different goal or is reused, even after a file is deleted.
+- A new ID takes the number after the highest ID in the folder and in the removed-ID list. Gaps stay as they are.
+- IDs are not renumbered.
 
-ID use case đã loại bỏ:
-- UC-003 — gỡ 21-10-2026; tự chuyển chương kế bị hoãn, không thuộc scope hiện tại. ID dùng lại 21-10-2026 cho use case trước là UC-004, theo yêu cầu owner.
-- UC-005 — đổi số thành UC-004 ngày 21-10-2026; nội dung không đổi, theo yêu cầu owner.
+Removed use case IDs:
+- UC-003 — removed 21-10-2026; auto-advance to the next chapter deferred, out of current scope. The previous use case was renamed to UC-004 on 21-10-2026, per owner request.
+- UC-005 — renumbered to UC-004 on 21-10-2026; content unchanged, per owner request.
 
-## 2. Thẻ bằng chứng
+## 2. Evidence tags
 
-Nhận định về hành vi sản phẩm dùng thẻ trong `../_STYLE.md` (`[observed: <nguồn>]`, `[inferred: <nguồn>]`, `[assumed]`). Với mức bao phủ sản phẩm, nguồn là thẻ nghiên cứu hoặc bản ghi dưới `docs/research/`. Flow chưa ai ghi là `chưa kiểm chứng` và các bước giữ `[assumed]`.
+A claim about product behavior uses a tag from `../_STYLE.md` (`[observed: <source>]`,
+`[inferred: <source>]`, `[assumed]`). For product coverage, the source is a research item
+or transcript under `docs/research/`. A flow nobody has recorded is `unverified` and its
+steps keep `[assumed]`.
 
-Bằng chứng nói flow hay phản hồi đến từ đâu. Nó không phải quyết định xây nó. Thẻ nghiên cứu cho thấy hành vi ở sản phẩm khác không đưa hành vi đó vào scope.
+Evidence says where a flow or response came from. It is not a decision to build it. A
+research item showing behavior in another product does not bring that behavior into
+scope.
 
-## 3. Tiêu chí
+## 3. Criteria
 
-"Kiểm" là lớp dự kiến: *Lint* = máy kiểm được, *Review* = phán đoán người, *CI* = kiểm chéo. Chưa có công cụ nên review làm cả Lint lẫn CI.
+"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment,
+*CI* = cross-check. There is no tool yet, so review does both Lint and CI.
 
-| ID | Tiêu chí | Ngăn chặn | Kiểm |
+| ID | Criterion | Prevents | Check |
 |---|---|---|---|
-| UCG-01 | Một mục tiêu người dùng, đạt trong một lần ngồi, kết quả quan sát được có giá trị. Tiêu đề là người dùng + động từ + đối tượng cụ thể + điều phân biệt, bằng lời người dùng | Case quá to hoặc quá nhỏ; hai case không phân biệt được | Review |
-| UCG-02 | Tình huống và mục tiêu mô tả người dùng muốn gì và vì sao lúc này. Không chứa tính năng hay giải pháp | Giải pháp đội lốt mục tiêu | Review |
-| UCG-03 | Bảng Các bước có 3–9 dòng `Sx` theo thứ tự. Mỗi dòng có Người dùng (ý định), Hệ thống (điều quan sát được, không "nếu"), FR (ID hoặc `FR-?`). Không cài đặt, không giao diện | Phản hồi chôn trong văn xuôi; nguồn FR không rõ | Lint (dòng, cột) + Review |
-| UCG-04 | Mỗi nhánh là block `### Ax · Tên` với Tại, Kết thúc, Khi, Hệ thống, FR. `Kết thúc` dùng một giá trị trong template. Mỗi bước nhận input, hủy được, phụ thuộc dịch vụ ngoài hoặc có thể lâu đều có nhánh, hoặc lý do ghi rõ | Nhánh không test tái lập được | Lint (trường) + Review |
-| UCG-05 | Kết quả kiểm chứng được bằng quan sát. Đảm bảo tối thiểu nói điều vẫn đúng khi nhánh bất kỳ thất bại | Không có khẳng định cuối để test; mất dữ liệu khi lỗi | Review |
-| UCG-06 | ID bước và nhánh không đánh lại số một khi đã trích dẫn; ID bỏ được liệt kê và không dùng lại. Mỗi tham chiếu tới use case hoặc block khác (một `Kết thúc`, một "như UC-xxx Sx") gọi tên ID tồn tại và chưa bỏ. `UC-?` trong `Kết thúc` được phép | Trích dẫn trỏ nhầm; tham chiếu tới block đã bỏ | CI (tham chiếu) + Review |
-| UCG-07 | Use case không chứa giá trị quy tắc hay chất lượng. Nó trích dẫn bằng ID mọi yêu cầu, giới hạn, danh sách cho phép, kiểm tra hay thời gian chờ mà một bước phụ thuộc (`FR-xxx`, `[BR-xxx]`, `[NFR-xxx]`). Marker `?` được phép trên mọi flow | Cùng một quy tắc viết nhiều chỗ; giá trị đổi một nơi không đổi nơi kia | Lint (số, marker) + CI (ID tồn tại) |
-| UCG-08 | Mức bao phủ sản phẩm nêu cho mỗi sản phẩm tham chiếu là `quan sát`, `không có` hoặc `chưa kiểm chứng`, kèm liên kết thẻ nghiên cứu. Khác biệt mô tả bằng lời, không giá trị quy tắc. Nhận định chưa ghi giữ `[assumed]` | Đoán bị đọc thành dữ kiện | Lint (thẻ) + Review |
-| UCG-09 | Văn bản theo `../_STYLE.md`: từ trong bảng thuật ngữ, không động từ mơ hồ bị cấm, không "có thể/nên/có lẽ" trong Hệ thống, điều kiện ở Khi, một hành động một dòng, bằng chứng ở dòng riêng. Use case viết ý định và phản hồi, không widget, thao tác, vị trí, kiểu dáng hay nhãn; gọi nơi chỉ bằng vùng | Phản hồi hai người đọc hai nghĩa; spec vỡ khi thiết kế đổi | Lint (từ cấm, từ giao diện) + Review |
-| UCG-10 | Sơ đồ tương tác theo `../_MERMAID.md` (MG-01..MG-10): hợp lệ, là view sinh từ bảng Các bước và Nhánh thay thế, mỗi message ánh xạ 1-1, không sửa bằng tay | Sơ đồ lệch nguồn; nhánh bị mất khi vẽ | Review (tới khi có skill), rồi CI |
+| UCG-01 | One user goal, reached in a single sitting, with an observable result of value. The title is user + verb + specific object + the distinguishing thing, in the user's words | A case too big or too small; two cases that cannot be told apart | Review |
+| UCG-02 | Situation and goal describe what the user wants and why now. No feature or solution | A solution dressed up as a goal | Review |
+| UCG-03 | The Steps table has 3–9 `Sx` rows in order. Each row has User (intent), System (observable, no "if"), FR (ID or `FR-?`). No settings, no interface | A response buried in prose; an unclear FR source | Lint (rows, columns) + Review |
+| UCG-04 | Each alternative is a `### Ax · name` block with At, Ends, When, System, FR. `Ends` uses a value from the template. Each step that takes input, can be cancelled, depends on an external service, or can be slow has an alternative, or a recorded reason | A branch not reproducibly testable | Lint (fields) + Review |
+| UCG-05 | The Outcome is verifiable by observation. The Minimal guarantee says what stays true when any branch fails | No final claim to test; data loss on failure | Review |
+| UCG-06 | Step and branch IDs are not renumbered once cited; dropped IDs are listed and not reused. Each reference to another use case or block (an `Ends`, a "like UC-xxx Sx") names an ID that exists and is not dropped. `UC-?` in `Ends` is allowed | A citation pointing wrong; a reference to a dropped block | CI (references) + Review |
+| UCG-07 | The use case contains no rule or quality values. It cites by ID every requirement, limit, allow-list, check, or wait time a step depends on (`FR-xxx`, `[BR-xxx]`, `[NFR-xxx]`). The `?` marker is allowed on any flow | The same rule in several places; a value changed in one place but not another | Lint (numbers, markers) + CI (ID exists) |
+| UCG-08 | The product coverage stated for each reference product is `observed`, `none`, or `unverified`, with a research link. Differences are described in prose, not rule values. An unrecorded claim keeps `[assumed]` | A guess read as a fact | Lint (tags) + Review |
+| UCG-09 | Text follows `../_STYLE.md`: glossary words, no banned vague verbs, no "can/should/might" in System, conditions in When, one action per line, evidence on its own line. The use case writes intent and response, not a widget, gesture, position, style, or label; it names a place only by region | A response read two ways; a spec that breaks when design changes | Lint (banned words, interface words) + Review |
+| UCG-10 | The interaction diagram follows `../_MERMAID.md` (MG-01..MG-10): valid, a view generated from the Steps table and Alternative flows, each message maps 1-to-1, not hand-edited | A diagram drifting from the source; a branch lost when drawn | Review (until there is a skill), then CI |
 
-## 4. Minh hoạ
+## 4. Illustrations
 
-**UCG-03: quan sát được, không cài đặt.**
+**UCG-03: observable, not settings.**
 
-> Không đạt: "S5: Model trả JSON chương và renderer vẽ nó."
-> Đạt: "S5 · Hệ thống: phát audio của chương và hiện tiến độ đang chạy."
+> Fail: "S5: the model returns the chapter JSON and the renderer draws it."
+> Pass: "S5 · System: plays the chapter's audio and shows progress advancing."
 
-**UCG-04: nhánh phát hiện được.**
+**UCG-04: detectable branch.**
 
-> Không đạt: "A1: Có lỗi. Hệ thống hiện lỗi."
-> Đạt: "A1 (tại S3): mất kết nối khi đang lấy nội dung. Hệ thống giữ link người dùng đã nhập và báo lấy không được."
+> Fail: "A1: there is an error. The system shows the error."
+> Pass: "A1 (at S3): connection lost while fetching content. The system keeps the link
+> the user entered and reports it could not fetch."
 
-**UCG-09: ý định và phản hồi, không giao diện.**
+**UCG-09: intent and response, not interface.**
 
-> Không đạt: "Người dùng bấm nút Phát ở góc dưới."
-> Đạt: "Người dùng yêu cầu phát. Hệ thống phát audio từ vị trí tiến độ đã lưu."
+> Fail: "The user clicks the Play button in the bottom corner."
+> Pass: "The user requests playback. The system plays audio from the saved progress
+> position."

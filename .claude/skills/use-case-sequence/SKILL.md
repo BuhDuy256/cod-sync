@@ -1,66 +1,80 @@
 ---
 name: use-case-sequence
-description: Sinh hoặc cập nhật sơ đồ tương tác Mermaid (sequenceDiagram) của một file use case trong docs/spec/02-use-cases/ từ bảng Các bước và các block Nhánh thay thế. Dùng sau khi đổi bảng bước, nhánh, hoặc trường Tại/Kết thúc, và khi khối sinh tự động thiếu hoặc lỗi thời. Không dùng cho sơ đồ khác; dùng mermaid-markdown cho chúng.
+description: Generate or update the Mermaid interaction diagram (sequenceDiagram) of a use case file in docs/spec/02-use-cases/ from its Steps table and Alternative flow blocks. Use after changing the steps table, an alternative, or an At/Ends field, and when the generated block is missing or stale. Not for other diagrams; use mermaid-markdown for those.
 ---
 
 # Use case sequence diagram
 
-Sơ đồ là một view. Bảng Các bước và các block Nhánh thay thế là nguồn. Đừng bao giờ đổi một block để làm sơ đồ khớp.
+The diagram is a view. The Steps table and the Alternative flow blocks are the source.
+Never change a block to make the diagram match.
 
-Làm theo các bước theo đúng thứ tự. Cùng một file phải luôn cho cùng kết quả. Trường hợp không được quy tắc phủ thì dừng và báo; đừng tự chọn.
+Follow the steps in order. The same file must always give the same result. If a case
+is not covered by a rule, stop and report; do not choose on your own.
 
-## 1. Đọc
+## 1. Read
 
-Đọc đúng file use case mục tiêu.
+Read the target use case file.
 
-- Bước: dòng `| S<n> | ... |` trong bảng `## Các bước`. Giữ thứ tự file. Đọc cột Người dùng và cột Hệ thống (cột 2 và 3).
-- Nhánh: heading `### A<n> · <tên>` dưới `## Nhánh thay thế`. Đọc `- **Tại:**` và `- **Kết thúc:**`.
+- Steps: `| S<n> | ... |` rows in the `## Steps` table. Keep file order. Read the User
+  column and the System column (columns 2 and 3).
+- Alternatives: `### A<n> · <name>` headings under `## Alternative flows`. Read
+  `- **At:**` and `- **Ends:**`.
 
-Dừng và báo, không viết gì, khi: bảng thiếu cột; một dòng bước không có `S<n>`; một nhánh thiếu Tại hoặc Kết thúc; Tại gọi tên bước không tồn tại; có bước trùng; không có bước nào.
+Stop and report, writing nothing, when: the table is missing a column; a step row has no
+`S<n>`; an alternative is missing At or Ends; At names a step that does not exist; there
+is a duplicate step; there are no steps.
 
-## 2. Xây message
+## 2. Build messages
 
-1. Khai báo participant: `participant U as Người dùng` và `participant S as Hệ thống`.
-2. Với mỗi bước theo thứ tự:
-   - Cột Người dùng không trống → `U->>S: <người dùng>`.
-   - Cột Hệ thống không trống → `S-->>U: <hệ thống>`.
-   - Thay mọi `"` trong nội dung bằng `'`.
-   - Thay mọi `;` trong nội dung bằng `,`. Mermaid coi `;` là dấu tách câu lệnh, nên nhãn chứa `;` làm sơ đồ không parse được.
+1. Declare participants: `participant U as User` and `participant S as System`.
+2. For each step in order:
+   - User column not empty → `U->>S: <user>`.
+   - System column not empty → `S-->>U: <system>`.
+   - Replace every `"` in the content with `'`.
+   - Replace every `;` in the content with `,`. Mermaid treats `;` as a statement
+     separator, so a label containing `;` breaks parsing.
 
-## 3. Nhánh thay thế
+## 3. Alternative flows
 
-Nhánh thay thế mang ngữ nghĩa quay lại/tiếp tục/sang use case khác nên không dẹt vào sequence. Ghi chúng ở dòng chú thích dưới sơ đồ, không vẽ: với mỗi nhánh, `<A<n>> (<Kết thúc>)`; nối bằng `, `; nếu không có nhánh ghi `không có`.
+Alternative flows carry back/continue/switch-use-case semantics, so they are not
+flattened into the sequence. Record them in a note line under the diagram, not drawn:
+for each alternative, `<A<n>> (<Ends>)`; join with `, `; if there are none, write
+`none`.
 
-## 4. Viết khối
+## 4. Write the block
 
-Khối đúng các dòng sau (mỗi dòng trong code block lùi 2 khoảng trắng):
+The block is exactly these lines (each line inside the code block indented 2 spaces):
 
 ````
 <!-- BEGIN generated: use-case-sequence -->
 ```mermaid
 sequenceDiagram
-  participant U as Người dùng
-  participant S as Hệ thống
-  U->>S: <người dùng>
-  S-->>U: <hệ thống>
+  participant U as User
+  participant S as System
+  U->>S: <user>
+  S-->>U: <system>
 ```
 
-*Không vẽ (nhánh thay thế): <danh sách>.*
+*Not drawn (alternative flows): <list>.*
 <!-- END generated: use-case-sequence -->
 ````
 
-## 5. Ghi file
+## 5. Write to file
 
-- Đọc file trước. Dùng một Edit; `old_string` chạy từ dòng BEGIN tới dòng END (gồm cả hai); `new_string` là toàn bộ khối mới bắt đầu bằng dòng BEGIN.
-- Nếu thiếu marker, chèn `## Sơ đồ tương tác`, một dòng trống, và khối ngay sau frontmatter, trước heading đầu tiên.
-- Không đổi gì ngoài marker.
+- Read the file first. Use one Edit; `old_string` runs from the BEGIN line to the END
+  line (both included); `new_string` is the whole new block starting at the BEGIN line.
+- If the markers are missing, insert `## Interaction diagram`, a blank line, and the
+  block right after the frontmatter, before the first heading.
+- Change nothing outside the markers.
 
-## 6. Khả chuyển
+## 6. Portability
 
-Theo "Portability defaults" trong [mermaid-markdown](../mermaid-markdown/SKILL.md). Người đọc dùng GitHub và VS Code 1.121 trở lên (Mermaid preview có sẵn).
+Follow "Portability defaults" in [mermaid-markdown](../mermaid-markdown/SKILL.md).
+Readers use GitHub and VS Code 1.121 or later (Mermaid preview built in).
 
-## 7. Kiểm và báo cáo
+## 7. Check and report
 
-- Mỗi bước thành đúng message. Mỗi nhánh được ghi trong dòng "Không vẽ".
-- Nếu có `npx`, kiểm cú pháp bằng Mermaid CLI; nói đã chạy hay chưa.
-- Báo: file, số message, danh sách nhánh, và các kiểm đã chạy.
+- Each step becomes exactly one message. Each alternative is recorded in the "Not drawn"
+  line.
+- If `npx` is available, check syntax with the Mermaid CLI; say whether it ran.
+- Report: the file, the message count, the alternatives list, and the checks that ran.

@@ -5,50 +5,50 @@ title: "Flow tracker — "
 labels: flow-tracker
 ---
 
-## Phạm vi
+## Scope
 
 - **Use case:** UC-XXX
-- **Các bước:** (ví dụ: S1-S2, hoặc "tất cả")
-- **Nhánh thay thế:** (ví dụ: A1, A3, hoặc "tất cả")
-- **FR liên quan:** FR-NNN, FR-NNN
-- **NFR liên quan:** NFR-NNN
+- **Steps:** (e.g. S1-S2, or "all")
+- **Alternatives:** (e.g. A1, A3, or "all")
+- **FRs in scope:** FR-NNN, FR-NNN
+- **NFRs in scope:** NFR-NNN
 - **Plans:** plans/UC-XXX-short-label/
 
-## Phase 1: Nghiên cứu
-<!-- Gate: tất cả ticket nghiên cứu trong phạm vi đã đóng -->
+## Phase 1: Research
+<!-- Gate: all in-scope research tickets closed -->
 
-_Ticket sẽ được thêm khi danh sách câu hỏi nghiên cứu được tạo._
+_Tickets added when the research question checklist is created._
 
-## Phase 2: Kế hoạch kiểm thử
-<!-- Gate: tất cả ticket test stub đã đóng -->
-<!-- Blocked by: Phase 1 hoàn tất -->
+## Phase 2: Testing plan
+<!-- Gate: all test stub tickets closed -->
+<!-- Blocked by: Phase 1 complete -->
 
-_Ticket sẽ được thêm khi kế hoạch kiểm thử được tạo._
+_Tickets added when the testing plan is created._
 
-## Phase 3: Kế hoạch implementation
-<!-- Gate: kế hoạch đã review và chấp nhận -->
-<!-- Blocked by: Phase 2 hoàn tất -->
+## Phase 3: Implementation plan
+<!-- Gate: plan reviewed and approved -->
+<!-- Blocked by: Phase 2 complete -->
 
-- [ ] Kế hoạch implementation đã review và chấp nhận
+- [ ] Implementation plan reviewed and approved
 
 ## Phase 4: Implementation
-<!-- Gate: tất cả ticket impl đã đóng, test xanh -->
+<!-- Gate: all impl tickets closed, tests green -->
 
-_Ticket sẽ được thêm khi kế hoạch implementation được chấp nhận._
+_Tickets added when the implementation plan is approved._
 
-## Phase 5: Kiểm thử sau implementation
-<!-- Gate: tất cả ticket post-impl đã đóng -->
+## Phase 5: Post-implementation testing
+<!-- Gate: all post-impl tickets closed -->
 
-_Ticket sẽ được thêm cùng lúc với ticket implementation._
+_Tickets added alongside the implementation tickets._
 
-## Phase 6: Xác nhận
-<!-- Gate: issue này đóng; mọi dòng ma trận đã tick cột Xác nhận -->
-<!-- Blocked by: Phase 5 hoàn tất -->
+## Phase 6: Verification
+<!-- Gate: this issue closed; every matrix row's Verified column is ticked -->
+<!-- Blocked by: Phase 5 complete -->
 
-- [ ] Toàn bộ test suite pass
+- [ ] Full test suite passes
 - [ ] Smoke tests pass
 
-### Xác nhận theo AC
-<!-- Một dòng cho mỗi AC, lấy từ plans/UC-XXX/traceability-matrix.md -->
+### Verified per AC
+<!-- One line per AC, taken from plans/UC-XXX/traceability-matrix.md -->
 
-_Danh sách AC sẽ được thêm từ ma trận truy vết khi tới Phase 6._
+_AC list added from the traceability matrix when Phase 6 is reached._

@@ -4,79 +4,85 @@ title: ""
 created: DD-MM-YYYY
 ---
 
-# Kế hoạch kiểm thử — {scope}
+# Testing plan — {scope}
 
-## Phạm vi
+<!-- Document rules (WORKFLOW.md "Document rules"): front-load the "At a glance" block,
+     reference matrix rows by FR/AC id (don't restate the requirement text), keep the
+     section order below, keep under ~1 page. -->
+
+## At a glance
 
 - **Use case:** UC-XXX
-- **Các bước:** S1-S2 (hoặc "tất cả")
-- **Nhánh thay thế:** A1, A3 (hoặc "tất cả")
-- **FR liên quan:** FR-NNN, FR-NNN
-- **NFR liên quan:** NFR-NNN
+- **Steps:** S1-S2 (or "all")
+- **Alternatives:** A1, A3 (or "all")
+- **FRs in scope:** FR-NNN, FR-NNN
+- **NFRs in scope:** NFR-NNN
+- **Status:** _N of N ACs mapped to a test_
+- **Spine:** [traceability-matrix.md](./traceability-matrix.md) — every test here maps to a row there
 
-## Loại kiểm thử
+## Test types
 
-| Loại | Mục đích | Thời điểm |
+| Type | Purpose | When |
 |---|---|---|
-| Acceptance | Kiểm tra trực tiếp điều kiện chấp nhận của FR | Trước implementation |
-| Security | Kiểm tra các AC liên quan bảo mật và mô hình mối đe dọa | Trước implementation |
-| Unit | Kiểm tra từng hàm/module riêng lẻ | Cùng lúc implementation |
-| Integration | Kiểm tra các module làm việc với nhau | Sau implementation |
-| E2E | Kiểm tra toàn bộ luồng UC từ đầu tới cuối | Sau implementation |
-| Smoke | Tập kiểm tra tối thiểu chứng minh build không hỏng | Sau implementation |
-| Recovery / Resilience | Kiểm tra hành vi khi gặp lỗi | Sau implementation |
-| Regression | Ngăn lỗi đã sửa xuất hiện lại | Sau implementation (liên tục) |
-| Performance | Kiểm tra mục tiêu hiệu năng của NFR | Sau implementation |
+| Acceptance | Check an FR's acceptance criteria directly | Before implementation |
+| Security | Check security-related ACs and the threat model | Before implementation |
+| Unit | Check a single function / module in isolation | With implementation |
+| Integration | Check modules working together | After implementation |
+| E2E | Check the whole UC flow end to end | After implementation |
+| Smoke | Minimal checks proving the build is not broken | After implementation |
+| Recovery / resilience | Check behavior under failure | After implementation |
+| Regression | Stop a fixed bug from returning | After implementation (ongoing) |
+| Performance | Check an NFR's performance target | After implementation |
 
-## Kiểm thử trước implementation
+## Pre-implementation tests
 
 ### Acceptance tests
 
-<!-- Cột DEC: quyết định định hình test này — để biết test nào phải xem lại khi
-     một quyết định thay đổi. Để trống nếu không có. -->
+<!-- DEC column: the decision that shaped this test — so a changed decision points to the
+     tests that must be revisited. Leave blank if none. -->
 
-| AC | FR | DEC | Mô tả kiểm thử | Ticket | Trạng thái |
+| AC | FR | DEC | Test description | Ticket | Status |
 |---|---|---|---|---|---|
 | AC-1 | FR-NNN | DEC-NNN | | #N | open |
 
 ### Security tests
 
-| Mối đe dọa / AC | FR | DEC | Mô tả kiểm thử | Ticket | Trạng thái |
+| Threat / AC | FR | DEC | Test description | Ticket | Status |
 |---|---|---|---|---|---|
 | | FR-NNN | DEC-NNN | | #N | open |
 
-## Kiểm thử cùng implementation (gộp vào ticket impl)
+## Tests with implementation (bundled into impl tickets)
 
-| Module / hàm | FR | Mô tả kiểm thử | Ticket impl |
+| Module / function | FR | Test description | Impl ticket |
 |---|---|---|---|
 | | FR-NNN | | #N |
 
-## Kiểm thử sau implementation
+## Post-implementation tests
 
 ### E2E tests
 
-| Luồng | Bước UC | Mô tả kiểm thử | Ticket | Trạng thái |
+| Flow | UC steps | Test description | Ticket | Status |
 |---|---|---|---|---|
-| Luồng chính | S1-S6 | | #N | open |
+| Happy path | S1-S6 | | #N | open |
 
 ### Smoke tests
 
-| Kiểm tra | Mô tả | Ticket | Trạng thái |
+| Check | Description | Ticket | Status |
 |---|---|---|---|
 | | | #N | open |
 
-### Recovery / Resilience tests
+### Recovery / resilience tests
 
-| Tình huống lỗi | Nhánh thay thế UC | Mô tả kiểm thử | Ticket | Trạng thái |
+| Failure scenario | UC alternative | Test description | Ticket | Status |
 |---|---|---|---|---|
 | | A-N | | #N | open |
 
 ### Performance tests
 
-| Chỉ số | NFR | Mục tiêu | Mô tả kiểm thử | Ticket | Trạng thái |
+| Metric | NFR | Target | Test description | Ticket | Status |
 |---|---|---|---|---|---|
 | | NFR-NNN | | | #N | open |
 
 ### Regression tests
 
-Thêm khi phát hiện và sửa bug. Không lên kế hoạch trước.
+Added when a bug is found and fixed. Not planned ahead.

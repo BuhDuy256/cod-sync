@@ -4,77 +4,78 @@ title: ""
 created: DD-MM-YYYY
 ---
 
-# Danh sách nghiên cứu — {scope}
+# Research checklist — {scope}
 
-## Phạm vi
+<!-- Document rules (WORKFLOW.md "Document rules"): front-load the "At a glance" block,
+     link to matrix rows instead of restating requirements, keep the section order below,
+     keep under ~1 page. Every #N and file path is a clickable link (WORKFLOW.md
+     "Linking convention"). -->
 
-<!-- Mô tả chính xác phạm vi của lần build này. -->
+## At a glance
 
 - **Use case:** UC-XXX
-- **Các bước:** S1-S2 (hoặc "tất cả")
-- **Nhánh thay thế:** A1, A3 (hoặc "tất cả")
-- **FR liên quan:** FR-NNN, FR-NNN
-- **NFR liên quan:** NFR-NNN
+- **Steps:** S1-S2 (or "all")
+- **Alternatives:** A1, A3 (or "all")
+- **FRs in scope:** FR-NNN, FR-NNN
+- **NFRs in scope:** NFR-NNN
+- **Status:** _N open / N answered / N decided_
+- **Spine:** [traceability-matrix.md](./traceability-matrix.md)
 
-## Cách dùng
+## How to use
 
-Mỗi câu hỏi gắn với FR/NFR mà nó phục vụ. **Người dùng tự nghiên cứu và trả lời** —
-agent chỉ cung cấp câu hỏi và bảng lựa chọn làm nguyên liệu, không trả lời thay và
-không điền `Chọn`/`Vì sao` của decision record (xem WORKFLOW.md "Division of labor").
-File deliverable đã được tạo sẵn — mở file, điền nội dung vào phần
-`<!-- Điền kết quả -->` hoặc các mục trống.
+Each question is tied to the FR/NFR it serves. **The user researches and answers** —
+the agent supplies only the questions and the options tables as raw material. The agent
+does not answer for the user and does not fill in `Choice`/`Why` of a decision record
+(see WORKFLOW.md "Division of labor"). The deliverable files are created ahead of time —
+open the file and fill the empty fields.
 
-> **Lưu ý:** Mọi tham chiếu `#N` và đường dẫn file phải là link clickable.
-> Xem WORKFLOW.md "Linking convention".
+## Flow model
 
-## Mô hình luồng
+<!-- Trace each technical step that happens when the UC runs. Each step shows what the
+     system does at runtime. A research question is pinned to the step it arises from. -->
 
-<!-- Mô tả từng bước kỹ thuật xảy ra khi UC chạy. Mỗi bước cho thấy
-     hệ thống làm gì ở runtime. Câu hỏi nghiên cứu được gắn vào bước
-     mà chúng phát sinh. -->
+### {S1 — step name}
 
-### {S1 — Tên bước}
+1. **S1.1** — {specific technical action}
+2. **S1.2** — {next action} → **RQ-N** _(don't know how)_
+3. **S1.3** — {next action}
 
-1. **S1.1** — {Mô tả hành động kỹ thuật cụ thể}
-2. **S1.2** — {Hành động tiếp theo} → **RQ-N** _(chưa biết cách làm)_
-3. **S1.3** — {Hành động tiếp theo}
+### {S2 — step name}
 
-### {S2 — Tên bước}
+1. **S2.1** — {technical action}
+2. **S2.2** — {action} → **RQ-N** _(decision needed)_
 
-1. **S2.1** — {Mô tả hành động kỹ thuật}
-2. **S2.2** — {Hành động} → **RQ-N** _(cần quyết định)_
+### Alternative flows
 
-### Nhánh thay thế
+#### {A1 — branch name} (splits from S1.2)
 
-#### {A1 — Tên nhánh} (tách từ S1.2)
-
-1. **A1.1** — {Xử lý lỗi/ngoại lệ} → **RQ-N** _(chưa biết xử lý thế nào)_
+1. **A1.1** — {error / exception handling} → **RQ-N** _(don't know how to handle)_
 
 ## Deliverable map
 
-<!-- Link mỗi RQ đến file deliverable. Dùng full Markdown link. -->
+<!-- Link each RQ to its deliverable file. Use full Markdown links. -->
 
-| RQ | Loại | File |
+| RQ | Type | File |
 |---|---|---|
 | RQ-1 | research | [docs/research/topic.md](https://github.com/{owner}/{repo}/blob/main/docs/research/topic.md) |
 
-## Câu hỏi
+## Questions
 
-### FR-NNN — Tên
+### FR-NNN — name
 
-| # | Câu hỏi | Vì sao quan trọng | Ticket | Trạng thái |
+| # | Question | Why it matters | Ticket | Status |
 |---|---|---|---|---|
 | RQ-1 | | | [#N](https://github.com/{owner}/{repo}/issues/N) | open |
 
-### NFR-NNN — Tên
+### NFR-NNN — name
 
-| # | Câu hỏi | Vì sao quan trọng | Ticket | Trạng thái |
+| # | Question | Why it matters | Ticket | Status |
 |---|---|---|---|---|
 | RQ-N | | | [#N](https://github.com/{owner}/{repo}/issues/N) | open |
 
-## Trạng thái
+## Status values
 
-- `open` — chưa bắt đầu
-- `researching` — đang nghiên cứu
-- `answered` — đã trả lời trong docs/research/
-- `decided` — đã quyết định trong docs/decisions/DEC-NNN
+- `open` — not started
+- `researching` — in progress
+- `answered` — answered in docs/research/
+- `decided` — decided in docs/decisions/DEC-NNN

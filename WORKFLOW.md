@@ -57,7 +57,7 @@ the person who owns it.
 
 | Phase | User owns (research + judgment) | Agent owns (legwork) |
 |---|---|---|
-| 1 — Research | **Researches and answers the questions. Writes the decision records** (`Chọn` / `Vì sao`). | Generates the question checklist and options/tradeoff tables as raw material — does **not** answer the questions or fill in the choice/rationale. |
+| 1 — Research | **Researches and answers the questions. Writes the decision records** (`Choice` / `Why`). | Generates the question checklist and options/tradeoff tables as raw material — does **not** answer the questions or fill in the choice/rationale. |
 | 2 — Testing plan | Reviews, gives feedback, approves. | Proposes the testing plan. |
 | 3 — Implementation plan | Reviews, gives feedback, approves. | Proposes the ordered steps. |
 | 4 — Tickets | Approves scope. | Writes the flash-ready tickets. |
@@ -86,6 +86,28 @@ The matrix is seeded in Phase 1 (rows for every in-scope FR/AC/NFR) and filled i
 each phase produces its links. **No phase gate closes while the matrix has an orphan
 that phase was responsible for resolving** — this clause is added to every gate below.
 
+## Document rules
+
+Every generated plan document (and the templates in `plans/_TEMPLATES/`) follows four
+rules. They serve two readers at once: a person skimming the file, and an agent that
+re-reads it each phase and pays tokens for every line. The rules are the same because
+the fix is the same — front-load the essential, and never say a thing twice.
+
+1. **Front-load.** The file opens with an `## At a glance` block: the scope, the
+   current status, and a link to the one artifact that matters (usually the matrix).
+   That block is the whole summary — nothing below it is required reading. A person
+   reads it and stops; an agent reads it and only dives deeper if the task needs it.
+2. **Link, don't restate.** One fact lives in one home. A testing plan, an
+   implementation plan, or the flow tracker references a matrix row (by FR/AC id and
+   link) — it never copies the requirement text. Duplication is the biggest token
+   waste and the biggest readability drag (the reader can't tell which copy is
+   authoritative). The matrix is the home for the FR/AC → test → impl spine.
+3. **Fixed section order.** Each template fixes its heading order and the generator
+   keeps it. Predictable anchors let a reader (human or agent) jump to just one
+   section — a gate, a table — instead of reading the whole file.
+4. **Length budget.** Keep each document under about one page. If it grows past that,
+   split it or link out rather than inline more. The budget is what forces rule 2.
+
 ## Phases
 
 ### Phase 1 — Research
@@ -108,7 +130,7 @@ that phase was responsible for resolving** — this clause is added to every gat
    either:
    - An update to the research file in `docs/research/`, or
    - A decision record in `docs/decisions/DEC-NNN-topic.md` — the user fills in the
-     `Chọn` and `Vì sao` in their own words.
+     `Choice` and `Why` in their own words.
 7. Close each research ticket when its question is answered or decided, and record
    the RQ/DEC link on the matrix row(s) it serves.
 
@@ -224,11 +246,11 @@ no test or implementation ticket exists without a matrix row (no orphan ticket).
 3. Run E2E tests for the UC's happy path and alternative flows.
 4. Run resilience tests for the UC's failure alternatives.
 5. Verify against the UC's acceptance criteria **row by row on the matrix** — tick
-   the Xác nhận column for each AC confirmed on the real code. The user makes this
+   the Verified column for each AC confirmed on the real code. The user makes this
    judgment (see "Division of labor").
 6. Close the flow tracker issue.
 
-**Gate:** flow tracker issue closed; every matrix row's Xác nhận column is ticked
+**Gate:** flow tracker issue closed; every matrix row's Verified column is ticked
 (every AC verified end-to-end). UC is done.
 
 ## Flow tracker issue

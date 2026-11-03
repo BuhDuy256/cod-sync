@@ -4,44 +4,44 @@ title: ""
 updated: DD-MM-YYYY
 ---
 
-<!-- NFR là ràng buộc chất lượng cấp sản phẩm dưới điều kiện đã nêu (NFG-01).
-     Chỉ viết khi cả bốn đúng: có cam kết sản phẩm hoặc rủi ro cần nó; đo/kiểm được; thêm ràng buộc độc lập chứ không lặp FR; mục tiêu có ý nghĩa với người dùng (NFG-02).
-     Không hành vi (đó là FR), không giá trị quy tắc (đó là BR, trích [BR-xxx]), không metric kỹ thuật, không giao diện, không kiến trúc, không tiến độ.
-     File này không gọi tên use case, bước, nhánh, FR hay NFR khác. Nơi khác trích dẫn [NFR-xxx].
-     Viết theo docs/spec/_STYLE.md. -->
+<!-- An NFR is a product-level quality constraint under a stated condition (NFG-01).
+     Write it only when all four hold: a product commitment or risk needs it; it is measurable/checkable; it adds an independent constraint rather than repeating an FR; the target is meaningful to the user (NFG-02).
+     No behavior (that is an FR), no rule values (that is a BR, cite [BR-xxx]), no engineering metric, no interface, no architecture, no progress.
+     This file does not name a use case, step, branch, FR, or another NFR. Other files cite [NFR-xxx].
+     Write per docs/spec/_STYLE.md. -->
 
-## Yêu cầu
+## Requirement
 
-<!-- Thuộc tính chất lượng: một, ví dụ hiệu năng, độ tin cậy, toàn vẹn dữ liệu, bảo mật, riêng tư.
-     Phát biểu: chất lượng sản phẩm phải có, không kèm mục tiêu.
-     Trạng thái: chốt | đề xuất. Vì sao tuỳ chọn, bỏ dòng khi không cần. -->
+<!-- Quality attribute: one, e.g. performance, reliability, data integrity, security, privacy.
+     Statement: the product quality that must hold, without a target.
+     Status: confirmed | proposed. Why optional, drop the line when no reason is needed. -->
 
-- **Thuộc tính chất lượng:**
-- **Phát biểu:**
-- **Trạng thái:** chốt
-- **Vì sao:**
+- **Quality attribute:**
+- **Statement:**
+- **Status:** confirmed
+- **Why:**
 
-## Kiểm chứng
+## Verification
 
-<!-- Ít nhất một phép đo. Một block mỗi phép đo: "### M-n · Tên". ID không đánh lại số (NFG-08).
-     Điều kiện: trạng thái, input và môi trường, đủ để lặp lại; nêu biên sản-phẩm-kiểm-soát hay đầu-cuối; nêu điều kiện phụ thuộc provider, không bỏ lặng thời gian provider.
-     Đo: đại lượng đo hoặc thuộc tính kiểm. Cách đo: đo/kiểm thế nào bằng lời, không công cụ, không kiến trúc.
-     Mục tiêu: giá trị kèm đơn vị và cận, hoặc thuộc tính bắt buộc (kiểm bảo mật/riêng tư có thể là thuộc tính không số). "chưa đặt" khi chờ; không đoán số.
-     Đạt khi: điều gì tính là đạt. "chưa đặt" khi chờ. -->
+<!-- At least one measure. One block per measure: "### M-n · name". IDs are not renumbered (NFG-08).
+     Condition: the state, input, and environment, enough to repeat; state the product-controlled or end-to-end boundary; state provider-dependent conditions, do not silently hide provider time.
+     Measure: the quantity measured or the property checked. How to measure: how it is measured/checked, in prose, no tool, no architecture.
+     Target: a value with unit and bound, or a required property (a security/privacy check may be a non-numeric property). "not set" while pending; do not guess a number.
+     Passes when: what counts as a pass. "not set" while pending. -->
 
-### M-1 · Tên phép đo
+### M-1 · measure name
 
-- **Điều kiện:**
-- **Đo:**
-- **Cách đo:**
-- **Mục tiêu:** chưa đặt
-- **Đạt khi:** chưa đặt
+- **Condition:**
+- **Measure:**
+- **How to measure:**
+- **Target:** not set
+- **Passes when:** not set
 
-## Chưa xác định
+## Undecided
 
-<!-- Khía cạnh bỏ ngỏ không phải mục tiêu, một dòng mỗi ý, kết thúc "Chờ chốt." (hoặc "Chờ bằng chứng kỹ thuật." khi thiếu bằng chứng để định nghĩa).
-     Mục tiêu chưa quyết là "chưa đặt", không phải mục ở đây. Bỏ phần này nếu trống. -->
+<!-- An open aspect that is not a target, one line per item, ending "Pending decision." (or "Pending technical evidence." when evidence is missing to define it).
+     An undecided target is "not set", not an item here. Omit this section if empty. -->
 
-## Ghi chú
+## Notes
 
-<!-- Chỉ điều không thuộc phát biểu lẫn phép đo, ví dụ tách hay gộp. Bỏ phần này nếu trống. -->
+<!-- Only what belongs in neither the statement nor a measure, e.g. a split or merge. Omit this section if empty. -->

@@ -1,33 +1,45 @@
 # Research notes — style guide
 
-Đọc file này trước khi viết hoặc chỉnh sửa bất kỳ file nào trong `docs/research/`.
-Đọc thêm các ghi chú hiện có trong file mục tiêu để nắm giọng văn trước khi viết tiếp.
+Read this file before writing or editing any file in `docs/research/`. Also read the
+existing notes in the target file to match its voice before adding more.
 
-## Cấu trúc
+## Structure
 
-1. Dùng numbered list làm cấu trúc chính. Mỗi số trình bày một ý hoặc một câu hỏi riêng. Tiếp tục số thứ tự đang có trong file.
+1. Use a numbered list as the main structure. Each number presents one idea or one
+   question. Continue the numbering already in the file.
 
-2. Dùng bullet bên trong numbered item khi cần liệt kê chi tiết. Chỉ dùng bảng khi cần so sánh cùng tiêu chí (ví dụ: kết quả của nhiều URL). Dùng code block cho lệnh hoặc đoạn response ngắn.
+2. Use bullets inside a numbered item when you need to list details. Use a table only
+   to compare against the same criteria (e.g. results across several URLs). Use a code
+   block for commands or short response snippets.
 
-3. Không dùng bold, italic hoặc heading con trong text thông thường. Giữ nguyên heading và metadata hiện có. Dùng inline code cho URL, lệnh, tên file, header hoặc giá trị kỹ thuật.
+3. Do not use bold, italics, or sub-headings in ordinary text. Keep existing headings
+   and metadata. Use inline code for URLs, commands, file names, headers, or technical
+   values.
 
-## Ngôn ngữ
+## Language
 
-4. Viết tiếng Việt tự nhiên, ngắn và trực tiếp. Giữ thuật ngữ kỹ thuật quen thuộc bằng tiếng Anh (request, response, headers, fetch, backend, hosting, retry...).
+4. Write clear, short, direct English. Keep familiar technical terms as they are
+   (request, response, headers, fetch, backend, hosting, retry, ...).
 
-5. Khi đưa thuật ngữ mới, giải thích ngay bằng hành vi cụ thể. Ví dụ: "Retry là gửi lại request sau lần thất bại." Tránh cách viết chung chung như "xử lý phù hợp" hoặc "đảm bảo hoạt động ổn định".
+5. When you introduce a new term, explain it immediately in terms of concrete behavior.
+   Example: "Retry means sending the request again after a failure." Avoid vague phrasing
+   like "handle appropriately" or "ensure it works reliably".
 
-## Lập luận
+## Reasoning
 
-6. Giải thích theo thứ tự: vấn đề cần kiểm tra → đã thử thế nào → quan sát được gì → điều đó có nghĩa gì với dự án.
+6. Explain in order: the problem to check → what was tried → what was observed → what it
+   means for the project.
 
-7. Dùng câu hỏi ngắn để dẫn vào phần cần hiểu khi phù hợp. Ví dụ: "HTTP 200 có nghĩa là lấy được truyện chưa?" rồi giải thích ngay sau đó.
+7. Use a short question to lead into what needs understanding, when it fits. Example:
+   "Does HTTP 200 mean the chapter was fetched?" — then explain right after.
 
-8. Dùng `=>` để nối quan sát với giải thích, hệ quả hoặc kết luận. Chỉ dùng khi có quan hệ rõ ràng, không thêm sau mọi câu.
+8. Use `=>` to connect an observation to its explanation, consequence, or conclusion.
+   Use it only when the relationship is clear, not after every sentence.
 
-9. Gắn bằng chứng với nhận định ngay trong cùng mục. Phân biệt rõ:
-   - Quan sát: dữ kiện đo được (status, header, nội dung response).
-   - Suy luận: kết quả đó có thể cho thấy điều gì.
-   - Đề xuất: dự án nên làm gì dựa trên kết quả.
+9. Tie evidence to the claim in the same item. Distinguish clearly:
+   - Observation: a measured fact (status, header, response body).
+   - Inference: what that result might indicate.
+   - Proposal: what the project should do based on the result.
 
-10. Giữ cách diễn đạt gần với notes hiện có nhưng sửa thuật ngữ nếu cần để đúng kỹ thuật. Không sao chép khẳng định thiếu chính xác chỉ để giống phong cách.
+10. Keep the phrasing close to the existing notes, but fix a term if it is technically
+    wrong. Do not copy an imprecise claim just to match the style.
