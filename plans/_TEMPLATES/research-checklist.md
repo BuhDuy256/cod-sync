@@ -18,9 +18,11 @@ created: DD-MM-YYYY
 
 ## Cách dùng
 
-Mỗi câu hỏi gắn với FR/NFR mà nó phục vụ. Trả lời bằng cách nghiên cứu
-(với sự hỗ trợ của agent hoặc tự nghiên cứu). File deliverable đã được tạo sẵn —
-mở file, điền nội dung vào phần `<!-- Điền kết quả -->` hoặc các mục trống.
+Mỗi câu hỏi gắn với FR/NFR mà nó phục vụ. **Người dùng tự nghiên cứu và trả lời** —
+agent chỉ cung cấp câu hỏi và bảng lựa chọn làm nguyên liệu, không trả lời thay và
+không điền `Chọn`/`Vì sao` của decision record (xem WORKFLOW.md "Division of labor").
+File deliverable đã được tạo sẵn — mở file, điền nội dung vào phần
+`<!-- Điền kết quả -->` hoặc các mục trống.
 
 > **Lưu ý:** Mọi tham chiếu `#N` và đường dẫn file phải là link clickable.
 > Xem WORKFLOW.md "Linking convention".

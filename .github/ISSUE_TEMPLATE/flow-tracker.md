@@ -42,9 +42,13 @@ _Ticket sẽ được thêm khi kế hoạch implementation được chấp nh�
 _Ticket sẽ được thêm cùng lúc với ticket implementation._
 
 ## Phase 6: Xác nhận
-<!-- Gate: issue này đóng -->
+<!-- Gate: issue này đóng; mọi dòng ma trận đã tick cột Xác nhận -->
 <!-- Blocked by: Phase 5 hoàn tất -->
 
 - [ ] Toàn bộ test suite pass
-- [ ] Điều kiện chấp nhận đã xác nhận
 - [ ] Smoke tests pass
+
+### Xác nhận theo AC
+<!-- Một dòng cho mỗi AC, lấy từ plans/UC-XXX/traceability-matrix.md -->
+
+_Danh sách AC sẽ được thêm từ ma trận truy vết khi tới Phase 6._

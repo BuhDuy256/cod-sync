@@ -62,9 +62,18 @@ For each FR's AC:
 Create `plans/UC-XXX/testing-plan.md` from the template at
 `plans/_TEMPLATES/testing-plan.md`.
 
+For each acceptance and security test, fill the **DEC column** with the decision that
+shaped it (if any) — so a changed decision points to the tests that must be revisited.
+
+Then update `plans/UC-XXX/traceability-matrix.md`: put each test on its FR/AC (or
+NFR) row's Test column.
+
 ## Rules
 
 - Every AC must appear in the plan. No AC is skipped.
+- **No orphan (see WORKFLOW.md "Traceability"):** every in-scope FR/AC and NFR must
+  have at least one test, and every in-scope DEC must be consumed by at least one
+  test or implementation step. Flag any gap instead of silently leaving it.
 - Every UC alternative flow with a failure condition gets a resilience test.
 - Do not invent test scenarios beyond what the spec defines.
 - Manual tests (đánh giá) are listed but marked as manual — they still need a

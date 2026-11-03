@@ -59,6 +59,11 @@ Tickets assigned to flash models (DeepSeek V4.1 Flash, GLM 5.3 Flash) must:
 
 ## Decision authority
 
+These lists say _who decides_. For _who does the work_ in each phase — the user owns
+research and judgment, the agent owns proposals and legwork — see WORKFLOW.md
+"Division of labor". In particular, in Phase 1 the user researches and writes the
+decision records; the agent supplies questions and options only.
+
 ### Agent decides (no confirmation needed)
 
 - File formatting and style within existing conventions

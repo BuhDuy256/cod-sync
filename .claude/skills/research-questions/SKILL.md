@@ -97,9 +97,15 @@ Create deliverable files for each question:
   file in `docs/research/`. Research files are **topic-based containers** — one file
   per topic, questions from multiple UCs accumulate in the same file.
 - **Decision record:** create `docs/decisions/DEC-NNN-topic.md` from the template at
-  `docs/decisions/_TEMPLATE.md`, with options pre-filled.
+  `docs/decisions/_TEMPLATE.md`, with the **options table pre-filled only**. Leave
+  `Chọn` and `Vì sao` empty — the user writes those after researching (see
+  WORKFLOW.md "Division of labor").
 
 Include a **deliverable map** table in the checklist linking each RQ to its file.
+
+Also seed the traceability matrix at `plans/UC-XXX/traceability-matrix.md` from
+`plans/_TEMPLATES/traceability-matrix.md` — one row per in-scope FR/AC and NFR — so
+the spine exists from the start of the build.
 
 ## Linking convention
 
@@ -121,6 +127,10 @@ Apply to every output:
 
 ## Rules
 
+- The agent supplies questions and options tables only. It does **not** answer the
+  research questions and does **not** fill the `Chọn` or `Vì sao` of a decision
+  record — the user does that (see WORKFLOW.md "Division of labor"). This is the one
+  phase where the human keeps the thinking.
 - Do not generate questions about product requirements — those are settled in the spec.
 - Do not generate questions answerable by reading the spec — read it first.
 - Do not generate questions about implementation details that can be decided during

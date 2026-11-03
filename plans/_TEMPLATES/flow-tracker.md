@@ -47,8 +47,14 @@ cập nhật.
 - [ ] [#N](https://github.com/{owner}/{repo}/issues/N) tên test (Blocked by: [#N](https://github.com/{owner}/{repo}/issues/N))
 
 ## Phase 6: Xác nhận
-<!-- Gate: flow tracker issue đóng -->
+<!-- Gate: flow tracker issue đóng; mọi dòng ma trận đã tick cột Xác nhận -->
 <!-- Blocked by: Phase 5 hoàn tất -->
 
 - [ ] Toàn bộ test suite pass
-- [ ] Điều kiện chấp nhận của UC đã xác nhận
+- [ ] Smoke tests pass
+
+### Xác nhận theo AC
+<!-- Một dòng cho mỗi AC, lấy từ plans/UC-XXX/traceability-matrix.md -->
+
+- [ ] FR-NNN / AC-1 — xác nhận trên code thật
+- [ ] FR-NNN / AC-2 — xác nhận trên code thật

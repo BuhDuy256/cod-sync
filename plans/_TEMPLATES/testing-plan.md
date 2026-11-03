@@ -32,15 +32,18 @@ created: DD-MM-YYYY
 
 ### Acceptance tests
 
-| AC | FR | Mô tả kiểm thử | Ticket | Trạng thái |
-|---|---|---|---|---|
-| AC-1 | FR-NNN | | #N | open |
+<!-- Cột DEC: quyết định định hình test này — để biết test nào phải xem lại khi
+     một quyết định thay đổi. Để trống nếu không có. -->
+
+| AC | FR | DEC | Mô tả kiểm thử | Ticket | Trạng thái |
+|---|---|---|---|---|---|
+| AC-1 | FR-NNN | DEC-NNN | | #N | open |
 
 ### Security tests
 
-| Mối đe dọa / AC | FR | Mô tả kiểm thử | Ticket | Trạng thái |
-|---|---|---|---|---|
-| | FR-NNN | | #N | open |
+| Mối đe dọa / AC | FR | DEC | Mô tả kiểm thử | Ticket | Trạng thái |
+|---|---|---|---|---|---|
+| | FR-NNN | DEC-NNN | | #N | open |
 
 ## Kiểm thử cùng implementation (gộp vào ticket impl)
 
