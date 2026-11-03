@@ -7,6 +7,7 @@
 
 - Use `**/*` not `*` when globbing nested directories — `*` only matches one level.
 - All AGENTS.md skills exist at `.agents/skills/<name>/SKILL.md` — check before saying "not found".
+- Do not write provenance or role narration ("the agent wrote…", "the answers are yours", "raw material") into any document — see WORKFLOW.md "Document rules" rule 5.
 
 ## Workflow triggers
 

@@ -9,13 +9,13 @@ Template: `_TEMPLATE.md`. Style: `../_STYLE.md`. Cited by: `../02-use-cases/`,
 limit, threshold, quota, retention time, or list that defines "what counts". The behavior
 that applies the value is an FR. The BR says what the value is.
 
-> FR: "The system rejects a link that does not match the source rule [BR-xxx]."
-> BR-xxx: the accepted sources, and the link form of each source.
+> FR: "The system rejects a carrier statement that does not match a known format [BR-xxx]."
+> BR-xxx: the accepted carriers, and the statement format of each carrier.
 
 | If the content is... | Then it belongs |
 |---|---|
 | What the system shows, keeps, changes, creates, or rejects, and when | `../03-requirements/fr/`. The FR cites this BR |
-| A rule with no value of its own, like "cannot start a new session while listening" | `../03-requirements/fr/` |
+| A rule with no value of its own, like "cannot close a period while an import is running" | `../03-requirements/fr/` |
 | A model judgment with no writable value | `../03-requirements/fr/`, with an evaluation criterion |
 | A wait time, reliability, security, privacy, or accessibility target | `../03-requirements/nfr/` |
 | A goal, journey, step, or user intent | `../02-use-cases/` |

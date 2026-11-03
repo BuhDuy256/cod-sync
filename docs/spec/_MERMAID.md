@@ -32,5 +32,5 @@ of truth is the text blocks. Never hand-edit a diagram to make it "match".
 
 **MG-04: single-meaning label, not interface.**
 
-> Fail: `User->>System: click the Play button` — the label describes a widget.
-> Pass: `User->>System: request playback` — the label is the intent.
+> Fail: `User->>System: click the Import button` — the label describes a widget.
+> Pass: `User->>System: request an import` — the label is the intent.

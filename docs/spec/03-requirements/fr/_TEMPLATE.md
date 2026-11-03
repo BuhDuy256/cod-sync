@@ -1,7 +1,7 @@
 ---
 id: FR-000
 title: ""
-updated: DD-MM-YYYY
+updated: YYYY-MM-DD
 ---
 
 <!-- An FR states one system behavior under a stated condition (FRG-01): what the system shows, keeps, changes, creates, or rejects.

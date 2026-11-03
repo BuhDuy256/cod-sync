@@ -1,7 +1,7 @@
 ---
 id: UC-000
 title: ""
-updated: DD-MM-YYYY
+updated: YYYY-MM-DD
 ---
 
 <!-- A use case models product behavior for one user goal reached in a single sitting (UCG-01).
@@ -25,7 +25,7 @@ sequenceDiagram
 ## Steps
 
 <!-- This table is the source of truth; the diagram above is generated from it. One row per step S1, S2, ... in order.
-     User: intent ("Pick a story"), not an action on a control.
+     User: intent ("Import a carrier statement"), not an action on a control.
      System: what the user observes; no "if", no settings, no interface. Cite values with [BR-xxx]/[NFR-xxx]; not written yet: [BR-?: topic].
      FR: the functional requirement ID for this response, or FR-? when there is no FR yet. A response can have several FRs. Leave blank when the step needs no FR of its own.
      Evidence: a tag from _STYLE.md, only when the step claims something about the product. Leave blank if not. -->

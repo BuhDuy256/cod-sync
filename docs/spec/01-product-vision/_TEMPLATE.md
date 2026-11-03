@@ -1,7 +1,7 @@
 ---
 id: VIS-001
 title: ""
-updated: DD-MM-YYYY
+updated: YYYY-MM-DD
 ---
 
 <!-- Write per docs/spec/_STYLE.md. Gate: _CRITERIA.md.
@@ -20,7 +20,7 @@ updated: DD-MM-YYYY
 ## What the product is
 
 <!-- Question 1. What kind of product this is, and the ideas needed to understand it. No feature list.
-     A capability (export, voice input, editing) is a use case, unless you say it defines the product (VG-01).
+     A capability (statement import, data export, AI explanation) is a use case, unless you say it defines the product (VG-01).
      Fields: Statement, Status, Source, Spec implications. -->
 
 ### I-1 · short name
@@ -46,7 +46,7 @@ updated: DD-MM-YYYY
 ## Principles
 
 <!-- Question 4. The rules that guide choices when the spec must choose. Each rule rules something out.
-     Not a technical solution: "the user picks the reading voice" is a principle; "call the provider over HTTP" is an ADR (VG-02).
+     Not a technical solution: "the core reconciles without AI" is a principle; "put carrier events on a queue" is a decision record (VG-02).
      Fields: Statement, Status, Source, Why, Spec implications. -->
 
 ### P-1 · short name

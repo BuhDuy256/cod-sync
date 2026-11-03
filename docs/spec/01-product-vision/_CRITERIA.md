@@ -26,7 +26,7 @@ is a proposal or an open question (VG-13). A gap is written as a gap (VG-14).
 | A testable statement of a system response | `../03-requirements/fr/` |
 | A wait time, a size target, or another quality target | `../03-requirements/nfr/`. The vision cites `[NFR-?: topic]` |
 | A limit, allow-list, file type, or other value a rule defines | `../04-business-rules/`. The vision cites `[BR-?: topic]` |
-| How code achieves something: engine, storage, framework, protocol | ADR in `docs/adr/` |
+| How code achieves something: engine, storage, framework, protocol | Decision record in `docs/decisions/` |
 | How the product is operated or looks | UI design work (no folder yet) |
 | Rules for writing spec files, or shared terminology | `../_STYLE.md` or `AGENTS.md` |
 | A raw observation of another product | `docs/research/` |
@@ -37,8 +37,8 @@ A boundary says what the product is NOT, by its nature. It holds in every releas
 scope limit says what a release leaves out. Only the former belongs here.
 
 > Scope limit (not here): "V1 is web-only."
-> Boundary (here): "The product does not generate story content; it only reads existing
-> content."
+> Boundary (here): "The product does not move real money; it simulates holding and
+> releasing it."
 
 Test: given infinite time, is the statement still true? If not, it is a scope limit.
 
@@ -106,14 +106,14 @@ that `../_STYLE.md` defines is used here, not redefined (VG-06).
 
 **VG-01: nature, not feature.**
 
-> Fail: "The product reads a story chapter into audio." That is a capability; it belongs
-> in a use case.
-> Pass: "The product is a personal novel-listening app, hosted on the Internet, with
-> accounts."
+> Fail: "The product imports carrier statements." That is a capability; it belongs in a
+> use case.
+> Pass: "The product is a web-hosted system, with accounts, that reconciles
+> cash-on-delivery money for a shop sending parcels through two or more carriers."
 
 **VG-03: boundary, not V1 limit.**
 
-> Fail: "Boundary: no auto-advance to the next chapter." V1 chose not to do it; that is
+> Fail: "Boundary: no AI explanation of discrepancies." V1 chose not to do it; that is
 > scope.
-> Pass: "Boundary: the product does not generate or own story content; it reads content
-> from a source."
+> Pass: "Boundary: the product does not keep inventory; it records only whether a return
+> arrived."

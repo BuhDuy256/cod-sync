@@ -57,6 +57,7 @@ the person who owns it.
 
 | Phase | User owns (research + judgment) | Agent owns (legwork) |
 |---|---|---|
+| 0 — Domain discovery | **Researches the domain and writes the notes. Picks the use cases.** | Generates the question checklist and points to public sources — does **not** answer the questions or propose the answer. |
 | 1 — Research | **Researches and answers the questions. Writes the decision records** (`Choice` / `Why`). | Generates the question checklist and options/tradeoff tables as raw material — does **not** answer the questions or fill in the choice/rationale. |
 | 2 — Testing plan | Reviews, gives feedback, approves. | Proposes the testing plan. |
 | 3 — Implementation plan | Reviews, gives feedback, approves. | Proposes the ordered steps. |
@@ -88,8 +89,8 @@ that phase was responsible for resolving** — this clause is added to every gat
 
 ## Document rules
 
-Every generated plan document (and the templates in `plans/_TEMPLATES/`) follows four
-rules. They serve two readers at once: a person skimming the file, and an agent that
+Every generated plan document (and the templates in `plans/_TEMPLATES/`) follows five
+rules. Rule 5 applies to every document in the repository. They serve two readers at once: a person skimming the file, and an agent that
 re-reads it each phase and pays tokens for every line. The rules are the same because
 the fix is the same — front-load the essential, and never say a thing twice.
 
@@ -107,8 +108,40 @@ the fix is the same — front-load the essential, and never say a thing twice.
    section — a gate, a table — instead of reading the whole file.
 4. **Length budget.** Keep each document under about one page. If it grows past that,
    split it or link out rather than inline more. The budget is what forces rule 2.
+5. **State content, not provenance.** A document says what it holds and what it is
+   for. It does not say who wrote it, who answers it, or who decides. Roles live only
+   in "Division of labor"; link there when a reader needs them. Git records authorship.
 
 ## Phases
+
+### Phase 0 — Domain discovery
+
+**Goal:** understand the domain well enough to choose use cases for a reason, not by
+guess. Runs once per product (and again when a new area of the domain opens), before
+any UC build. It is upstream of the build phases: Phase 1 answers technical unknowns
+for a use case that already exists; Phase 0 decides which use cases should exist.
+
+**Input:** the brief (`docs/spec/00-brief/`) and the vision (`docs/spec/01-product-vision/`).
+
+**Process:**
+
+1. The agent keeps the domain question checklist at `docs/research/domain/README.md`:
+   numbered questions grouped by area, the spec item each area unlocks, and sources to
+   start from.
+2. **The user researches and writes one note per area** in `docs/research/domain/`,
+   following `docs/research/_STYLE.md` (problem → what was tried → what was observed →
+   what it means). A question is closed by answering it in the note, or by marking it
+   out of scope with a one-line reason. The area's Status in the checklist is updated.
+3. Each finished note feeds the spec: a glossary row in `docs/spec/_STYLE.md`, a
+   business-rule value, a discrepancy type with its source, stronger `Evidence` on a
+   vision `W-x` block, or a use case candidate. Who decides: `AGENTS.md` "Decision
+   authority".
+4. The user picks the use cases and the first build from the notes. Each use case links
+   the note it came from in its `Product evidence` section.
+
+**Gate:** the user explains the COD cash flow and the discrepancy catalog in their own
+words; every checklist question is answered or marked out of scope; every chosen use
+case links at least one domain note (no use case without a reason).
 
 ### Phase 1 — Research
 

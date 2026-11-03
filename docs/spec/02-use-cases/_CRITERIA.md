@@ -34,14 +34,12 @@ explores broadly. Evidence says where an idea came from; it does not choose anyt
 ### Use case IDs
 
 - One ID (`UC-xxx`) names a use case file. A flow ID (`Sx`, `Ax`) names a block in the file.
-- The namespace is `docs/spec/`. IDs used in the old `docs/specification/` folder do not belong to it.
+- The namespace is `docs/spec/`.
 - An ID never moves to a different goal or is reused, even after a file is deleted.
 - A new ID takes the number after the highest ID in the folder and in the removed-ID list. Gaps stay as they are.
 - IDs are not renumbered.
 
-Removed use case IDs:
-- UC-003 — removed 21-10-2026; auto-advance to the next chapter deferred, out of current scope. The previous use case was renamed to UC-004 on 21-10-2026, per owner request.
-- UC-005 — renumbered to UC-004 on 21-10-2026; content unchanged, per owner request.
+Removed use case IDs: none.
 
 ## 2. Evidence tags
 
@@ -76,17 +74,17 @@ scope.
 
 **UCG-03: observable, not settings.**
 
-> Fail: "S5: the model returns the chapter JSON and the renderer draws it."
-> Pass: "S5 · System: plays the chapter's audio and shows progress advancing."
+> Fail: "S5: the parser reads the CSV and the worker writes rows to the ledger table."
+> Pass: "S5 · System: shows each order in the statement with its collected COD and fees."
 
 **UCG-04: detectable branch.**
 
 > Fail: "A1: there is an error. The system shows the error."
-> Pass: "A1 (at S3): connection lost while fetching content. The system keeps the link
-> the user entered and reports it could not fetch."
+> Pass: "A1 (at S3): the file does not match a known statement format. The system keeps
+> the last imported statement and reports which format it expected."
 
 **UCG-09: intent and response, not interface.**
 
-> Fail: "The user clicks the Play button in the bottom corner."
-> Pass: "The user requests playback. The system plays audio from the saved progress
-> position."
+> Fail: "The user clicks the Import button in the top corner."
+> Pass: "The user requests an import. The system reads the carrier statement and shows
+> the orders it settles."

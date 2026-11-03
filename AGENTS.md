@@ -16,6 +16,8 @@ Product spec is in `docs/spec/`. Vision: `docs/spec/01-product-vision/VIS-001.md
 
 All use case builds follow `WORKFLOW.md`. The phases are:
 
+0. **Domain discovery** — once per product, before any build: learn the domain, then
+   pick the use cases (checklist at `docs/research/domain/README.md`)
 1. **Research** — answer technical unknowns, make decisions
 2. **Testing plan** — map every AC to a test type and phase
 3. **Implementation plan** — ordered steps tied to tests

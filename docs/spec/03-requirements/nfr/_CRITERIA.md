@@ -91,13 +91,13 @@ marker stays and the missing part is reported.
 
 **NFG-05: a product-controlled measure.**
 
-> NFR-000 · Quality attribute: performance · Statement: the user sees the system start
-> listening right after picking a chapter.
-> M-1 · Condition: the chapter already has audio on the device, network stable. Boundary:
-> product-controlled — measure only up to the system starting playback, not the provider
-> time to generate new audio.
-> Measure: time from picking a chapter to audio starting. How to measure: repeat picking
-> the same chapter.
+> NFR-000 · Quality attribute: performance · Statement: the accountant sees the result
+> of a carrier statement import soon after the file is received.
+> M-1 · Condition: the file is already received by the system, from a simulated carrier.
+> Boundary: product-controlled — measure from the system receiving the file to the
+> result being shown, not the upload time over the user's network.
+> Measure: time from file received to result shown. How to measure: repeat the import
+> with the same file.
 
 **NFG-02: not every quantity is an NFR.**
 

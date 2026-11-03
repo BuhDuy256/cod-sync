@@ -1,7 +1,7 @@
 ---
 id: NFR-000
 title: ""
-updated: DD-MM-YYYY
+updated: YYYY-MM-DD
 ---
 
 <!-- An NFR is a product-level quality constraint under a stated condition (NFG-01).

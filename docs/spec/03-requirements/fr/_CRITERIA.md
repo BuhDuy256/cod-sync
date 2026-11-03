@@ -19,8 +19,8 @@ result, which edge case, what stays unchanged.
 | How the system achieves a behavior (model, queue, storage, API) | ADR or architecture work |
 | What to build, or how far it is built/tested | Not in the spec. An FR has no progress, priority, or version |
 
-A rule with no value stays in the FR, e.g. "the user cannot start a new session while a
-request is running". A rule with a value goes to `../../04-business-rules/`.
+A rule with no value stays in the FR, e.g. "the user cannot close a period while an
+import is running". A rule with a value goes to `../../04-business-rules/`.
 
 ### Granularity and reuse
 
@@ -72,12 +72,12 @@ FR can serve several blocks; one block can cite several FRs.
 
 **FRG-02: reuse for the same behavior.**
 
-> Fail: one FR "keep progress after stopping" for the first listen, and a second FR with
-> the same meaning for a later listen.
-> Pass: one FR "when interrupted, the saved progress is kept and not overwritten by
-> unfinished progress". Every block that can be stopped cites it.
+> Fail: one FR "ignore a repeated status event", and a second FR with the same meaning
+> for a repeated fee event.
+> Pass: one FR "a carrier event already applied leaves the money state unchanged". Every
+> block that receives carrier events cites it.
 
 **FRG-09: behavior, not design.**
 
-> Fail: "The Play button is greyed out when there is no audio."
-> Pass: "The system does not accept a playback request when there is no audio."
+> Fail: "The Export button is greyed out when no period is closed."
+> Pass: "The system does not accept an export request when no period is closed."

@@ -43,3 +43,6 @@ existing notes in the target file to match its voice before adding more.
 
 10. Keep the phrasing close to the existing notes, but fix a term if it is technically
     wrong. Do not copy an imprecise claim just to match the style.
+
+11. Each source used in a note has its exact URL and the date it was read, in the same
+    item as the claim it supports.

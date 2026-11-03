@@ -10,17 +10,17 @@ testable requirement. Everyday words do both.
 
 | # | Rule | Don't write | Write |
 |---|---|---|---|
-| 1 | **One thing, one name.** Use the exact word from the glossary. Never swap in a synonym. | "progress" and "listening position" for the same thing | "progress" everywhere |
-| 2 | **Use plain words.** show, keep, use, start, end, before, after | display, maintain, initialize, terminate, prior, subsequent | "The system plays audio." |
+| 1 | **One thing, one name.** Use the exact word from the glossary. Never swap in a synonym. | "carrier balance" and "money held" for the same thing | "carrier balance" everywhere |
+| 2 | **Use plain words.** show, keep, use, start, end, before, after | display, maintain, initialize, terminate, prior, subsequent | "The system shows the carrier balance." |
 | 3 | **No idioms or flowery phrases.** | "green-light", "seal the deal", "U-turn" | "agree", "end", "change its mind" |
-| 4 | **No vague verbs.** Banned: handle, manage, support, ensure, process, carry out, appropriate, properly, smoothly. | "The system handles errors smoothly." | "The system reports it could not fetch the content and keeps the link the user entered." |
+| 4 | **No vague verbs.** Banned: handle, manage, support, ensure, process, carry out, appropriate, properly, smoothly. | "The system handles errors smoothly." | "The system reports it could not read the file and keeps the last imported statement." |
 | 5 | **No "can", "should", "might", "may" in a system response.** State what the system does. Use **"is allowed to"** only for a user permission. | "The system can show a message." | "The system shows a message." |
-| 6 | **Short, active sentences.** One action per sentence. A `[BR-xxx]` citation does not count. | "A message is shown that the job has stopped and how many chapters are done." | "The system shows a message that it has stopped. The message states how many chapters were done." |
-| 7 | **Conditions go in the When field.** A system response has no "if". When behavior differs by step, open with a label: "At S3:", "On reconnect:". | "If the link is invalid, the system rejects it." | When: "The link does not match a source [BR-?]." System: "State the reason." |
+| 6 | **Short, active sentences.** One action per sentence. A `[BR-xxx]` citation does not count. | "A message is shown that the import has stopped and how many rows are done." | "The system shows a message that the import has stopped. The message states how many rows were read." |
+| 7 | **Conditions go in the When field.** A system response has no "if". When behavior differs by step, open with a label: "At S3:", "On re-import:". | "If the file is invalid, the system rejects it." | When: "The file does not match a known statement format [BR-?]." System: "State the reason." |
 | 8 | **One action per line. At most 7 lines per field.** | One cell of 110 words | One line per thing the user can observe |
-| 9 | **Minimal bold.** Bold one glossary word on its first use in a line. At most 2 per line. | Bold a whole phrase | "Play **audio**." |
-| 10 | **Evidence on its own line.** One tag per claim. Never mid-sentence. | "…the screen stays on the first chapter `[observed: …]`, and does not offer the next chapter." | `- **Evidence:** [observed: claude-report (screen stays on first chapter)]` |
-| 11 | **Intent and response, not interface.** The user side says what the user wants. The system side says what the system reports, keeps, changes, or creates. Never name a widget, gesture, position, style, or label. Name a place only by region (see Regions). If an interface detail carries a requirement, write the requirement. | "The user opens the menu and picks a story." "Open the listening view in the bottom corner." "Show a card with a replay button." | "The user picks a story." "Open the listening view. The saved progress and the current audio stay unchanged." "Let the user replay." |
+| 9 | **Minimal bold.** Bold one glossary word on its first use in a line. At most 2 per line. | Bold a whole phrase | "Show the **discrepancy**." |
+| 10 | **Evidence on its own line.** One tag per claim. Never mid-sentence. | "…the carrier balance stays at the old value `[observed: …]`, and does not include the new transfer." | `- **Evidence:** [observed: ghn-dashboard (balance unchanged after a transfer)]` |
+| 11 | **Intent and response, not interface.** The user side says what the user wants. The system side says what the system reports, keeps, changes, or creates. Never name a widget, gesture, position, style, or label. Name a place only by region (see Regions). If an interface detail carries a requirement, write the requirement. | "The user opens the menu and picks a carrier statement." "Open the discrepancy view in the bottom corner." "Show a card with a retry button." | "The user picks a carrier statement." "Open the discrepancy view. The open discrepancies stay unchanged." "Let the user retry the import." |
 
 Rules 4 to 7 keep a response testable. Rules 1 to 3 and 6 keep it readable. Rule 11
 keeps the spec correct when the design changes.
