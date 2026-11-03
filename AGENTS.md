@@ -2,8 +2,15 @@
 
 ## Project
 
-_Describe the project here._ Product spec is in `docs/spec/`.
-Vision: `docs/spec/01-product-vision/` (add `VIS-001.md`).
+A reconciliation-first SaaS for small and medium online shops that send cash-on-delivery
+(COD) parcels through several carriers. The core reconciles orders against the money
+carriers return, detects and explains discrepancies, and prepares complaint files; order,
+waybill, status, and return tracking are the foundation that feeds it. A simulated wallet
+and risk scoring are extensions. It is a practice project; carriers and the bank are
+mostly simulated from public API docs, and no real money is moved.
+
+Idea-lock brief: [docs/spec/00-brief/BRIEF-001.md](docs/spec/00-brief/BRIEF-001.md).
+Product spec is in `docs/spec/`. Vision: `docs/spec/01-product-vision/VIS-001.md`.
 
 ## Build workflow
 
