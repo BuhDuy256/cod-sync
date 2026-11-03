@@ -7,34 +7,34 @@ research: "Q-NNN in docs/research/topic.md"
 affects: "FR-NNN, NFR-NNN"
 ---
 
-## Câu hỏi
+## Question
 
-<!-- Câu hỏi nghiên cứu mà quyết định này trả lời. Bao gồm link đến ticket:
+<!-- The research question this decision answers. Include a link to the ticket:
      (RQ-N, ticket [#N](https://github.com/{owner}/{repo}/issues/N))
-     Xem WORKFLOW.md "Linking convention". -->
+     See WORKFLOW.md "Linking convention". -->
 
-## Các lựa chọn đã xem xét
+## Options considered
 
-<!-- Một dòng mỗi lựa chọn. Điền tradeoff liên quan tới FR/NFR của dự án. -->
+<!-- One row per option. Fill the tradeoffs relative to the project's FRs/NFRs. -->
 
-| Lựa chọn | Mô tả | Đáp ứng yêu cầu nào | Đánh đổi |
+| Option | Description | Fits which requirements | Tradeoffs |
 |---|---|---|---|
-| Lựa chọn A | | | |
-| Lựa chọn B | | | |
-| Lựa chọn C | | | |
+| Option A | | | |
+| Option B | | | |
+| Option C | | | |
 
-## Chọn
+## Choice
 
-<!-- Chọn lựa chọn nào. Một câu. -->
+<!-- Which option is chosen. One sentence. -->
 
-## Vì sao
+## Why
 
-<!-- Vì sao chọn lựa chọn này thay vì các lựa chọn khác. Trích dẫn FR, NFR hoặc ràng buộc cụ thể. -->
+<!-- Why this option over the others. Cite specific FRs, NFRs, or constraints. -->
 
-## Các lựa chọn bị loại và lý do
+## Rejected options and why
 
-<!-- Với mỗi lựa chọn bị loại, một câu nói vì sao. -->
+<!-- For each rejected option, one sentence on why. -->
 
-## Hệ quả
+## Consequences
 
-<!-- Quyết định này mở ra hoặc ràng buộc gì cho implementation. -->
+<!-- What this decision opens up or constrains for implementation. -->

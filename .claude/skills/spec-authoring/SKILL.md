@@ -1,50 +1,72 @@
 ---
 name: spec-authoring
-description: Viết hoặc viết lại một file use case (docs/spec/02-use-cases) sao cho theo đúng template, criteria và style tiếng Việt của folder. Dùng khi tạo file spec, chuyển file cũ sang template mới, hoặc sửa lỗi style. Không dùng để quyết phạm vi hay bịa hành vi sản phẩm.
+description: Write or rewrite a use case file (docs/spec/02-use-cases) so it follows the folder's template, criteria, and style. Use when creating a spec file, converting an old file to the new template, or fixing style errors. Not for deciding scope or inventing product behavior.
 ---
 
 # Spec authoring
 
-Quy tắc nằm ở ba file. Đọc trước khi viết; đừng viết lại chúng trong spec hay trong skill này.
+The rules live in three files. Read them before writing; do not restate them in the spec
+or in this skill.
 
-- `docs/spec/<folder>/_TEMPLATE.md`: cấu trúc và tên trường cố định.
-- `docs/spec/<folder>/_CRITERIA.md`: tiêu chí file phải đạt.
-- `docs/spec/_STYLE.md`: quy tắc tiếng Việt, thẻ bằng chứng, bảng thuật ngữ, và kiểm giao diện (quy tắc 11).
+- `docs/spec/<folder>/_TEMPLATE.md`: the fixed structure and field names.
+- `docs/spec/<folder>/_CRITERIA.md`: the criteria the file must meet.
+- `docs/spec/_STYLE.md`: the writing rules, evidence tags, glossary, and interface check
+  (rule 11).
 
-## Nguồn nội dung
+## Content sources
 
-Chỉ viết điều đến từ người dùng, từ file đang viết lại, hoặc từ thẻ nghiên cứu trong `docs/research/`. Nếu một bước cần hành vi không từ nguồn nào, đánh dấu `[assumed]` và nói trong báo cáo. Đừng bịa.
+Write only what comes from the user, from the file being rewritten, or from a research
+item in `docs/research/`. If a step needs behavior from no source, mark it `[assumed]`
+and say so in the report. Do not invent.
 
-Use case khám phá hành vi sản phẩm có thể làm. Flow lấy từ thẻ nghiên cứu hay sản phẩm tham chiếu được phép; bằng chứng nói nó đến từ đâu; nó không phải cam kết xây.
+A use case explores behavior the product could have. A flow taken from a research item or
+a reference product is allowed; evidence says where it came from; it is not a commitment
+to build. Do not write an FR or replace `FR-?` with a real ID unless the task asks. A use
+case has no status field and no installation progress.
 
-Đừng viết FR hay thay `FR-?` bằng ID thật trừ khi việc yêu cầu. Use case không có trường trạng thái, không tiến độ cài đặt.
+## New file
 
-## File mới
+1. Copy the folder's `_TEMPLATE.md`. Use case ID: take the number after the highest ID in
+   `02-use-cases/` and in the removed IDs (`02-use-cases/_CRITERIA.md`). Do not reuse,
+   move, or renumber.
+2. Fill every section. Write an unwritten requirement/rule/target as a `?` marker. Omit a
+   template section marked omittable when empty.
+3. Run the style checks below.
 
-1. Copy `_TEMPLATE.md` của folder. ID use case: lấy số sau ID cao nhất trong `02-use-cases/` và trong ID đã loại bỏ (`02-use-cases/_CRITERIA.md`). Không dùng lại, chuyển hay đánh lại số.
-2. Điền mọi phần. Viết yêu cầu/quy tắc/mục tiêu chưa viết thành marker `?`. Bỏ phần template đánh dấu bỏ được khi trống.
-3. Chạy các kiểm style bên dưới.
+## Rewrite an existing file
 
-## Viết lại file có sẵn
+1. Keep every ID, every citation (`FR-`, `[BR-`, `[NFR-`), the frontmatter, the evidence
+   content, and the logic. If a style rule forces a meaning change, do not choose quietly:
+   make the smallest change and record it in the report.
+2. Move the content into the template's blocks and fields.
+3. Run the style checks.
+4. Compare before/after: same IDs, same citations, same research links.
+5. An interface phrase can carry a requirement. Translate it, do not just delete it. Ask
+   what stays true when the interface changes: "a Play button in the bottom corner"
+   becomes "the user requests playback; the system plays audio from the saved progress".
+   A phrase that is only design (position, color, label) is deleted and recorded in the
+   report as a homeless UI decision.
 
-1. Giữ mọi ID, mọi trích dẫn (`FR-`, `[BR-`, `[NFR-`), frontmatter, nội dung bằng chứng và logic. Nếu quy tắc style buộc đổi nghĩa, đừng chọn lặng lẽ: đổi nhỏ nhất và ghi vào báo cáo.
-2. Chuyển nội dung vào block và trường của template.
-3. Chạy các kiểm style.
-4. So trước/sau: cùng ID, cùng trích dẫn, cùng liên kết nghiên cứu.
-5. Một cụm giao diện có thể mang yêu cầu. Dịch nó, đừng chỉ xóa. Hỏi điều gì vẫn đúng khi giao diện đổi: "một nút Phát ở góc dưới" thành "người dùng yêu cầu phát; hệ thống phát audio từ tiến độ đã lưu". Cụm chỉ là thiết kế (vị trí, màu, nhãn) thì xóa và ghi vào báo cáo như quyết định UI không chỗ.
+## Style checks
 
-## Kiểm style
+- Search `System`, `When`, and `Situation and goal` for the banned-word patterns in
+  `_STYLE.md`. Fix each, or record a reason.
+- Split a long sentence into one action per sentence.
+- Check that each term in the text is in the glossary; each field is at most 7 lines.
+- Check that evidence tags are on their own line.
+- Use case: run the interface check in `_STYLE.md` (rule 11, UCG-09) over the whole file
+  except the frontmatter and the generated block. Rewrite each hit as intent or response,
+  then apply the swap test to every User, When, and System sentence.
 
-- Tìm trong `Hệ thống`, `Khi` và `Tình huống và mục tiêu` mẫu từ cấm trong `_STYLE.md`. Sửa hoặc ghi lý do.
-- Tách câu dài thành một hành động một câu.
-- Kiểm mỗi thuật ngữ trong văn bản có trong bảng thuật ngữ; mỗi trường tối đa 7 dòng.
-- Kiểm thẻ bằng chứng ở dòng riêng.
-- Use case: chạy kiểm giao diện trong `_STYLE.md` (quy tắc 11, UCG-09) trên toàn file trừ frontmatter và khối sinh tự động. Viết lại mỗi kết quả thành ý định hoặc phản hồi, rồi áp dụng phép thử hoán đổi cho mọi câu Người dùng, Khi, Hệ thống.
+## Use case: end with the diagram
 
-## Use case: kết thúc bằng sơ đồ
+After the last edit to a use case, run
+[use-case-sequence](../use-case-sequence/SKILL.md) on the file. Do not hand-edit the
+generated block.
 
-Sau lần sửa cuối một use case, chạy [use-case-sequence](../use-case-sequence/SKILL.md) trên file. Đừng sửa khối sinh tự động bằng tay.
+## Report
 
-## Báo cáo
-
-Liệt kê: file đã đổi, kiểm đã chạy và kết quả, mỗi chỗ quy tắc style đổi nghĩa, mỗi cụm UI mang yêu cầu và cách viết lại, mỗi quyết định UI bị xóa không chỗ, mỗi `[assumed]` thêm, mỗi tham chiếu đã xem sau khi đổi Hệ thống.
+List: the file changed, the checks run and their results, each place a style rule changed
+the meaning, each UI phrase that carried a requirement and how it was rewritten, each
+homeless UI decision deleted, each `[assumed]` added, and each reference reviewed after a
+System change.

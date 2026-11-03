@@ -4,85 +4,85 @@ title: ""
 updated: DD-MM-YYYY
 ---
 
-<!-- Use case mô hình hoá hành vi sản phẩm cho một mục tiêu người dùng đạt trong một lần ngồi (UCG-01).
-     Viết theo docs/spec/_STYLE.md. Viết ý định và phản hồi, không viết giao diện (quy tắc 11, UCG-09).
-     Sơ đồ tương tác là view sinh từ bảng Các bước và Nhánh thay thế; đừng sửa nó bằng tay (MG-02). -->
+<!-- A use case models product behavior for one user goal reached in a single sitting (UCG-01).
+     Write per docs/spec/_STYLE.md. Write intent and response, not interface (rule 11, UCG-09).
+     The interaction diagram is a view generated from the Steps table and Alternative flows; do not hand-edit it (MG-02). -->
 
-## Sơ đồ tương tác
+## Interaction diagram
 
-<!-- Sinh tự động từ bảng Các bước và Nhánh thay thế. Không sửa giữa hai marker. -->
+<!-- Generated from the Steps table and Alternative flows. Do not edit between the markers. -->
 
 <!-- BEGIN generated: use-case-sequence -->
 ```mermaid
 sequenceDiagram
-  participant U as Người dùng
-  participant S as Hệ thống
-  U->>S: ý định của người dùng
-  S-->>U: phản hồi của hệ thống
+  participant U as User
+  participant S as System
+  U->>S: user intent
+  S-->>U: system response
 ```
 <!-- END generated: use-case-sequence -->
 
-## Các bước
+## Steps
 
-<!-- Bảng này là nguồn chân lý; sơ đồ trên được sinh từ nó. Mỗi dòng một bước S1, S2, ... theo thứ tự.
-     Người dùng: ý định ("Chọn một truyện"), không phải thao tác trên điều khiển.
-     Hệ thống: điều người dùng quan sát được; không "nếu", không cài đặt, không giao diện. Trích dẫn giá trị bằng [BR-xxx]/[NFR-xxx]; chưa viết: [BR-?: chủ đề].
-     FR: ID yêu cầu chức năng cho phản hồi này, hoặc FR-? khi chưa có FR. Một phản hồi có thể có nhiều FR. Để trống khi bước không cần FR riêng.
-     Bằng chứng: thẻ trong _STYLE.md, chỉ khi bước khẳng định điều gì về sản phẩm. Để trống nếu không. -->
+<!-- This table is the source of truth; the diagram above is generated from it. One row per step S1, S2, ... in order.
+     User: intent ("Pick a story"), not an action on a control.
+     System: what the user observes; no "if", no settings, no interface. Cite values with [BR-xxx]/[NFR-xxx]; not written yet: [BR-?: topic].
+     FR: the functional requirement ID for this response, or FR-? when there is no FR yet. A response can have several FRs. Leave blank when the step needs no FR of its own.
+     Evidence: a tag from _STYLE.md, only when the step claims something about the product. Leave blank if not. -->
 
-| Bước | Người dùng | Hệ thống | FR | Bằng chứng |
+| Step | User | System | FR | Evidence |
 |---|---|---|---|---|
 | S1 |  |  | FR-? |  |
 
-## Nhánh thay thế
+## Alternative flows
 
-<!-- Một block mỗi nhánh. ID ổn định, không đánh lại số (UCG-06).
-     Tại: bước nhánh bắt đầu, ví dụ "S3". Kết thúc: một trong:
-       Quay lại Sx / Tiếp tại Sx / Cùng bước / Kết thúc / Sang UC-xxx / Sang UC-? (chủ đề)
-     Khi: điều kiện hệ thống phát hiện được, hoặc ý định người dùng (UCG-04).
-     Trường cố định theo thứ tự: Tại, Kết thúc, Khi, Hệ thống, FR. -->
+<!-- One block per alternative. Stable IDs, never renumbered (UCG-06).
+     At: the step the alternative starts from, e.g. "S3". Ends: one of:
+       Back to Sx / Continue at Sx / Same step / End / To UC-xxx / To UC-? (topic)
+     When: a condition the system can detect, or a user intent (UCG-04).
+     Fixed fields in order: At, Ends, When, System, FR. -->
 
-### A1 · Tên nhánh
+### A1 · alternative name
 
-- **Tại:** S?
-- **Kết thúc:** Quay lại S?
-- **Khi:**
-- **Hệ thống:**
+- **At:** S?
+- **Ends:** Back to S?
+- **When:**
+- **System:**
 - **FR:** FR-?
 
-## Tình huống và mục tiêu
+## Situation and goal
 
-<!-- Ai muốn gì, và vì sao lúc này, bằng lời người dùng. Không tính năng hay giải pháp (UCG-02). -->
+<!-- Who wants what, and why now, in the user's words. No feature or solution (UCG-02). -->
 
-## Kích hoạt và tiền điều kiện
+## Trigger and precondition
 
-<!-- Kích hoạt: điều gì khởi đầu case. Tiền điều kiện: điều gì đã đúng. Cả hai quan sát được, không cài đặt, không giao diện. -->
+<!-- Trigger: what starts the case. Precondition: what is already true. Both observable, no settings, no interface. -->
 
-- **Kích hoạt:**
-- **Tiền điều kiện:**
+- **Trigger:**
+- **Precondition:**
 
-## Kết quả và đảm bảo tối thiểu
+## Outcome and minimal guarantee
 
-<!-- Kết quả: điều đúng sau thành công, kiểm chứng được bằng quan sát. Đảm bảo tối thiểu: điều vẫn đúng sau khi nhánh bất kỳ thất bại (UCG-05). -->
+<!-- Outcome: what is true after success, verifiable by observation. Minimal guarantee: what stays true after any branch fails (UCG-05). -->
 
-- **Kết quả:**
-- **Đảm bảo tối thiểu:**
+- **Outcome:**
+- **Minimal guarantee:**
 
-## Bằng chứng sản phẩm
+## Product evidence
 
-<!-- Chỉ mức bao phủ: quan sát | không có | chưa kiểm chứng. Quan sát thô nằm ở docs/research/ (UCG-08).
-     Khác biệt mô tả bằng lời, không giá trị quy tắc. Thêm một block cho mỗi sản phẩm tham chiếu. -->
+<!-- Coverage level only: observed | none | unverified. Raw observations live in docs/research/ (UCG-08).
+     Differences described in prose, not rule values. Add one block per reference product. -->
 
-### Tên sản phẩm
+### product name
 
-- **Bao phủ:** chưa kiểm chứng
-- **Thẻ nghiên cứu:**
-- **Khác biệt:**
+- **Coverage:** unverified
+- **Research link:**
+- **Differences:**
 
-## Câu hỏi mở
+## Open questions
 
-<!-- Mỗi câu hỏi có "?". Bỏ phần này nếu trống. -->
+<!-- Each question has "?". Omit this section if empty. -->
 
-## Ghi chú
+## Notes
 
-<!-- Vì sao case này không trùng case khác; lựa chọn thiết kế thành đề xuất ADR. Bỏ nếu trống. -->
+<!-- Why this case does not duplicate another; a design choice as an ADR proposal. Omit if empty. -->

@@ -9,7 +9,7 @@ labels: phase:research
 
 **Use case:** UC-XXX
 **Related FR/NFR:** FR-NNN / NFR-NNN
-**Flow step:** S?.? — {tên bước}
+**Flow step:** S?.? — {step name}
 **Flow tracker:** #N
 
 ## Flow diagram

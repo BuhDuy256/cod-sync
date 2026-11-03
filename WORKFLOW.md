@@ -47,6 +47,67 @@ When the user says "continue UC-XXX" (or a scoped build name), read the flow
 tracker issue on GitHub first. It shows which phase is active and which tickets
 are open.
 
+## Division of labor
+
+Every phase splits work between the user (the thinking that must stay with the
+human) and the agent (the legwork). The agent proposes; nothing closes a gate until
+the user has reviewed, given feedback, and approved. This split is deliberate: the
+user keeps the research and the judgment so understanding of the system stays with
+the person who owns it.
+
+| Phase | User owns (research + judgment) | Agent owns (legwork) |
+|---|---|---|
+| 1 — Research | **Researches and answers the questions. Writes the decision records** (`Choice` / `Why`). | Generates the question checklist and options/tradeoff tables as raw material — does **not** answer the questions or fill in the choice/rationale. |
+| 2 — Testing plan | Reviews, gives feedback, approves. | Proposes the testing plan. |
+| 3 — Implementation plan | Reviews, gives feedback, approves. | Proposes the ordered steps. |
+| 4 — Tickets | Approves scope. | Writes the flash-ready tickets. |
+| 5 — Execution | Reviews PRs, decides merges. | Implementers code; agent reviews. |
+| 6 — Verification | **Judges against the acceptance criteria.** | Runs suites and reports results. |
+
+This table governs — the `AGENTS.md` "Decision authority" lists say _who decides_;
+this says _who does the work_.
+
+## Traceability
+
+Every build maintains one spine artifact: the **traceability matrix**
+(`plans/UC-XXX/traceability-matrix.md`, from `plans/_TEMPLATES/`). One row per FR/AC
+(and per NFR), threading `FR/AC → RQ/DEC → test → impl ticket → verification`.
+
+**No-orphan rule:** every deliverable must have a named consumer downstream. A
+deliverable that nothing later uses is a defect, not neutral. Concretely:
+
+- Every in-scope FR/AC and NFR has a matrix row.
+- Every in-scope FR/AC and NFR has at least one test (after Phase 2).
+- Every decision (DEC) is consumed by at least one test or implementation step.
+- Every answered research question (RQ) leads to a DEC or a row that uses its result.
+- Every test and implementation ticket maps back to a matrix row.
+
+The matrix is seeded in Phase 1 (rows for every in-scope FR/AC/NFR) and filled in as
+each phase produces its links. **No phase gate closes while the matrix has an orphan
+that phase was responsible for resolving** — this clause is added to every gate below.
+
+## Document rules
+
+Every generated plan document (and the templates in `plans/_TEMPLATES/`) follows four
+rules. They serve two readers at once: a person skimming the file, and an agent that
+re-reads it each phase and pays tokens for every line. The rules are the same because
+the fix is the same — front-load the essential, and never say a thing twice.
+
+1. **Front-load.** The file opens with an `## At a glance` block: the scope, the
+   current status, and a link to the one artifact that matters (usually the matrix).
+   That block is the whole summary — nothing below it is required reading. A person
+   reads it and stops; an agent reads it and only dives deeper if the task needs it.
+2. **Link, don't restate.** One fact lives in one home. A testing plan, an
+   implementation plan, or the flow tracker references a matrix row (by FR/AC id and
+   link) — it never copies the requirement text. Duplication is the biggest token
+   waste and the biggest readability drag (the reader can't tell which copy is
+   authoritative). The matrix is the home for the FR/AC → test → impl spine.
+3. **Fixed section order.** Each template fixes its heading order and the generator
+   keeps it. Predictable anchors let a reader (human or agent) jump to just one
+   section — a gate, a table — instead of reading the whole file.
+4. **Length budget.** Keep each document under about one page. If it grows past that,
+   split it or link out rather than inline more. The budget is what forces rule 2.
+
 ## Phases
 
 ### Phase 1 — Research
@@ -59,15 +120,23 @@ are open.
 
 1. Run skill `research-questions` on the UC to generate a research checklist.
 2. Create the checklist at `plans/UC-XXX/research-checklist.md`.
-3. Create GitHub Issues for each question using the `research-ticket` template.
+3. Seed the traceability matrix at `plans/UC-XXX/traceability-matrix.md` from
+   `plans/_TEMPLATES/traceability-matrix.md` — one row per in-scope FR/AC and NFR.
+4. Create GitHub Issues for each question using the `research-ticket` template.
    Label: `phase:research`, `uc:XXX`.
-4. For technical questions, provide options with a tradeoffs table.
-5. The user researches (with agent help). Each answered question produces either:
+5. The agent provides options with a tradeoffs table for technical questions — as
+   raw material only. It does not answer the questions.
+6. **The user researches and writes the answer.** Each answered question produces
+   either:
    - An update to the research file in `docs/research/`, or
-   - A decision record in `docs/decisions/DEC-NNN-topic.md`.
-6. Close each research ticket when its question is answered or decided.
+   - A decision record in `docs/decisions/DEC-NNN-topic.md` — the user fills in the
+     `Choice` and `Why` in their own words.
+7. Close each research ticket when its question is answered or decided, and record
+   the RQ/DEC link on the matrix row(s) it serves.
 
-**Gate:** all research tickets for this UC are closed.
+**Gate:** all research tickets for this UC are closed; the matrix is seeded with a
+row per in-scope FR/AC/NFR; every answered RQ leads to a DEC or a row that uses its
+result (no orphan research).
 
 ### Phase 2 — Testing plan
 
@@ -96,8 +165,11 @@ are open.
    | Performance tests | After implementation, when NFRs exist | `phase:post-impl` |
 
 5. Close each test stub ticket when the test file exists and the stub runs (red).
+6. Record each test ticket on its matrix row, and note the DEC each test depends on.
 
-**Gate:** all `phase:test-stubs` tickets for this UC are closed.
+**Gate:** all `phase:test-stubs` tickets for this UC are closed; every matrix row
+has at least one test; every in-scope DEC is consumed by at least one test (no
+untested requirement, no orphan decision).
 
 ### Phase 3 — Implementation plan
 
@@ -114,7 +186,8 @@ are open.
    - Which decisions it depends on.
 3. The user reviews and approves the plan.
 
-**Gate:** user approves the implementation plan.
+**Gate:** user approves the implementation plan; every matrix row has at least one
+implementation step (no requirement left unbuilt).
 
 ### Phase 4 — Implementation tickets
 
@@ -134,8 +207,10 @@ are open.
    Label: `phase:post-impl`, `uc:XXX`.
    These are blocked by the implementation tickets they depend on.
 4. Update the flow tracker issue with all ticket numbers.
+5. Fill the matrix Test and Impl columns with the ticket links.
 
-**Gate:** all tickets created and linked.
+**Gate:** all tickets created and linked; the matrix Test/Impl columns are filled;
+no test or implementation ticket exists without a matrix row (no orphan ticket).
 
 ### Phase 5 — Execution and review
 
@@ -170,10 +245,13 @@ are open.
 2. Run smoke tests.
 3. Run E2E tests for the UC's happy path and alternative flows.
 4. Run resilience tests for the UC's failure alternatives.
-5. Verify against the UC's acceptance criteria.
+5. Verify against the UC's acceptance criteria **row by row on the matrix** — tick
+   the Verified column for each AC confirmed on the real code. The user makes this
+   judgment (see "Division of labor").
 6. Close the flow tracker issue.
 
-**Gate:** flow tracker issue closed. UC is done.
+**Gate:** flow tracker issue closed; every matrix row's Verified column is ticked
+(every AC verified end-to-end). UC is done.
 
 ## Flow tracker issue
 

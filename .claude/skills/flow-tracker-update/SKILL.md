@@ -41,6 +41,9 @@ gh issue edit TRACKER_NUMBER --body "..."
 - **Phase 3 gate:** implementation plan ticket closed → note "Phase 3 complete"
 - **Phase 4 gate:** all `phase:impl` tickets closed → note "Phase 4 complete"
 - **Phase 5 gate:** all `phase:post-impl` tickets closed → note "Phase 5 complete"
+- **Phase 6 gate:** every AC row in `plans/UC-XXX/traceability-matrix.md` has its
+  Verified column ticked → note "Phase 6 complete". Mirror the per-AC checklist
+  under "Verified per AC" from the matrix rows.
 
 ### 5. Update the local mirror
 

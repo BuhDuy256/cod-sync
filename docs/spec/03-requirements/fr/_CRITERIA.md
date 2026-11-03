@@ -1,74 +1,83 @@
-# Gate: Yêu cầu chức năng
+# Gate: Functional requirement
 
-Template: `_TEMPLATE.md`. Phong cách: `../../_STYLE.md`. Được trích dẫn bởi: `../../02-use-cases/` (cột FR). Giá trị quy tắc: `../../04-business-rules/`. Mục tiêu chất lượng: `../nfr/`.
+Template: `_TEMPLATE.md`. Style: `../../_STYLE.md`. Cited by: `../../02-use-cases/`
+(the FR column). Rule values: `../../04-business-rules/`. Quality targets: `../nfr/`.
 
-## 1. FR là gì, và không là gì
+## 1. What an FR is, and is not
 
-**FR là phát biểu kiểm thử được của một hành vi hệ thống dưới điều kiện đã nêu.** Nó nói hệ thống hiện, giữ, đổi, tạo hay từ chối gì. Phản hồi use case nói người dùng quan sát gì trong một hành trình; FR thêm độ chính xác mà test cần: input nào, kết quả nào, trường hợp biên nào, điều gì giữ nguyên.
+**An FR is a testable statement of a system behavior under a stated condition.** It says
+what the system shows, keeps, changes, creates, or rejects. A use case response says what
+the user observes in a journey; an FR adds the precision a test needs: which input, which
+result, which edge case, what stays unchanged.
 
-| Nếu nội dung là... | Thì nó thuộc |
+| If the content is... | Then it belongs |
 |---|---|
-| Mục tiêu, hành trình, thứ tự bước, ý định người dùng | `../../02-use-cases/`. Use case trích dẫn FR ở cột FR |
-| Giới hạn, ngưỡng, quota, danh sách cho phép, thời gian giữ | `../../04-business-rules/`. FR trích dẫn `[BR-xxx]`, hoặc `[BR-?: chủ đề]` tới khi quy tắc tồn tại |
-| Thời gian chờ, mục tiêu kích thước, sẵn sàng | `../nfr/`. FR trích dẫn `[NFR-xxx]`, hoặc `[NFR-?: chủ đề]` |
-| Người dùng vận hành thế nào hay nó trông thế nào | Công việc thiết kế UI (chưa có folder) |
-| Hệ thống đạt hành vi thế nào (model, queue, storage, API) | ADR hoặc công việc kiến trúc |
-| Việc cần xây, hay đã xây/test tới đâu | Không ở trong spec. FR không tiến độ, ưu tiên, phiên bản |
+| A goal, journey, step order, or user intent | `../../02-use-cases/`. The use case cites the FR in its FR column |
+| A limit, threshold, quota, allow-list, retention time | `../../04-business-rules/`. The FR cites `[BR-xxx]`, or `[BR-?: topic]` until the rule exists |
+| A wait time, size target, availability | `../nfr/`. The FR cites `[NFR-xxx]`, or `[NFR-?: topic]` |
+| How the user operates it or what it looks like | UI design work (no folder yet) |
+| How the system achieves a behavior (model, queue, storage, API) | ADR or architecture work |
+| What to build, or how far it is built/tested | Not in the spec. An FR has no progress, priority, or version |
 
-Một quy tắc không có giá trị ở lại trong FR, ví dụ "người dùng không thể bắt đầu phiên mới khi một yêu cầu đang chạy". Quy tắc có giá trị thì về `../../04-business-rules/`.
+A rule with no value stays in the FR, e.g. "the user cannot start a new session while a
+request is running". A rule with a value goes to `../../04-business-rules/`.
 
-### Độ hạt và tái sử dụng
+### Granularity and reuse
 
-- **Một FR** có một mục đích gắn kết; kết quả thuộc về nhau và đổi vì cùng lý do.
-- **Tách** FR khi: kết quả có thể tự thất bại dưới điều kiện khác nhau đáng kể; block khác chỉ cần một phần; nó gộp trách nhiệm không liên quan.
-- **Tái dùng** FR khi block khác cần cùng hành vi: cùng loại điều kiện, cùng kết quả mong đợi.
-- **Cùng chữ không phải cùng hành vi.** Chỉ tái dùng khi nghĩa giống nhau.
-- **Không FR trùng.** Trước khi viết, tìm các phát biểu trong folder.
-- **Độ chính xác.** FR có thể nhắc hành vi cốt lõi; điều kiện chấp nhận thêm ít nhất một trong: kết quả quan sát được, điều kiện input liên quan, trường hợp biên, đảm bảo giữ nguyên, hành vi lỗi. FR chỉ lặp use case thì không viết.
+- **One FR** has one cohesive purpose; its results belong together and change for the same reason.
+- **Split** an FR when: results can fail independently under meaningfully different conditions; another block needs only part of it; it bundles unrelated responsibilities.
+- **Reuse** an FR when another block needs the same behavior: the same kind of condition, the same expected result.
+- **Same words is not same behavior.** Reuse only when the meaning is the same.
+- **No duplicate FRs.** Before writing, search the folder for existing statements.
+- **Precision.** An FR may mention the core behavior; an acceptance criterion adds at least one of: an observable result, a relevant input condition, an edge case, a guarantee that holds, error behavior. An FR that only repeats the use case is not written.
 
-### ID và file
+### IDs and files
 
-- Một FR mỗi file: `FR-xxx.md`. `xxx` là ba chữ số. `id` trong frontmatter bằng tên file.
-- ID mới lấy số sau ID cao nhất trong folder và trong ID đã loại bỏ. Khoảng trống giữ nguyên.
-- ID không đổi khi tiêu đề hay lời văn đổi, và không dùng lại.
-- ID chỉ bỏ khi hành vi rời khỏi mô hình hành vi hoặc gộp vào FR khác. ID bỏ ghi ở dưới kèm ngày và, sau khi gộp, FR nó gộp vào.
-- ID điều kiện chấp nhận là `AC-1`, `AC-2` trong một FR, không đánh lại số.
+- One FR per file: `FR-xxx.md`. `xxx` is three digits. The frontmatter `id` equals the file name.
+- A new ID takes the number after the highest ID in the folder and in the removed IDs. Gaps stay as they are.
+- An ID does not change when the title or wording changes, and is not reused.
+- An ID is dropped only when the behavior leaves the behavior model or is merged into another FR. A dropped ID is recorded below with the date and, after a merge, the FR it merged into.
+- Acceptance criterion IDs are `AC-1`, `AC-2` within one FR, not renumbered.
 
-ID FR đã loại bỏ: không có.
+Removed FR IDs: none.
 
-### Liên kết
+### Links
 
-Liên kết chỉ từ trên xuống. Use case trích dẫn FR ở cột FR của bảng Các bước. Một FR có thể phục vụ nhiều block; một block có thể trích dẫn nhiều FR.
+Links are top-down only. A use case cites the FR in the FR column of its Steps table. One
+FR can serve several blocks; one block can cite several FRs.
 
-- FR không gọi tên use case, bước hay nhánh.
-- Để tìm block dùng FR, tìm ID của nó trong `../../02-use-cases/`.
-- FR đổi cùng các block nó phục vụ. Đổi nghĩa FR được kiểm với mọi block trích dẫn nó trong cùng một change.
+- An FR does not name a use case, step, or branch.
+- To find the blocks that use an FR, search for its ID in `../../02-use-cases/`.
+- An FR changes with the blocks it serves. A meaning change to an FR is checked against every block that cites it, in the same change.
 
-## 2. Tiêu chí
+## 2. Criteria
 
-"Kiểm" là lớp dự kiến: *Lint* = máy kiểm được, *Review* = phán đoán người, *CI* = kiểm chéo. Chưa có công cụ nên review làm cả Lint lẫn CI.
+"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment,
+*CI* = cross-check. There is no tool yet, so review does both Lint and CI.
 
-| ID | Tiêu chí | Ngăn chặn | Kiểm |
+| ID | Criterion | Prevents | Check |
 |---|---|---|---|
-| FRG-01 | FR nói một hành vi hệ thống dưới điều kiện đã nêu. Không mục tiêu, journey, giá trị quy tắc, mục tiêu chất lượng, giao diện, kiến trúc, tiến độ hay phiên bản | Yêu cầu nhắc lại hành trình; giá trị ở hai nơi | Review |
-| FRG-02 | Độ hạt theo mục 1: một mục đích gắn kết; tách theo lý do; tái dùng cho cùng hành vi; không FR thứ hai cho hành vi FR đã phủ | FR khổng lồ; một FR mỗi bước theo thói quen; cùng hành vi viết hai lần | Review |
-| FRG-03 | Điều kiện chấp nhận thêm độ chính xác test được vượt qua phản hồi use case: kết quả, input, biên, giữ nguyên, hành vi lỗi | FR chỉ chép use case, không thêm test | Review |
-| FRG-04 | File theo `_TEMPLATE.md`: frontmatter `id` và `title`; trường Yêu cầu theo thứ tự; ít nhất một điều kiện chấp nhận. `Vì sao` trống thì bỏ dòng. `Chưa xác định` và `Ghi chú` bỏ khi trống. Không trường phiên bản, ưu tiên, tiến độ, bằng chứng, use case | File không so/kiểm được | Lint (trường, thứ tự) |
-| FRG-05 | `Trạng thái` là `chốt` hoặc `đề xuất`. Block `đề xuất` có `Vì sao` | Trạng thái phê duyệt không ai định nghĩa | Lint (giá trị, trường) |
-| FRG-06 | FR không chứa giá trị quy tắc hay mục tiêu chất lượng. Nó trích dẫn `[BR-xxx]`/`[NFR-xxx]`, hoặc marker `?`. Input ví dụ trong điều kiện được phép | Cùng giá trị ở nhiều file | Lint (số, marker) + CI (ID tồn tại) |
-| FRG-07 | Mục `Chưa xác định` nêu hành vi bỏ ngỏ một dòng. Không phát biểu và không điều kiện nào giả định kết quả cho nó. Phản hồi phụ thuộc trọn một quyết định mở thì không viết FR; block giữ `FR-?` | Câu hỏi mở thành yêu cầu khi chưa quyết | Review |
-| FRG-08 | Mỗi điều kiện là block `### AC-n · Tên` với Cho trước, Khi, Thì, Kiểm. `Kiểm` là `tất định` hoặc `đánh giá`. `Thì` là kết quả quan sát được, một dòng mỗi ý, không "nếu". Không bắt chính xác lời model | Điều kiện không test được; test gắn với lời model | Lint (trường, giá trị) + Review |
-| FRG-09 | Văn bản theo `../../_STYLE.md` quy tắc 1–10 trong Phát biểu và Thì, và ý định quy tắc 11: không nhãn, vị trí, màu, biểu tượng chưa duyệt; gọi nơi bằng vùng | Yêu cầu chốt thiết kế chưa ai chọn | Lint (từ cấm, từ giao diện) + Review |
-| FRG-10 | Tên file `FR-xxx.md` ba chữ số, bằng frontmatter `id`. ID duy nhất. ID mới theo ID cao nhất hiện có hoặc đã bỏ. ID bỏ ghi ở mục 1, không dùng lại | Hai nghĩa cho một ID | Lint (tên, định dạng) + CI (duy nhất) |
+| FRG-01 | The FR states one system behavior under a stated condition. No goal, journey, rule values, quality targets, interface, architecture, progress, or version | A requirement restating the journey; a value in two places | Review |
+| FRG-02 | Granularity per section 1: one cohesive purpose; split by reason; reuse for the same behavior; no second FR for a behavior an FR already covers | A giant FR; one FR per step out of habit; the same behavior written twice | Review |
+| FRG-03 | An acceptance criterion adds testable precision beyond the use case response: result, input, edge, invariant, error behavior | An FR that only copies the use case, adding no test | Review |
+| FRG-04 | The file follows `_TEMPLATE.md`: frontmatter `id` and `title`; the Requirement fields in order; at least one acceptance criterion. An empty `Why` drops its line. `Undecided` and `Notes` are omitted when empty. No version, priority, progress, evidence, or use case field | A file that cannot be compared or checked | Lint (fields, order) |
+| FRG-05 | `Status` is `confirmed` or `proposed`. A `proposed` block has `Why` | An approval status nobody defined | Lint (value, fields) |
+| FRG-06 | The FR contains no rule values or quality targets. It cites `[BR-xxx]`/`[NFR-xxx]`, or the `?` marker. Example input in a criterion is allowed | The same value in several files | Lint (numbers, markers) + CI (ID exists) |
+| FRG-07 | The `Undecided` section states open behavior one line each. No statement and no criterion assumes a result for it. A response that fully depends on an open decision does not get an FR; the block keeps `FR-?` | An open question becoming a requirement before it is decided | Review |
+| FRG-08 | Each criterion is a `### AC-n · name` block with Given, When, Then, Check. `Check` is `deterministic` or `evaluation`. `Then` is an observable result, one line per thing, no "if". It does not pin the exact model wording | An untestable criterion; a test tied to model wording | Lint (fields, values) + Review |
+| FRG-09 | Text follows `../../_STYLE.md` rules 1–10 in Statement and Then, and the intent of rule 11: no label, position, color, or unapproved icon; name a place by region | A requirement that locks a design nobody chose | Lint (banned words, interface words) + Review |
+| FRG-10 | The file name `FR-xxx.md` is three digits, equal to the frontmatter `id`. The ID is unique. A new ID follows the highest existing or removed ID. A dropped ID is recorded in section 1, not reused | Two meanings for one ID | Lint (name, format) + CI (unique) |
 
-## 3. Minh hoạ
+## 3. Illustrations
 
-**FRG-02: tái dùng cho cùng hành vi.**
+**FRG-02: reuse for the same behavior.**
 
-> Không đạt: một FR "giữ tiến độ sau khi dừng" cho lần nghe đầu, và FR thứ hai cùng nghĩa cho lần nghe tiếp.
-> Đạt: một FR "khi bị gián đoạn, tiến độ đã lưu được giữ nguyên và không bị ghi đè bằng tiến độ chưa xong". Mọi block có thể bị dừng đều trích dẫn nó.
+> Fail: one FR "keep progress after stopping" for the first listen, and a second FR with
+> the same meaning for a later listen.
+> Pass: one FR "when interrupted, the saved progress is kept and not overwritten by
+> unfinished progress". Every block that can be stopped cites it.
 
-**FRG-09: hành vi, không thiết kế.**
+**FRG-09: behavior, not design.**
 
-> Không đạt: "Nút Phát bị mờ khi chưa có audio."
-> Đạt: "Hệ thống không nhận yêu cầu phát khi chưa có audio."
+> Fail: "The Play button is greyed out when there is no audio."
+> Pass: "The system does not accept a playback request when there is no audio."

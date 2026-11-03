@@ -1,88 +1,106 @@
-# Gate: Yêu cầu phi chức năng
+# Gate: Non-functional requirement
 
-Template: `_TEMPLATE.md`. Phong cách: `../../_STYLE.md`. Được trích dẫn bởi: `../../02-use-cases/`, `../fr/`, `../../01-product-vision/`. Giá trị quy tắc: `../../04-business-rules/`.
+Template: `_TEMPLATE.md`. Style: `../../_STYLE.md`. Cited by: `../../02-use-cases/`,
+`../fr/`, `../../01-product-vision/`. Rule values: `../../04-business-rules/`.
 
-## 1. NFR là gì, và không là gì
+## 1. What an NFR is, and is not
 
-**NFR là ràng buộc chất lượng cấp sản phẩm.** Nó nói sản phẩm phải nhanh, đáng tin, bảo mật, riêng tư, chính xác hay dễ tiếp cận tới mức nào, dưới điều kiện đã nêu. Nó được kiểm chứng bằng một phép đo so với mục tiêu, hoặc một kiểm tra thuộc tính bắt buộc.
+**An NFR is a product-level quality constraint.** It says how fast, reliable, secure,
+private, accurate, or accessible the product must be, under a stated condition. It is
+verified by a measure against a target, or by a check of a required property.
 
-### Khi nào viết NFR
+### When to write an NFR
 
-Một đại lượng đo được không tự cần NFR. Chỉ viết khi cả bốn đúng:
+A measurable quantity does not need an NFR on its own. Write one only when all four hold:
 
-1. Một cam kết sản phẩm cần chất lượng đó, hoặc một rủi ro sản phẩm đã nêu biện minh cho nó.
-2. Chất lượng đó đo hoặc kiểm được.
-3. Nó thêm ràng buộc chất lượng độc lập cấp sản phẩm; không chỉ lặp hành vi hay điều kiện chấp nhận của FR.
-4. Mục tiêu đổi chất lượng sản phẩm cho người dùng. Người dùng không cần thấy: ràng buộc bảo mật, riêng tư, độ tin cậy bảo vệ người dùng mà không hiển thị.
+1. A product commitment needs that quality, or a stated product risk justifies it.
+2. The quality is measurable or checkable.
+3. It adds an independent product-level quality constraint; it does not just repeat an FR's behavior or acceptance criterion.
+4. The target changes product quality for the user. The user need not see it: security, privacy, and reliability constraints protect the user without being visible.
 
-Đại lượng không qua test đầu tiên ở lại trong FR, UI hoặc công việc kỹ thuật. Hành vi mang nghĩa bảo mật (như không hiện khóa) là FR. Mục tiêu chất lượng đầu ra model chỉ là NFR khi bạn biến nó thành cam kết sản phẩm.
+A quantity that fails the first test stays in an FR, the UI, or engineering work.
+Behavior with security meaning (like not showing a key) is an FR. A model-output quality
+target is an NFR only when you make it a product commitment.
 
-### Nội dung thuộc đâu
+### Where content belongs
 
-| Nếu nội dung là... | Thì nó thuộc |
+| If the content is... | Then it belongs |
 |---|---|
-| Hệ thống hiện, giữ, đổi, tạo hay từ chối gì, và khi nào | `../fr/`. FR trích dẫn NFR này |
-| Tập cho phép, giới hạn, quota, thời gian giữ một quy tắc định nghĩa | `../../04-business-rules/` |
-| Mục tiêu, hành trình, bước người dùng | `../../02-use-cases/` |
-| Metric nhóm dùng để xây/chạy code, không hứa với người dùng | Không ở spec. Công việc kỹ thuật |
-| Ngưỡng dùng để so/chọn/tinh chỉnh model khi nghiên cứu | Không ở spec. Công việc nghiên cứu |
-| Hệ thống đạt mục tiêu thế nào: engine, storage, framework, công cụ | ADR hoặc công việc kiến trúc |
-| Sản phẩm trông thế nào hay người dùng vận hành thế nào | Công việc thiết kế UI (chưa có folder) |
+| What the system shows, keeps, changes, creates, or rejects, and when | `../fr/`. The FR cites this NFR |
+| An allow-set, limit, quota, retention time a rule defines | `../../04-business-rules/` |
+| A goal, journey, or user step | `../../02-use-cases/` |
+| A metric the team uses to build/run code, not promised to the user | Not in the spec. Engineering work |
+| A threshold used to compare/choose/tune a model during research | Not in the spec. Research work |
+| How the system reaches a target: engine, storage, framework, tool | ADR or architecture work |
+| What the product looks like or how the user operates it | UI design work (no folder yet) |
 
-### Độ hạt và phép đo
+### Granularity and measures
 
-- **Một NFR** phủ một thuộc tính chất lượng cho một phần sản phẩm gắn kết.
-- **Nhiều phép đo** có thể chung một NFR khi chúng kiểm cùng chất lượng dưới điều kiện khác nhau.
-- **Tách** NFR gộp nhiều thuộc tính chất lượng, hay phần sản phẩm đổi vì lý do không liên quan.
-- **Không trùng.** Trước khi viết, tìm các phát biểu trong folder.
+- **One NFR** covers one quality attribute for one cohesive part of the product.
+- **Several measures** can share one NFR when they check the same quality under different conditions.
+- **Split** an NFR that bundles several quality attributes, or a product part that changes for unrelated reasons.
+- **No duplicate.** Before writing, search the folder for existing statements.
 
-Mỗi phép đo là block `### M-n · Tên` với Điều kiện, Đo, Cách đo, Mục tiêu, Đạt khi. `Điều kiện`, `Đo`, `Cách đo` phải đủ rõ để kiểm chứng; `Mục tiêu` và `Đạt khi` có thể `chưa đặt` khi chờ. Không đoán số, dải hay "khoảng" (NFG-04).
+Each measure is a `### M-n · name` block with Condition, Measure, How to measure, Target,
+Passes when. `Condition`, `Measure`, `How to measure` must be clear enough to verify;
+`Target` and `Passes when` may be `not set` while pending. Do not guess a number, a
+range, or "about" (NFG-04).
 
-### ID và file
+### IDs and files
 
-- Một NFR mỗi file: `NFR-xxx.md`. `xxx` ba chữ số. `id` bằng tên file.
-- ID mới theo ID cao nhất hiện có hoặc đã bỏ. ID không đổi khi tiêu đề hay mục tiêu đổi, không dùng lại, không đánh lại số.
-- ID chỉ bỏ khi yêu cầu rời mô hình hành vi hoặc gộp vào NFR khác. ID bỏ ghi ở dưới kèm ngày và NFR nó gộp vào.
-- ID phép đo là `M-1`, `M-2` trong một NFR, không đánh lại số.
+- One NFR per file: `NFR-xxx.md`. `xxx` is three digits. The `id` equals the file name.
+- A new ID follows the highest existing or removed ID. An ID does not change when the title or target changes, is not reused, and is not renumbered.
+- An ID is dropped only when the requirement leaves the behavior model or is merged into another NFR. A dropped ID is recorded below with the date and the NFR it merged into.
+- Measure IDs are `M-1`, `M-2` within one NFR, not renumbered.
 
-ID NFR đã loại bỏ: không có.
+Removed NFR IDs: none.
 
-### Liên kết
+### Links
 
-Liên kết chỉ từ trên xuống. Use case (Hệ thống hoặc Khi), FR hoặc tầm nhìn trích dẫn NFR bằng `[NFR-xxx]`.
+Links are top-down only. A use case (System or When), an FR, or the vision cites an NFR
+with `[NFR-xxx]`.
 
-- NFR không gọi tên use case, bước, nhánh, FR hay NFR khác. Nó có thể trích dẫn BR trong Điều kiện.
-- Để tìm thứ trích dẫn NFR, tìm ID của nó trong các file spec.
+- An NFR does not name a use case, step, branch, FR, or another NFR. It may cite a BR in a Condition.
+- To find what cites an NFR, search for its ID in the spec files.
 
-### Một nguồn chân lý
+### One source of truth
 
-Mục tiêu nằm ở đúng một NFR. Use case, FR, tầm nhìn không bao giờ nêu nó hay diễn giải thành số; chúng trích dẫn ID. Marker `[NFR-?: chủ đề]` chỉ được thay bằng `[NFR-xxx]` khi NFR phủ trọn nghĩa của marker; phủ một phần thì marker giữ nguyên và báo phần thiếu.
+A target lives in exactly one NFR. A use case, FR, or vision never states it or
+interprets it into a number; they cite the ID. The marker `[NFR-?: topic]` is replaced by
+`[NFR-xxx]` only when the NFR fully covers the marker's meaning; on partial coverage the
+marker stays and the missing part is reported.
 
-## 2. Tiêu chí
+## 2. Criteria
 
-"Kiểm" là lớp dự kiến: *Lint* = máy kiểm được, *Review* = phán đoán người, *CI* = kiểm chéo. Chưa có công cụ nên review làm cả Lint lẫn CI.
+"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment,
+*CI* = cross-check. There is no tool yet, so review does both Lint and CI.
 
-| ID | Tiêu chí | Ngăn chặn | Kiểm |
+| ID | Criterion | Prevents | Check |
 |---|---|---|---|
-| NFG-01 | NFR nói một chất lượng cấp sản phẩm dưới điều kiện đã nêu. Nó thêm ràng buộc riêng, không lặp FR. Không giá trị quy tắc, mục tiêu, journey, giao diện, kiến trúc, metric kỹ thuật, tiến độ, phiên bản | Hành vi hay giới hạn viết hai lần | Review |
-| NFG-02 | NFR qua bốn test ở mục 1 | NFR viết cho mọi chất lượng theo thói quen | Review |
-| NFG-03 | Độ hạt theo mục 1: một thuộc tính cho một phần gắn kết; nhiều phép đo cho cùng chất lượng; không trùng | NFR khổng lồ; cùng mục tiêu ở hai file | Review |
-| NFG-04 | File theo `_TEMPLATE.md`: frontmatter `id` và `title`; trường Yêu cầu theo thứ tự; ít nhất một phép đo. Chỉ `Mục tiêu` và `Đạt khi` được `chưa đặt`. `Vì sao` trống thì bỏ dòng. `Chưa xác định` và `Ghi chú` bỏ khi trống | File không so/kiểm được | Lint (trường, thứ tự) |
-| NFG-05 | Mỗi phép đo định nghĩa trọn: Điều kiện lặp được, Đo và Cách đo đủ để kiểm chứng. Mục tiêu có đơn vị và cận hoặc là thuộc tính bắt buộc. Biên sản-phẩm-kiểm-soát hay đầu-cuối và điều kiện phụ thuộc provider được nêu; thời gian provider không bỏ lặng. Không công cụ, không kiến trúc | Yêu cầu không kiểm chứng được; thời gian provider bị hứa là kết quả sản phẩm | Review |
-| NFG-06 | Mục tiêu chờ ghi `chưa đặt` ở Mục tiêu và Đạt khi. Không đoán số, dải hay "khoảng". Không file nào trình nó như mục tiêu đã duyệt | Mục tiêu bịa; mục tiêu mở bị đọc là đã quyết | Lint (`chưa đặt`) + Review |
-| NFG-07 | Mục `Chưa xác định` nêu khía cạnh mở không phải mục tiêu, một dòng, kết thúc "Chờ chốt." hoặc "Chờ bằng chứng kỹ thuật." cho định nghĩa thiếu bằng chứng. Mục tiêu thiếu là `chưa đặt`, không phải mục ở đây | Câu hỏi mở thành mục tiêu khi chưa quyết | Review |
-| NFG-08 | Tên file `NFR-xxx.md` ba chữ số, bằng frontmatter `id`. ID duy nhất, không đánh lại số. ID bỏ ghi ở mục 1, không dùng lại. NFR không gọi tên use case, bước, nhánh, FR hay NFR khác | Hai nghĩa một ID; liên kết trỏ lên | Lint (tên, định dạng) + CI (duy nhất) |
-| NFG-09 | Văn bản theo `../../_STYLE.md` quy tắc 1–10 trong Phát biểu, Điều kiện, Đo và Mục tiêu. Không giao diện (quy tắc 11) | Yêu cầu hai nghĩa; thiết kế bị chốt qua mục tiêu chất lượng | Lint (từ cấm) + Review |
+| NFG-01 | The NFR states one product-level quality under a stated condition. It adds its own constraint, not a repeat of an FR. No rule values, goal, journey, interface, architecture, engineering metric, progress, or version | A behavior or limit written twice | Review |
+| NFG-02 | The NFR passes the four tests in section 1 | An NFR written for every quality out of habit | Review |
+| NFG-03 | Granularity per section 1: one attribute for one cohesive part; several measures for the same quality; no duplicate | A giant NFR; the same target in two files | Review |
+| NFG-04 | The file follows `_TEMPLATE.md`: frontmatter `id` and `title`; the Requirement fields in order; at least one measure. Only `Target` and `Passes when` may be `not set`. An empty `Why` drops its line. `Undecided` and `Notes` are omitted when empty | A file that cannot be compared or checked | Lint (fields, order) |
+| NFG-05 | Each measure is fully defined: a repeatable Condition, a Measure and How to measure sufficient to verify. The Target has a unit and bound or is a required property. The product-controlled or end-to-end boundary and provider-dependent conditions are stated; provider time is not silently hidden. No tool, no architecture | An unverifiable requirement; provider time promised as a product result | Review |
+| NFG-06 | A pending target reads `not set` in Target and Passes when. No guessed number, range, or "about". No file presents it as an approved target | A made-up target; an open target read as decided | Lint (`not set`) + Review |
+| NFG-07 | The `Undecided` section states an open aspect that is not a target, one line, ending "Pending decision." or "Pending technical evidence." for a definition lacking evidence. A missing target is `not set`, not an item here | An open question becoming a target before it is decided | Review |
+| NFG-08 | The file name `NFR-xxx.md` is three digits, equal to the frontmatter `id`. The ID is unique and not renumbered. A dropped ID is recorded in section 1, not reused. The NFR does not name a use case, step, branch, FR, or another NFR | Two meanings for one ID; a link pointing up | Lint (name, format) + CI (unique) |
+| NFG-09 | Text follows `../../_STYLE.md` rules 1–10 in Statement, Condition, Measure, and Target. No interface (rule 11) | A requirement read two ways; a design locked via a quality target | Lint (banned words) + Review |
 
-## 3. Minh hoạ
+## 3. Illustrations
 
-**NFG-05: phép đo sản-phẩm-kiểm-soát.**
+**NFG-05: a product-controlled measure.**
 
-> NFR-000 · Thuộc tính chất lượng: hiệu năng · Phát biểu: người dùng thấy hệ thống bắt đầu nghe ngay sau khi chọn chương.
-> M-1 · Điều kiện: chương đã có audio trên thiết bị, mạng ổn định. Biên: sản-phẩm-kiểm-soát — chỉ đo tới khi hệ thống bắt đầu phát, không tính thời gian provider tạo audio mới.
-> Đo: thời gian từ chọn chương tới khi có âm thanh. Cách đo: lặp lại việc chọn cùng chương.
+> NFR-000 · Quality attribute: performance · Statement: the user sees the system start
+> listening right after picking a chapter.
+> M-1 · Condition: the chapter already has audio on the device, network stable. Boundary:
+> product-controlled — measure only up to the system starting playback, not the provider
+> time to generate new audio.
+> Measure: time from picking a chapter to audio starting. How to measure: repeat picking
+> the same chapter.
 
-**NFG-02: không phải đại lượng nào cũng là NFR.**
+**NFG-02: not every quantity is an NFR.**
 
-> Không đạt: NFR chốt dung lượng bộ nhớ hệ thống dùng khi chạy. Không cam kết sản phẩm hay rủi ro nào cần nó.
-> Đạt: không NFR. Nhóm theo dõi nó như công việc kỹ thuật, ngoài spec.
+> Fail: an NFR fixing the system's runtime memory use. No product commitment or risk needs
+> it.
+> Pass: no NFR. The team tracks it as engineering work, outside the spec.

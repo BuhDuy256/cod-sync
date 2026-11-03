@@ -4,36 +4,36 @@ title: ""
 updated: DD-MM-YYYY
 ---
 
-<!-- BR định nghĩa giá trị mà hành vi sản phẩm phụ thuộc (BRG-01): tập cho phép, giới hạn, ngưỡng, quota, thời gian giữ, hay danh sách.
-     Không hành vi (đó là FR), không mục tiêu chất lượng (đó là NFR), không giao diện, không kiến trúc, không tiến độ.
-     File này không gọi tên use case, bước, nhánh, FR, NFR hay BR khác. Nơi khác trích dẫn [BR-xxx].
-     Trước khi viết, tìm các phát biểu và giá trị trong folder; một giá trị định nghĩa một lần (BRG-02).
-     Viết theo docs/spec/_STYLE.md. -->
+<!-- A BR defines a value that product behavior depends on (BRG-01): an allow-set, limit, threshold, quota, retention time, or list.
+     No behavior (that is an FR), no quality target (that is an NFR), no interface, no architecture, no progress.
+     This file does not name a use case, step, branch, FR, NFR, or another BR. Other files cite [BR-xxx].
+     Before writing, search the folder for existing statements and values; a value is defined once (BRG-02).
+     Write per docs/spec/_STYLE.md. -->
 
-## Quy tắc
+## Rule
 
-<!-- Phát biểu: quy tắc quản điều gì, không kèm giá trị. Không lặp hành vi của FR áp dụng nó.
-     Trạng thái: chốt | đề xuất. Vì sao tuỳ chọn, bỏ dòng khi không cần. -->
+<!-- Statement: what the rule governs, without the value. Do not repeat the behavior of the FR that applies it.
+     Status: confirmed | proposed. Why optional, drop the line when no reason is needed. -->
 
-- **Phát biểu:**
-- **Trạng thái:** chốt
-- **Vì sao:**
+- **Statement:**
+- **Status:** confirmed
+- **Why:**
 
-## Giá trị
+## Values
 
-<!-- Ít nhất một. Một block mỗi giá trị: "### V-n · Tên". ID không đánh lại số (BRG-08).
-     Giá trị chính xác: số có đơn vị; cận nói gồm hay không giới hạn ("tối đa", "ít hơn"); danh sách nói đóng hay mở.
-     Giá trị chưa chốt ghi "chưa đặt". Không đoán số, dải hay "khoảng" (BRG-03). -->
+<!-- At least one. One block per value: "### V-n · name". IDs are not renumbered (BRG-08).
+     Exact value: a number with unit; a bound saying inclusive or unbounded ("at most", "fewer than"); a list saying closed or open.
+     A value not yet settled reads "not set". Do not guess a number, a range, or "about" (BRG-03). -->
 
-### V-1 · Tên giá trị
+### V-1 · value name
 
-- **Giá trị:** chưa đặt
+- **Value:** not set
 
-## Chưa xác định
+## Undecided
 
-<!-- Khía cạnh bỏ ngỏ không phải giá trị, một dòng mỗi ý, kết thúc "Chờ chốt." Giá trị chưa quyết là "chưa đặt", không phải mục ở đây.
-     Bỏ phần này nếu trống. -->
+<!-- An open aspect that is not a value, one line per item, ending "Pending decision." An undecided value is "not set", not an item here.
+     Omit this section if empty. -->
 
-## Ghi chú
+## Notes
 
-<!-- Chỉ điều không thuộc phát biểu lẫn giá trị, ví dụ tách hay gộp. Bỏ phần này nếu trống. -->
+<!-- Only what belongs in neither the statement nor a value, e.g. a split or merge. Omit this section if empty. -->
