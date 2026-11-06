@@ -10,14 +10,9 @@ updated: 2026-11-03
 
 ## 1. Overview
 
-The system helps small and medium online shops that send COD parcels through several
-carriers know exactly where their money is, whether it has all arrived, what is wrong,
-and why. Reconciliation is the core; order, waybill, and status tracking are the
-foundation; a simulated wallet and risk scoring are extensions.
+The system helps small and medium online shops that send COD parcels through several carriers know exactly where their money is, whether it has all arrived, what is wrong, and why. Reconciliation is the core; order, waybill, and status tracking are the foundation; a simulated wallet and risk scoring are extensions.
 
-This is a practice project to grow software-engineering skill and financial-domain
-knowledge. It does not aim to compete with commercial products such as Sapo, Haravan, or
-Nhanh.vn.
+This is a practice project to grow software-engineering skill and financial-domain knowledge. It does not aim to compete with commercial products such as Sapo, Haravan, or Nhanh.vn.
 
 ## 2. Why this topic
 
@@ -46,8 +41,7 @@ Nhanh.vn.
 
 ## 3. Context
 
-One COD order with one carrier, from dispatch until the shop receives its money. Problems
-P1-P5 attach to the step where they arise.
+One COD order with one carrier, from dispatch until the shop receives its money. Problems P1-P5 attach to the step where they arise.
 
 ```mermaid
 sequenceDiagram
@@ -74,9 +68,7 @@ sequenceDiagram
     Note over S: P5
 ```
 
-When a shop uses several carriers at once, each carrier has its own reconciliation
-schedule (for example GHN reconciles daily, GHTK a few times a week). The diagram shows
-only the tail of the process, problems P6-P9.
+When a shop uses several carriers at once, each carrier has its own reconciliation schedule (for example GHN reconciles daily, GHTK a few times a week). The diagram shows only the tail of the process, problems P6-P9.
 
 ```mermaid
 sequenceDiagram
@@ -116,23 +108,18 @@ sequenceDiagram
 with the staff and accountants in charge of orders and money.
 
 **Value:** The shop always knows where its money is, whether it has all arrived, what is
-wrong, and why. Problems are found as they arise instead of at period close, and evidence
-is ready for a complaint before the deadline.
+wrong, and why. Problems are found as they arise instead of at period close, and evidence is ready for a complaint before the deadline.
 
 ## 6. What is new
 
-- **Depth:** reconciliation is the core, not a side feature of a sales suite; the core is
-  built in-house, with measurable accuracy and performance.
-- **AI:** understands reconciliation files in unfamiliar formats and explains in words why
-  an order is off; it is an assistive feature only.
-- **Simulated wallet and payout:** the system stands between carrier and shop to hold and
-  release money, forcing every error to be caught at the source.
+- **Depth:** reconciliation is the core, not a side feature of a sales suite; the core is built in-house, with measurable accuracy and performance.
+- **AI:** understands reconciliation files in unfamiliar formats and explains in words why an order is off; it is an assistive feature only.
+- **Simulated wallet and payout:** the system stands between carrier and shop to hold and release money, forcing every error to be caught at the source.
 
 ## 7. Scope
 
 **Yardstick:** a part is included if the reconciliation core needs it to run end to end;
-it is not excluded merely because someone else already does it well. Development proceeds
-by version, from the core outward; each version's content is settled during spec writing.
+it is not excluded merely because someone else already does it well. Development proceeds by version, from the core outward; each version's content is settled during spec writing.
 
 | Group | Content |
 |---|---|
@@ -156,31 +143,20 @@ by version, from the core outward; each version's content is settled during spec
 
 **Integration principles**
 
-- Use a real API when it is free, self-registerable, and needs no one to contact (for
-  example a GHN staging account that can be created to make orders and compute fees with
-  test data).
-- Simulate the rest, staying close to the carriers' public API documentation: webhook
-  format, status codes, reason codes, weight-change / fee / COD events.
-- The core works only through adapters; it does not know whether it is talking to a real
-  or a simulated carrier. No core function depends on an external system.
+- Use a real API when it is free, self-registerable, and needs no one to contact (for example a GHN staging account that can be created to make orders and compute fees with test data).
+- Simulate the rest, staying close to the carriers' public API documentation: webhook format, status codes, reason codes, weight-change / fee / COD events.
+- The core works only through adapters; it does not know whether it is talking to a real or a simulated carrier. No core function depends on an external system.
 
 **Simulated components**
 
-- **Carrier:** each carrier has its own behavior (period-close schedule, reconciliation
-  file format, duplicate or out-of-order webhooks) and can be made to inject errors on
-  demand.
+- **Carrier:** each carrier has its own behavior (period-close schedule, reconciliation file format, duplicate or out-of-order webhooks) and can be made to inject errors on demand.
 - **Bank:** generates statements with lumped transfers.
 
 **Validation, to avoid fooling ourselves**
 
-- **Sourced anomaly catalog:** each anomaly type comes from a carrier's API documentation
-  or reconciliation business documentation, with the source recorded.
-- **Data generator kept separate from the engine:** the generator plants errors with an
-  answer-key label; the engine does not know which errors were planted. Measure per error
-  type, not as one aggregate number.
-- **Invariant checks:** for example, money collected on behalf always equals fees plus
-  money already transferred to the shop plus money still held. The invariant holds no
-  matter how the data was generated.
+- **Sourced anomaly catalog:** each anomaly type comes from a carrier's API documentation or reconciliation business documentation, with the source recorded.
+- **Data generator kept separate from the engine:** the generator plants errors with an answer-key label; the engine does not know which errors were planted. Measure per error type, not as one aggregate number.
+- **Invariant checks:** for example, money collected on behalf always equals fees plus money already transferred to the shop plus money still held. The invariant holds no matter how the data was generated.
 
 ## 10. Value-assessment criteria
 
@@ -220,13 +196,11 @@ The numbers below are targets, to be settled during spec writing.
 - Can only recount features, not numbers or trade-offs.
 - 100% accuracy on self-generated data that follows the engine's own rules.
 - Many versions but none complete and demoable.
-- Cannot answer "what if the webhook arrives twice?" or "what if money arrives before the
-  status?".
+- Cannot answer "what if the webhook arrives twice?" or "what if money arrives before the status?".
 
 ## 11. Limits when presenting
 
 - No real users.
-- Carriers and the bank are mostly simulated from public API documentation; real APIs are
-  used only where they are free and self-registerable.
+- Carriers and the bank are mostly simulated from public API documentation; real APIs are used only where they are free and self-registerable.
 - Accuracy is measured on a sourced anomaly catalog, not verified against production data.
 - The wallet and payout are simulated only; no real money is handled.

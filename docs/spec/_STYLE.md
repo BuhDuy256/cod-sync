@@ -1,7 +1,6 @@
 # Spec writing rules
 
-Applies to every file in `docs/spec/`. Rules 5 and 7 apply to the `System` and `When`
-fields of a use case. Rule 11 applies to the whole use case.
+Applies to every file in `docs/spec/`. Rules 5 and 7 apply to the `System` and `When` fields of a use case. Rule 11 applies to the whole use case.
 
 **Why:** each sentence must have one meaning, so one system response becomes one
 testable requirement. Everyday words do both.
@@ -22,8 +21,7 @@ testable requirement. Everyday words do both.
 | 10 | **Evidence on its own line.** One tag per claim. Never mid-sentence. | "…the carrier balance stays at the old value `[observed: …]`, and does not include the new transfer." | `- **Evidence:** [observed: ghn-dashboard (balance unchanged after a transfer)]` |
 | 11 | **Intent and response, not interface.** The user side says what the user wants. The system side says what the system reports, keeps, changes, or creates. Never name a widget, gesture, position, style, or label. Name a place only by region (see Regions). If an interface detail carries a requirement, write the requirement. | "The user opens the menu and picks a carrier statement." "Open the discrepancy view in the bottom corner." "Show a card with a retry button." | "The user picks a carrier statement." "Open the discrepancy view. The open discrepancies stay unchanged." "Let the user retry the import." |
 
-Rules 4 to 7 keep a response testable. Rules 1 to 3 and 6 keep it readable. Rule 11
-keeps the spec correct when the design changes.
+Rules 4 to 7 keep a response testable. Rules 1 to 3 and 6 keep it readable. Rule 11 keeps the spec correct when the design changes.
 
 ## Evidence tags
 
@@ -34,25 +32,17 @@ written in prose:
 - `[inferred: <source>]` — inferred from observed facts
 - `[assumed]` or `[assumed: <what>]` — no evidence yet
 
-In a list (usage context, knowledge, …), the last line can be a single
-`- **Evidence:** [assumed]`. It counts for every item above it without its own Evidence
-line.
+In a list (usage context, knowledge, …), the last line can be a single `- **Evidence:** [assumed]`. It counts for every item above it without its own Evidence line.
 
 ## Regions
 
-A region is a place that holds one kind of information. It is defined by what it holds,
-never by where it is or what it looks like. The list is closed; each product declares
-its own regions in the glossary. The project has no settled regions yet.
+A region is a place that holds one kind of information. It is defined by what it holds, never by where it is or what it looks like. The list is closed; each product declares its own regions in the glossary. The project has no settled regions yet.
 
-A use case may say something is shown, kept, or changed in a region. It must not say how
-a region is laid out or navigated to. To add a region, add a row to the glossary and say
-what it holds.
+A use case may say something is shown, kept, or changed in a region. It must not say how a region is laid out or navigated to. To add a region, add a row to the glossary and say what it holds.
 
 ## Glossary
 
-Use these words for these things. Add a row when a new word is needed. Do not add a
-synonym. A word never names a widget, gesture, position, or style. This table starts
-empty; each project declares its own terms and adds to them as it learns.
+Use these words for these things. Add a row when a new word is needed. Do not add a synonym. A word never names a widget, gesture, position, or style. This table starts empty; each project declares its own terms and adds to them as it learns.
 
 | Term | Meaning |
 |---|---|
@@ -63,22 +53,16 @@ empty; each project declares its own terms and adds to them as it learns.
 
 There is no tool yet, so review does this. There are two groups of checks.
 
-**Wording.** Run on the `System` and `When` fields, and on `Situation and goal`. Each
-hit is fixed or given a recorded reason.
+**Wording.** Run on the `System` and `When` fields, and on `Situation and goal`. Each hit is fixed or given a recorded reason.
 
 ```
 handle|manage|support|ensure|process|carry out|appropriate|properly|smoothly|can|could|should|might|may
 ```
 
-**Interface (rule 11).** Run on the whole use case, except the frontmatter, the
-generated block, and the `Research link` line. Each hit is rewritten as intent or
-response. A hit that is not interface language (e.g. "right" in "right-to-left text")
-gets a recorded reason.
+**Interface (rule 11).** Run on the whole use case, except the frontmatter, the generated block, and the `Research link` line. Each hit is rewritten as intent or response. A hit that is not interface language (e.g. "right" in "right-to-left text") gets a recorded reason.
 
 ```
 button|click|tap|swipe|scroll|menu|dropdown|dialog|popup|tab|sidebar|toolbar|card|chip|icon|toggle|checkbox|screen|page|corner|above|below|left|right|label|input field
 ```
 
-Then apply the **swap test** to each sentence: imagine the same product with a different
-interface, e.g. touch-only or voice-only. If the sentence is still true, it passes. If
-not, it describes the interface and is rewritten.
+Then apply the **swap test** to each sentence: imagine the same product with a different interface, e.g. touch-only or voice-only. If the sentence is still true, it passes. If not, it describes the interface and is rewritten.

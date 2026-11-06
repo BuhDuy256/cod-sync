@@ -23,11 +23,7 @@ created: DD-MM-YYYY
 
 ## How to use
 
-Each question is tied to the FR/NFR it serves. **The user researches and answers** —
-the agent supplies only the questions and the options tables as raw material. The agent
-does not answer for the user and does not fill in `Choice`/`Why` of a decision record
-(see WORKFLOW.md "Division of labor"). The deliverable files are created ahead of time —
-open the file and fill the empty fields.
+Each question is tied to the FR/NFR it serves. **The user researches and answers** — the agent supplies only the questions and the options tables as raw material. The agent does not answer for the user and does not fill in `Choice`/`Why` of a decision record (see WORKFLOW.md "Division of labor"). The deliverable files are created ahead of time — open the file and fill the empty fields.
 
 ## Flow model
 

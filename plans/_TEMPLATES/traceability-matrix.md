@@ -6,14 +6,10 @@ created: DD-MM-YYYY
 
 # Traceability matrix — {scope}
 
-The build's traceability spine. One row per in-scope FR/AC (and per NFR), threading
-requirement → research/decision → test → implementation ticket → verification.
+The build's traceability spine. One row per in-scope FR/AC (and per NFR), threading requirement → research/decision → test → implementation ticket → verification.
 
 **No-orphan rule:** every deliverable must have a consumer downstream. No phase gate
-closes while a row is missing a link that phase was responsible for producing (see
-WORKFLOW.md "Traceability"). This matrix is the home for the spine — other plan
-documents link to its rows instead of restating requirements (WORKFLOW.md "Document
-rules").
+closes while a row is missing a link that phase was responsible for producing (see WORKFLOW.md "Traceability"). This matrix is the home for the spine — other plan documents link to its rows instead of restating requirements (WORKFLOW.md "Document rules").
 
 ## At a glance
 
@@ -34,12 +30,10 @@ rules").
 
 ## Columns
 
-- **FR / AC** — one row per in-scope acceptance criterion. An NFR with no AC uses the
-  NFR itself as the row.
+- **FR / AC** — one row per in-scope acceptance criterion. An NFR with no AC uses the NFR itself as the row.
 - **RQ** — the answered research question for this row (may be empty if none was needed).
 - **DEC** — the decision that shaped this row (may be empty if none).
-- **Test (ticket)** — the acceptance/security test that proves the AC. **Required:** every
-  in-scope FR/AC and every NFR has at least one test.
+- **Test (ticket)** — the acceptance/security test that proves the AC. **Required:** every in-scope FR/AC and every NFR has at least one test.
 - **Impl (ticket)** — the implementation ticket that makes this row pass.
 - **Verified** — `[x]` once Phase 6 has confirmed this AC on the real code.
 

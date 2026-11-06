@@ -22,8 +22,7 @@ Also needs:
 
 ### 1. Read the plan document
 
-Extract each item that needs a ticket: questions, test stubs, implementation steps,
-or post-impl tests.
+Extract each item that needs a ticket: questions, test stubs, implementation steps, or post-impl tests.
 
 ### 2. Create issues using `gh`
 
@@ -38,15 +37,12 @@ gh issue create \
 ```
 
 The body follows the matching template in `.github/ISSUE_TEMPLATE/`:
-- Research questions → `research-ticket.md` (includes a Mermaid sequence diagram
-  showing the UC flow with the relevant step highlighted)
+- Research questions → `research-ticket.md` (includes a Mermaid sequence diagram showing the UC flow with the relevant step highlighted)
 - Test stubs → `test-stub-ticket.md`
 - Implementation steps → `implementation-ticket.md`
 - Post-impl tests → `post-impl-test-ticket.md`
 
-For **research tickets**, the flow diagram is generated from the flow model in the
-research checklist. The same base diagram is reused across related questions — only
-the highlighted `rect` moves to the step each question comes from.
+For **research tickets**, the flow diagram is generated from the flow model in the research checklist. The same base diagram is reused across related questions — only the highlighted `rect` moves to the step each question comes from.
 
 ### 3. Set dependencies
 
@@ -62,13 +58,7 @@ Add each created issue to the flow tracker issue body under the correct phase.
 
 ### 5. Update the local mirror
 
-Update `plans/UC-XXX/flow-tracker.md` with the new ticket numbers.
-Update the source plan document's ticket column with issue numbers.
-Update `plans/UC-XXX/traceability-matrix.md`: fill the Test and Impl columns with
-the new ticket links. Before finishing, run the matrix's no-orphan check — no test
-or implementation ticket may exist without a matrix row (see WORKFLOW.md
-"Traceability"). Keep ticket bodies to a matrix-row reference (FR/AC id + link)
-rather than restating requirement text (WORKFLOW.md "Document rules").
+Update `plans/UC-XXX/flow-tracker.md` with the new ticket numbers. Update the source plan document's ticket column with issue numbers. Update `plans/UC-XXX/traceability-matrix.md`: fill the Test and Impl columns with the new ticket links. Before finishing, run the matrix's no-orphan check — no test or implementation ticket may exist without a matrix row (see WORKFLOW.md "Traceability"). Keep ticket bodies to a matrix-row reference (FR/AC id + link) rather than restating requirement text (WORKFLOW.md "Document rules").
 
 ## Flash-model ticket rules
 
@@ -84,8 +74,7 @@ Implementation tickets must follow these rules (from WORKFLOW.md):
 
 ## Linking convention
 
-All cross-references must be clickable Markdown links (see WORKFLOW.md "Linking
-convention"). At the start, derive the repo base URL:
+All cross-references must be clickable Markdown links (see WORKFLOW.md "Linking convention"). At the start, derive the repo base URL:
 
 ```bash
 git remote get-url origin
@@ -94,17 +83,13 @@ git remote get-url origin
 
 Apply to every output:
 
-- **Issue bodies — Deliverable section:** use
-  `[docs/research/topic.md]({base}/blob/main/docs/research/topic.md)`.
-- **Local plan files** (checklist, flow tracker): update Ticket column and `#N`
-  references to `[#N]({base}/issues/N)`.
-- Issue-to-issue references (`Blocked by #N`) stay as `#N` in issue bodies because
-  GitHub auto-links them. Only local `.md` files need full links.
+- **Issue bodies — Deliverable section:** use `[docs/research/topic.md]({base}/blob/main/docs/research/topic.md)`.
+- **Local plan files** (checklist, flow tracker): update Ticket column and `#N` references to `[#N]({base}/issues/N)`.
+- Issue-to-issue references (`Blocked by #N`) stay as `#N` in issue bodies because GitHub auto-links them. Only local `.md` files need full links.
 
 ## Rules
 
 - Create the milestone first if it does not exist: `gh api ... -f title="UC-XXX"`.
 - Create labels first if they do not exist.
 - Always reference the flow tracker issue in every ticket body.
-- Number tickets in dependency order so that blocked-by references point to
-  lower-numbered issues.
+- Number tickets in dependency order so that blocked-by references point to lower-numbered issues.

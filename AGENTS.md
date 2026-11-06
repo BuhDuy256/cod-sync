@@ -2,22 +2,15 @@
 
 ## Project
 
-A reconciliation-first SaaS for small and medium online shops that send cash-on-delivery
-(COD) parcels through several carriers. The core reconciles orders against the money
-carriers return, detects and explains discrepancies, and prepares complaint files; order,
-waybill, status, and return tracking are the foundation that feeds it. A simulated wallet
-and risk scoring are extensions. It is a practice project; carriers and the bank are
-mostly simulated from public API docs, and no real money is moved.
+A reconciliation-first SaaS for small and medium online shops that send cash-on-delivery (COD) parcels through several carriers. The core reconciles orders against the money carriers return, detects and explains discrepancies, and prepares complaint files; order, waybill, status, and return tracking are the foundation that feeds it. A simulated wallet and risk scoring are extensions. It is a practice project; carriers and the bank are mostly simulated from public API docs, and no real money is moved.
 
-Idea-lock brief: [docs/spec/00-brief/BRIEF-001.md](docs/spec/00-brief/BRIEF-001.md).
-Product spec is in `docs/spec/`. Vision: `docs/spec/01-product-vision/VIS-001.md`.
+Idea-lock brief: [docs/spec/00-brief/BRIEF-001.md](docs/spec/00-brief/BRIEF-001.md). Product spec is in `docs/spec/`. Vision: `docs/spec/01-product-vision/VIS-001.md`.
 
 ## Build workflow
 
 All use case builds follow `WORKFLOW.md`. The phases are:
 
-0. **Domain discovery** — once per product, before any build: learn the domain, then
-   pick the use cases (checklist at `docs/research/domain/README.md`)
+0. **Domain discovery** — once per product, before any build: learn the domain, then pick the use cases (checklist at `docs/research/domain/README.md`)
 1. **Research** — answer technical unknowns, make decisions
 2. **Testing plan** — map every AC to a test type and phase
 3. **Implementation plan** — ordered steps tied to tests
@@ -25,9 +18,7 @@ All use case builds follow `WORKFLOW.md`. The phases are:
 5. **Execution and review** — implement, test, review, merge
 6. **Verification** — full test suite, E2E, UC acceptance criteria
 
-When the user requests a build, determine the scope first (full UC, specific steps,
-specific alternatives, or individual FRs), then start Phase 1. When the user says
-"continue" + a build name, read the flow tracker issue first.
+When the user requests a build, determine the scope first (full UC, specific steps, specific alternatives, or individual FRs), then start Phase 1. When the user says "continue" + a build name, read the flow tracker issue first.
 
 ## Skill routing
 
@@ -49,8 +40,7 @@ specific alternatives, or individual FRs), then start Phase 1. When the user say
 ## GitHub Issues conventions
 
 - **One milestone per UC build:** named `UC-XXX`.
-- **Labels:** `uc:XXX`, `phase:research`, `phase:test-stubs`, `phase:impl-plan`,
-  `phase:impl`, `phase:post-impl`, `flow-tracker`, `flash-ready`.
+- **Labels:** `uc:XXX`, `phase:research`, `phase:test-stubs`, `phase:impl-plan`, `phase:impl`, `phase:post-impl`, `flow-tracker`, `flash-ready`.
 - **Dependencies:** write `Blocked by #N, #N` in the issue body.
 - **Flow tracker:** one per UC, created at Phase 1 start. Links to all tickets.
 
@@ -68,10 +58,7 @@ Tickets assigned to flash models (DeepSeek V4.1 Flash, GLM 5.3 Flash) must:
 
 ## Decision authority
 
-These lists say _who decides_. For _who does the work_ in each phase — the user owns
-research and judgment, the agent owns proposals and legwork — see WORKFLOW.md
-"Division of labor". In particular, in Phase 1 the user researches and writes the
-decision records; the agent supplies questions and options only.
+These lists say _who decides_. For _who does the work_ in each phase — the user owns research and judgment, the agent owns proposals and legwork — see WORKFLOW.md "Division of labor". In particular, in Phase 1 the user researches and writes the decision records; the agent supplies questions and options only.
 
 ### Agent decides (no confirmation needed)
 

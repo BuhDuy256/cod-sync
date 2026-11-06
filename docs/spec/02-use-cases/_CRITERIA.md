@@ -1,18 +1,12 @@
 # Gate: Use case
 
-Template: `_TEMPLATE.md`. Style: `../_STYLE.md`. Children:
-`../03-requirements/fr/`, `../03-requirements/nfr/`, `../04-business-rules/`.
+Template: `_TEMPLATE.md`. Style: `../_STYLE.md`. Children: `../03-requirements/fr/`, `../03-requirements/nfr/`, `../04-business-rules/`.
 
 ## 1. What a use case is, and is not
 
-**A use case models product behavior for one user goal reached in a single sitting.** It
-says what the user does and how the product responds observably. Each system response is
-a candidate functional requirement. Each alternative flow is a candidate error/edge
-requirement. Each rule or quality target a step depends on is cited here and defined
-elsewhere.
+**A use case models product behavior for one user goal reached in a single sitting.** It says what the user does and how the product responds observably. Each system response is a candidate functional requirement. Each alternative flow is a candidate error/edge requirement. Each rule or quality target a step depends on is cited here and defined elsewhere.
 
-**A flow records behavior to consider, not a commitment to build it.** A use case
-explores broadly. Evidence says where an idea came from; it does not choose anything.
+**A flow records behavior to consider, not a commitment to build it.** A use case explores broadly. Evidence says where an idea came from; it does not choose anything.
 
 ### Where content belongs
 
@@ -43,19 +37,13 @@ Removed use case IDs: none.
 
 ## 2. Evidence tags
 
-A claim about product behavior uses a tag from `../_STYLE.md` (`[observed: <source>]`,
-`[inferred: <source>]`, `[assumed]`). For product coverage, the source is a research item
-or transcript under `docs/research/`. A flow nobody has recorded is `unverified` and its
-steps keep `[assumed]`.
+A claim about product behavior uses a tag from `../_STYLE.md` (`[observed: <source>]`, `[inferred: <source>]`, `[assumed]`). For product coverage, the source is a research item or transcript under `docs/research/`. A flow nobody has recorded is `unverified` and its steps keep `[assumed]`.
 
-Evidence says where a flow or response came from. It is not a decision to build it. A
-research item showing behavior in another product does not bring that behavior into
-scope.
+Evidence says where a flow or response came from. It is not a decision to build it. A research item showing behavior in another product does not bring that behavior into scope.
 
 ## 3. Criteria
 
-"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment,
-*CI* = cross-check. There is no tool yet, so review does both Lint and CI.
+"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment, *CI* = cross-check. There is no tool yet, so review does both Lint and CI.
 
 | ID | Criterion | Prevents | Check |
 |---|---|---|---|

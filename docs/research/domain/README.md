@@ -1,7 +1,6 @@
 # Domain discovery checklist
 
-Areas to research before choosing use cases. Each area has one note in this folder and
-one ticket that holds its questions. Process: [WORKFLOW.md, Phase 0](../../../WORKFLOW.md#phase-0--domain-discovery).
+Areas to research before choosing use cases. Each area has one note in this folder and one ticket that holds its questions. Process: [WORKFLOW.md, Phase 0](../../../WORKFLOW.md#phase-0--domain-discovery).
 
 | Area | Note | Ticket | Unlocks | Status |
 |---|---|---|---|---|
@@ -14,8 +13,7 @@ one ticket that holds its questions. Process: [WORKFLOW.md, Phase 0](../../../WO
 | G. How shops reconcile today | [shop-practice.md](shop-practice.md) | [#8](https://github.com/BuhDuy256/cod-sync/issues/8) | Evidence on vision blocks W-1 to W-3, the use case actors and goals | not started |
 | H. Reference products | [reference-products.md](reference-products.md) | [#9](https://github.com/BuhDuy256/cod-sync/issues/9) | The Product evidence section of each use case | not started |
 
-Questions are numbered 1 to 36 across all tickets. A note refers to a question by its
-number.
+Questions are numbered 1 to 36 across all tickets. A note refers to a question by its number.
 
 ## Sources to start from
 

@@ -1,14 +1,10 @@
 # Gate: Functional requirement
 
-Template: `_TEMPLATE.md`. Style: `../../_STYLE.md`. Cited by: `../../02-use-cases/`
-(the FR column). Rule values: `../../04-business-rules/`. Quality targets: `../nfr/`.
+Template: `_TEMPLATE.md`. Style: `../../_STYLE.md`. Cited by: `../../02-use-cases/` (the FR column). Rule values: `../../04-business-rules/`. Quality targets: `../nfr/`.
 
 ## 1. What an FR is, and is not
 
-**An FR is a testable statement of a system behavior under a stated condition.** It says
-what the system shows, keeps, changes, creates, or rejects. A use case response says what
-the user observes in a journey; an FR adds the precision a test needs: which input, which
-result, which edge case, what stays unchanged.
+**An FR is a testable statement of a system behavior under a stated condition.** It says what the system shows, keeps, changes, creates, or rejects. A use case response says what the user observes in a journey; an FR adds the precision a test needs: which input, which result, which edge case, what stays unchanged.
 
 | If the content is... | Then it belongs |
 |---|---|
@@ -19,8 +15,7 @@ result, which edge case, what stays unchanged.
 | How the system achieves a behavior (model, queue, storage, API) | ADR or architecture work |
 | What to build, or how far it is built/tested | Not in the spec. An FR has no progress, priority, or version |
 
-A rule with no value stays in the FR, e.g. "the user cannot close a period while an
-import is running". A rule with a value goes to `../../04-business-rules/`.
+A rule with no value stays in the FR, e.g. "the user cannot close a period while an import is running". A rule with a value goes to `../../04-business-rules/`.
 
 ### Granularity and reuse
 
@@ -43,8 +38,7 @@ Removed FR IDs: none.
 
 ### Links
 
-Links are top-down only. A use case cites the FR in the FR column of its Steps table. One
-FR can serve several blocks; one block can cite several FRs.
+Links are top-down only. A use case cites the FR in the FR column of its Steps table. One FR can serve several blocks; one block can cite several FRs.
 
 - An FR does not name a use case, step, or branch.
 - To find the blocks that use an FR, search for its ID in `../../02-use-cases/`.
@@ -52,8 +46,7 @@ FR can serve several blocks; one block can cite several FRs.
 
 ## 2. Criteria
 
-"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment,
-*CI* = cross-check. There is no tool yet, so review does both Lint and CI.
+"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment, *CI* = cross-check. There is no tool yet, so review does both Lint and CI.
 
 | ID | Criterion | Prevents | Check |
 |---|---|---|---|

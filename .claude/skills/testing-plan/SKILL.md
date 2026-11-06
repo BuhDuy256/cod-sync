@@ -35,8 +35,7 @@ For each FR's AC:
 - **E2E test:** UC happy path (all S steps in order)
 - **E2E tests:** each alternative flow that reaches a different end state
 - **Smoke tests:** minimal checks that prove the build works
-- **Recovery/resilience tests:** each alternative flow tagged with failure conditions
-  (A3, A6, A8 in UC-001)
+- **Recovery/resilience tests:** each alternative flow tagged with failure conditions (A3, A6, A8 in UC-001)
 
 ### Step 3 — Identify NFR tests
 
@@ -59,28 +58,19 @@ For each FR's AC:
 
 ## Output
 
-Create `plans/UC-XXX/testing-plan.md` from the template at
-`plans/_TEMPLATES/testing-plan.md`.
+Create `plans/UC-XXX/testing-plan.md` from the template at `plans/_TEMPLATES/testing-plan.md`.
 
-For each acceptance and security test, fill the **DEC column** with the decision that
-shaped it (if any) — so a changed decision points to the tests that must be revisited.
+For each acceptance and security test, fill the **DEC column** with the decision that shaped it (if any) — so a changed decision points to the tests that must be revisited.
 
-Then update `plans/UC-XXX/traceability-matrix.md`: put each test on its FR/AC (or
-NFR) row's Test column.
+Then update `plans/UC-XXX/traceability-matrix.md`: put each test on its FR/AC (or NFR) row's Test column.
 
-Follow WORKFLOW.md "Document rules": front-load the plan's `## At a glance` block, keep
-the template's section order, and reference each AC by its id and matrix row — do not
-copy the requirement text into the plan.
+Follow WORKFLOW.md "Document rules": front-load the plan's `## At a glance` block, keep the template's section order, and reference each AC by its id and matrix row — do not copy the requirement text into the plan.
 
 ## Rules
 
 - Every AC must appear in the plan. No AC is skipped.
-- **No orphan (see WORKFLOW.md "Traceability"):** every in-scope FR/AC and NFR must
-  have at least one test, and every in-scope DEC must be consumed by at least one
-  test or implementation step. Flag any gap instead of silently leaving it.
+- **No orphan (see WORKFLOW.md "Traceability"):** every in-scope FR/AC and NFR must have at least one test, and every in-scope DEC must be consumed by at least one test or implementation step. Flag any gap instead of silently leaving it.
 - Every UC alternative flow with a failure condition gets a resilience test.
 - Do not invent test scenarios beyond what the spec defines.
-- Manual tests (evaluation) are listed but marked as manual — they still need a
-  description of what the evaluator checks.
-- Pre-implementation test stubs must be runnable (red) — they fail on purpose, not
-  because of syntax errors.
+- Manual tests (evaluation) are listed but marked as manual — they still need a description of what the evaluator checks.
+- Pre-implementation test stubs must be runnable (red) — they fail on purpose, not because of syntax errors.

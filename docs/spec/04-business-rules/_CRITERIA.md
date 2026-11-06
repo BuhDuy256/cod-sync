@@ -1,13 +1,10 @@
 # Gate: Business rule
 
-Template: `_TEMPLATE.md`. Style: `../_STYLE.md`. Cited by: `../02-use-cases/`,
-`../03-requirements/fr/`, `../03-requirements/nfr/`, `../01-product-vision/`.
+Template: `_TEMPLATE.md`. Style: `../_STYLE.md`. Cited by: `../02-use-cases/`, `../03-requirements/fr/`, `../03-requirements/nfr/`, `../01-product-vision/`.
 
 ## 1. What a BR is, and is not
 
-**A BR defines a value that product behavior depends on.** The value is an allow-set,
-limit, threshold, quota, retention time, or list that defines "what counts". The behavior
-that applies the value is an FR. The BR says what the value is.
+**A BR defines a value that product behavior depends on.** The value is an allow-set, limit, threshold, quota, retention time, or list that defines "what counts". The behavior that applies the value is an FR. The BR says what the value is.
 
 > FR: "The system rejects a carrier statement that does not match a known format [BR-xxx]."
 > BR-xxx: the accepted carriers, and the statement format of each carrier.
@@ -22,9 +19,7 @@ that applies the value is an FR. The BR says what the value is.
 | How the system keeps or checks a value: code, storage, config | ADR or architecture work |
 | What the product looks like or how the user operates it | UI design work (no folder yet) |
 
-The marker `[BR-?: topic]` names a topic, not a decision. Writing the rule may show the
-topic has no value of its own. The marker is replaced by a BR only when it fully covers
-the meaning; on partial coverage the marker stays and the missing part is reported.
+The marker `[BR-?: topic]` names a topic, not a decision. Writing the rule may show the topic has no value of its own. The marker is replaced by a BR only when it fully covers the meaning; on partial coverage the marker stays and the missing part is reported.
 
 ### Granularity and values
 
@@ -32,10 +27,7 @@ the meaning; on partial coverage the marker stays and the missing part is report
 - **Several values** can share one BR. Do not split a cohesive rule just because it has several values; do not merge unrelated rules to save files.
 - **No duplicate.** Before writing, search the folder for existing statements and values.
 
-Each value is a `### V-n · name` block with a Value field. Exact value: a number with
-unit; a bound saying inclusive or unbounded; a list saying closed or open. The value is
-precise enough for an FR criterion to test at and past the value. A value holds no
-behavior — what the system does at a limit is written in the FR.
+Each value is a `### V-n · name` block with a Value field. Exact value: a number with unit; a bound saying inclusive or unbounded; a list saying closed or open. The value is precise enough for an FR criterion to test at and past the value. A value holds no behavior — what the system does at a limit is written in the FR.
 
 ### IDs and files
 
@@ -48,23 +40,18 @@ Removed BR IDs: none.
 
 ### Links
 
-Links are top-down only. A use case (System or When), an FR, an NFR, or the vision cites
-a BR with `[BR-xxx]`.
+Links are top-down only. A use case (System or When), an FR, an NFR, or the vision cites a BR with `[BR-xxx]`.
 
 - A BR does not name a use case, step, branch, FR, or NFR. It does not cite another BR.
 - To find what cites a BR, search for its ID in the spec files.
 
 ### One source of truth
 
-A value lives in exactly one BR. Other spec files never state it, interpret it into a
-number, or list the allowed items; they cite the ID. Changing a value changes only the BR;
-in the same change, find the files that cite the BR for text that relied on the old value,
-and report each one.
+A value lives in exactly one BR. Other spec files never state it, interpret it into a number, or list the allowed items; they cite the ID. Changing a value changes only the BR; in the same change, find the files that cite the BR for text that relied on the old value, and report each one.
 
 ## 2. Criteria
 
-"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment,
-*CI* = cross-check. There is no tool yet, so review does both Lint and CI.
+"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment, *CI* = cross-check. There is no tool yet, so review does both Lint and CI.
 
 | ID | Criterion | Prevents | Check |
 |---|---|---|---|
