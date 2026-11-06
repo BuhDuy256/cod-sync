@@ -17,6 +17,7 @@ All notable changes to this project are recorded here. Format based on [Keep a C
 - Product vision: "complaint" replaces "claim", "discrepancy type" replaces "anomaly type" and "error type", and P-5 cites an NFR marker instead of a BR marker.
 - Spec templates use ISO dates (`YYYY-MM-DD`).
 - Domain questions move from the checklist into one `phase:domain` issue per area (#2–#9), as task lists. The checklist keeps the areas, what each unlocks, and sources.
+- Domain questions (now 1–50) are tables of what to understand, why it matters for long-term operation, and a self-check; tickets close on the self-checks, not only on ticking questions.
 
 ### Fixed
 

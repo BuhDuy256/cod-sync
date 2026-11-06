@@ -13,7 +13,7 @@ Các mảng cần research trước khi chọn use case. Mỗi mảng có một 
 | G. How shops reconcile today | [shop-practice.md](shop-practice.md) | [#8](https://github.com/BuhDuy256/cod-sync/issues/8) | Evidence cho các vision block W-1 đến W-3, actor và mục tiêu của use case | not started |
 | H. Reference products | [reference-products.md](reference-products.md) | [#9](https://github.com/BuhDuy256/cod-sync/issues/9) | Phần Product evidence của mỗi use case | not started |
 
-Câu hỏi được đánh số từ 1 đến 36 xuyên suốt các ticket. Note nhắc tới một câu hỏi bằng số của nó.
+Câu hỏi được đánh số từ 1 đến 50 xuyên suốt các ticket. Note nhắc tới một câu hỏi bằng số của nó.
 
 ## Sources to start from
 
