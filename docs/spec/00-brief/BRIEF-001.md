@@ -104,11 +104,9 @@ sequenceDiagram
 
 ## 5. User and value
 
-**User:** Owners of small and medium online shops that use two or more carriers, together
-with the staff and accountants in charge of orders and money.
+**User:** Owners of small and medium online shops that use two or more carriers, together with the staff and accountants in charge of orders and money.
 
-**Value:** The shop always knows where its money is, whether it has all arrived, what is
-wrong, and why. Problems are found as they arise instead of at period close, and evidence is ready for a complaint before the deadline.
+**Value:** The shop always knows where its money is, whether it has all arrived, what is wrong, and why. Problems are found as they arise instead of at period close, and evidence is ready for a complaint before the deadline.
 
 ## 6. What is new
 
@@ -118,8 +116,7 @@ wrong, and why. Problems are found as they arise instead of at period close, and
 
 ## 7. Scope
 
-**Yardstick:** a part is included if the reconciliation core needs it to run end to end;
-it is not excluded merely because someone else already does it well. Development proceeds by version, from the core outward; each version's content is settled during spec writing.
+**Yardstick:** a part is included if the reconciliation core needs it to run end to end; it is not excluded merely because someone else already does it well. Development proceeds by version, from the core outward; each version's content is settled during spec writing.
 
 | Group | Content |
 |---|---|

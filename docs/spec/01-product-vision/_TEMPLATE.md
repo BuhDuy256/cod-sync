@@ -4,23 +4,23 @@ title: ""
 updated: YYYY-MM-DD
 ---
 
-<!-- Write per docs/spec/_STYLE.md. Gate: _CRITERIA.md.
-     The vision says what the product is, not a decision log, feature list, or scope (VG-01).
-     Before writing a block, ask: is it still true if scope, interface, or code changes? If not, it belongs elsewhere (_CRITERIA.md section 1).
-     Write each fact exactly once (VG-06). No rules or quality values (VG-09). No praise words (VG-12).
-     A part with nothing settled yet reads "Not written yet. See Q-x." Do not pad (VG-14).
+<!-- Viết theo docs/spec/_STYLE.md. Gate: _CRITERIA.md.
+     Vision nói product là gì, không phải decision log, danh sách feature hay scope (VG-01).
+     Trước khi viết một block, hỏi: nó có còn đúng nếu scope, interface hay code thay đổi không? Nếu không, nó thuộc chỗ khác (_CRITERIA.md section 1).
+     Mỗi sự thật viết đúng một lần (VG-06). Không giá trị rule hay chất lượng (VG-09). Không từ khen (VG-12).
+     Phần chưa chốt được gì ghi "Not written yet. See Q-x." Không viết độn (VG-14).
 
-     Fields shared by every statement block:
-       Statement: what is true. Present tense for what the product is. "The product aims to..." for a direction.
-       Status: "confirmed" (you decided) or "proposed" (AI suggests, awaiting your approval). Always present.
-       Source: only when "proposed" — who proposed it and what it was inferred from.
-       Spec implications: what lower spec must hold or must not assume. Only what follows directly from the statement. Omit the field when Status is "proposed".
-       Updated date: just one `updated` in the frontmatter, the last edit date. Do not record who; git history does that. -->
+     Các field chung cho mọi statement block:
+       Statement: điều gì đúng. Thì hiện tại cho điều product là. "The product aims to..." cho một định hướng.
+       Status: "confirmed" (đã quyết) hoặc "proposed" (đề xuất, chờ approve). Luôn có mặt.
+       Source: chỉ khi "proposed" — đề xuất đến từ đâu và được suy ra từ cái gì.
+       Spec implications: spec cấp dưới phải giữ gì hoặc không được giả định gì. Chỉ những gì suy ra trực tiếp từ statement. Bỏ field khi Status là "proposed".
+       Updated date: chỉ một `updated` trong frontmatter, là ngày sửa gần nhất. Không ghi ai sửa; git history đã ghi. -->
 
 ## What the product is
 
-<!-- Question 1. What kind of product this is, and the ideas needed to understand it. No feature list.
-     A capability (statement import, data export, AI explanation) is a use case, unless you say it defines the product (VG-01).
+<!-- Câu hỏi 1. Đây là loại product gì, và các ý cần để hiểu nó. Không phải danh sách feature.
+     Một năng lực (import bảng kê, export dữ liệu, AI giải thích) là use case, trừ khi đã khẳng định nó định nghĩa product (VG-01).
      Fields: Statement, Status, Source, Spec implications. -->
 
 ### I-1 · short name
@@ -31,9 +31,9 @@ updated: YYYY-MM-DD
 
 ## Why it exists
 
-<!-- Questions 2 and 3. The problem the product solves, for whom, and the main value it gives.
-     Write only what you have said or what evidence shows. Do not invent a problem, research result, or benefit.
-     With only [assumed] evidence, write it as a belief: "I believe that...".
+<!-- Câu hỏi 2 và 3. Vấn đề product giải quyết, cho ai, và giá trị chính nó mang lại.
+     Chỉ viết những gì chủ product đã nói hoặc bằng chứng cho thấy. Không bịa vấn đề, kết quả research hay lợi ích.
+     Chỉ có evidence [assumed] thì viết như một niềm tin: "I believe that...".
      Fields: Statement, Status, Source, Evidence, Spec implications. -->
 
 ### W-1 · short name
@@ -45,8 +45,8 @@ updated: YYYY-MM-DD
 
 ## Principles
 
-<!-- Question 4. The rules that guide choices when the spec must choose. Each rule rules something out.
-     Not a technical solution: "the core reconciles without AI" is a principle; "put carrier events on a queue" is a decision record (VG-02).
+<!-- Câu hỏi 4. Các rule định hướng lựa chọn khi spec phải chọn. Mỗi rule loại bỏ một điều gì đó.
+     Không phải giải pháp kỹ thuật: "the core reconciles without AI" là nguyên tắc; "put carrier events on a queue" là decision record (VG-02).
      Fields: Statement, Status, Source, Why, Spec implications. -->
 
 ### P-1 · short name
@@ -58,9 +58,9 @@ updated: YYYY-MM-DD
 
 ## Boundaries
 
-<!-- Question 5. What the product is NOT, by its nature. Test: is it still true given infinite time? If not, it is scope (VG-03).
-     A missing feature is not a boundary. A V1 limit is not a boundary.
-     State the true thing in positive terms where you can, not just the absence.
+<!-- Câu hỏi 5. Product KHÔNG phải là gì, theo bản chất. Kiểm tra: nếu có thời gian vô hạn, nó có còn đúng không? Nếu không, đó là scope (VG-03).
+     Feature còn thiếu không phải boundary. Giới hạn của V1 không phải boundary.
+     Khi được, nêu điều đúng theo dạng khẳng định, không chỉ nêu sự vắng mặt.
      Fields: Statement, Status, Source, Why, Spec implications. -->
 
 ### B-1 · short name
@@ -72,10 +72,10 @@ updated: YYYY-MM-DD
 
 ## Open questions
 
-<!-- One block per question awaiting your decision (VG-04). Omit this section if empty.
-     Fixed fields in order: Question, Affects.
-     Question: ends with "?". No other block answers it.
-     Affects: the lower spec items awaiting the answer, by ID (e.g. UC-001 S5), or "none yet". -->
+<!-- Mỗi câu hỏi đang chờ quyết một block (VG-04). Bỏ section này nếu trống.
+     Các field cố định theo thứ tự: Question, Affects.
+     Question: kết thúc bằng "?". Không block nào khác trả lời nó.
+     Affects: các spec item cấp dưới đang chờ câu trả lời, bằng ID (ví dụ UC-001 S5), hoặc "none yet". -->
 
 ### Q-1 · short name
 
@@ -84,4 +84,4 @@ updated: YYYY-MM-DD
 
 ## Removed
 
-<!-- Removed IDs, one line each saying where the content went (VG-05). Not reused. Omit this section if empty. -->
+<!-- ID đã xóa, mỗi ID một dòng ghi nội dung đã chuyển đi đâu (VG-05). Không dùng lại. Bỏ section này nếu trống. -->

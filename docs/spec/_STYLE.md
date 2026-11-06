@@ -1,48 +1,50 @@
 # Spec writing rules
 
-Applies to every file in `docs/spec/`. Rules 5 and 7 apply to the `System` and `When` fields of a use case. Rule 11 applies to the whole use case.
+Áp dụng cho mọi file trong `docs/spec/`. Rule 5 và 7 áp dụng cho field `System` và `When` của use case. Rule 11 áp dụng cho toàn bộ use case.
 
-**Why:** each sentence must have one meaning, so one system response becomes one
-testable requirement. Everyday words do both.
+**Why:** mỗi câu chỉ được có một nghĩa, để một system response trở thành một requirement test được. Từ ngữ hằng ngày làm được cả hai việc này.
+
+## Language policy
+
+Phần hướng dẫn (các file `_STYLE`, `_MERMAID`, `_CRITERIA`, comment trong `_TEMPLATE`) viết bằng tiếng Việt. Nội dung spec (field `User`, `System`, `When`, statement của FR/NFR/BR, glossary term, evidence tag, ID) viết bằng tiếng Anh, vì các rule wording bên dưới và lệnh kiểm tra dựa trên từ tiếng Anh => nếu viết tiếng Việt thì không grep được.
 
 ## Rules
 
 | # | Rule | Don't write | Write |
 |---|---|---|---|
-| 1 | **One thing, one name.** Use the exact word from the glossary. Never swap in a synonym. | "carrier balance" and "money held" for the same thing | "carrier balance" everywhere |
+| 1 | **One thing, one name.** Dùng đúng từ trong glossary. Không thay bằng từ đồng nghĩa. | "carrier balance" và "money held" cho cùng một thứ | "carrier balance" ở mọi chỗ |
 | 2 | **Use plain words.** show, keep, use, start, end, before, after | display, maintain, initialize, terminate, prior, subsequent | "The system shows the carrier balance." |
 | 3 | **No idioms or flowery phrases.** | "green-light", "seal the deal", "U-turn" | "agree", "end", "change its mind" |
-| 4 | **No vague verbs.** Banned: handle, manage, support, ensure, process, carry out, appropriate, properly, smoothly. | "The system handles errors smoothly." | "The system reports it could not read the file and keeps the last imported statement." |
-| 5 | **No "can", "should", "might", "may" in a system response.** State what the system does. Use **"is allowed to"** only for a user permission. | "The system can show a message." | "The system shows a message." |
-| 6 | **Short, active sentences.** One action per sentence. A `[BR-xxx]` citation does not count. | "A message is shown that the import has stopped and how many rows are done." | "The system shows a message that the import has stopped. The message states how many rows were read." |
-| 7 | **Conditions go in the When field.** A system response has no "if". When behavior differs by step, open with a label: "At S3:", "On re-import:". | "If the file is invalid, the system rejects it." | When: "The file does not match a known statement format [BR-?]." System: "State the reason." |
-| 8 | **One action per line. At most 7 lines per field.** | One cell of 110 words | One line per thing the user can observe |
-| 9 | **Minimal bold.** Bold one glossary word on its first use in a line. At most 2 per line. | Bold a whole phrase | "Show the **discrepancy**." |
-| 10 | **Evidence on its own line.** One tag per claim. Never mid-sentence. | "…the carrier balance stays at the old value `[observed: …]`, and does not include the new transfer." | `- **Evidence:** [observed: ghn-dashboard (balance unchanged after a transfer)]` |
-| 11 | **Intent and response, not interface.** The user side says what the user wants. The system side says what the system reports, keeps, changes, or creates. Never name a widget, gesture, position, style, or label. Name a place only by region (see Regions). If an interface detail carries a requirement, write the requirement. | "The user opens the menu and picks a carrier statement." "Open the discrepancy view in the bottom corner." "Show a card with a retry button." | "The user picks a carrier statement." "Open the discrepancy view. The open discrepancies stay unchanged." "Let the user retry the import." |
+| 4 | **No vague verbs.** Cấm: handle, manage, support, ensure, process, carry out, appropriate, properly, smoothly. | "The system handles errors smoothly." | "The system reports it could not read the file and keeps the last imported statement." |
+| 5 | **No "can", "should", "might", "may" in a system response.** Ghi hệ thống làm gì. Chỉ dùng **"is allowed to"** cho quyền của user. | "The system can show a message." | "The system shows a message." |
+| 6 | **Short, active sentences.** Mỗi câu một hành động. Citation `[BR-xxx]` không tính. | "A message is shown that the import has stopped and how many rows are done." | "The system shows a message that the import has stopped. The message states how many rows were read." |
+| 7 | **Conditions go in the When field.** System response không có "if". Khi hành vi khác nhau theo step, mở đầu bằng label: "At S3:", "On re-import:". | "If the file is invalid, the system rejects it." | When: "The file does not match a known statement format [BR-?]." System: "State the reason." |
+| 8 | **One action per line. At most 7 lines per field.** | Một ô 110 chữ | Mỗi thứ user quan sát được một dòng |
+| 9 | **Minimal bold.** Bold một từ glossary ở lần dùng đầu tiên trong dòng. Tối đa 2 chỗ mỗi dòng. | Bold cả một cụm | "Show the **discrepancy**." |
+| 10 | **Evidence on its own line.** Mỗi nhận định một tag. Không đặt giữa câu. | "…the carrier balance stays at the old value `[observed: …]`, and does not include the new transfer." | `- **Evidence:** [observed: ghn-dashboard (balance unchanged after a transfer)]` |
+| 11 | **Intent and response, not interface.** Phía user nói user muốn gì. Phía system nói hệ thống báo gì, giữ gì, đổi gì hoặc tạo gì. Không bao giờ gọi tên widget, thao tác, vị trí, style hay label. Chỉ gọi tên một chỗ bằng region (xem Regions). Nếu một chi tiết interface mang theo requirement thì viết requirement đó ra. | "The user opens the menu and picks a carrier statement." "Open the discrepancy view in the bottom corner." "Show a card with a retry button." | "The user picks a carrier statement." "Open the discrepancy view. The open discrepancies stay unchanged." "Let the user retry the import." |
 
-Rules 4 to 7 keep a response testable. Rules 1 to 3 and 6 keep it readable. Rule 11 keeps the spec correct when the design changes.
+Rule 4 tới 7 giữ cho response test được. Rule 1 tới 3 và 6 giữ cho nó dễ đọc. Rule 11 giữ cho spec đúng khi design thay đổi.
 
 ## Evidence tags
 
-One tag per claim. Keys stay in English so they are greppable; the source content is
-written in prose:
+Mỗi nhận định một tag. Key giữ tiếng Anh để grep được; nội dung nguồn viết bằng văn xuôi:
 
-- `[observed: <source> (<what it shows>)]` — seen in a transcript or product
-- `[inferred: <source>]` — inferred from observed facts
-- `[assumed]` or `[assumed: <what>]` — no evidence yet
+- `[observed: <source> (<what it shows>)]` — thấy trong transcript hoặc product
+- `[inferred: <source>]` — suy ra từ các sự thật đã quan sát
+- `[assumed]` hoặc `[assumed: <what>]` — chưa có bằng chứng
 
-In a list (usage context, knowledge, …), the last line can be a single `- **Evidence:** [assumed]`. It counts for every item above it without its own Evidence line.
+Trong một list (usage context, knowledge, …), dòng cuối có thể là một dòng `- **Evidence:** [assumed]` duy nhất. Dòng này tính cho mọi item phía trên không có dòng Evidence riêng.
 
 ## Regions
 
-A region is a place that holds one kind of information. It is defined by what it holds, never by where it is or what it looks like. The list is closed; each product declares its own regions in the glossary. The project has no settled regions yet.
+Region là một chỗ chứa một loại thông tin. Region được định nghĩa bằng thứ nó chứa, không bao giờ bằng vị trí hay hình dạng. Danh sách region là đóng; mỗi product khai báo region của mình trong glossary. Project hiện chưa có region nào được chốt.
 
-A use case may say something is shown, kept, or changed in a region. It must not say how a region is laid out or navigated to. To add a region, add a row to the glossary and say what it holds.
+Use case được nói một thứ được show, giữ hoặc đổi trong một region. Use case không được nói region đó bố trí ra sao hay đi tới bằng cách nào. Muốn thêm region thì thêm một dòng vào glossary và ghi nó chứa gì.
 
 ## Glossary
 
-Use these words for these things. Add a row when a new word is needed. Do not add a synonym. A word never names a widget, gesture, position, or style. This table starts empty; each project declares its own terms and adds to them as it learns.
+Dùng các từ này cho các thứ này. Thêm dòng khi cần một từ mới. Không thêm từ đồng nghĩa. Một từ không bao giờ gọi tên widget, thao tác, vị trí hay style. Bảng bắt đầu trống; mỗi project khai báo term của mình và bổ sung dần khi hiểu thêm.
 
 | Term | Meaning |
 |---|---|
@@ -51,18 +53,18 @@ Use these words for these things. Add a row when a new word is needed. Do not ad
 
 ## How to check
 
-There is no tool yet, so review does this. There are two groups of checks.
+Chưa có tool, nên phần review làm việc này. Có hai nhóm kiểm tra.
 
-**Wording.** Run on the `System` and `When` fields, and on `Situation and goal`. Each hit is fixed or given a recorded reason.
+**Wording.** Chạy trên field `System` và `When`, và trên `Situation and goal`. Mỗi chỗ match phải được sửa hoặc ghi lại lý do.
 
 ```
 handle|manage|support|ensure|process|carry out|appropriate|properly|smoothly|can|could|should|might|may
 ```
 
-**Interface (rule 11).** Run on the whole use case, except the frontmatter, the generated block, and the `Research link` line. Each hit is rewritten as intent or response. A hit that is not interface language (e.g. "right" in "right-to-left text") gets a recorded reason.
+**Interface (rule 11).** Chạy trên toàn bộ use case, trừ frontmatter, block được generate và dòng `Research link`. Mỗi chỗ match được viết lại thành intent hoặc response. Chỗ match không phải ngôn ngữ interface (ví dụ "right" trong "right-to-left text") thì ghi lại lý do.
 
 ```
 button|click|tap|swipe|scroll|menu|dropdown|dialog|popup|tab|sidebar|toolbar|card|chip|icon|toggle|checkbox|screen|page|corner|above|below|left|right|label|input field
 ```
 
-Then apply the **swap test** to each sentence: imagine the same product with a different interface, e.g. touch-only or voice-only. If the sentence is still true, it passes. If not, it describes the interface and is rewritten.
+Sau đó áp dụng **swap test** cho mỗi câu: tưởng tượng cùng product đó với một interface khác, ví dụ chỉ dùng cảm ứng hoặc chỉ dùng giọng nói. Nếu câu vẫn đúng thì pass. Nếu không, câu đang mô tả interface và phải viết lại.

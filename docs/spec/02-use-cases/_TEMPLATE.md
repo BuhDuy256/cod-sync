@@ -4,13 +4,13 @@ title: ""
 updated: YYYY-MM-DD
 ---
 
-<!-- A use case models product behavior for one user goal reached in a single sitting (UCG-01).
-     Write per docs/spec/_STYLE.md. Write intent and response, not interface (rule 11, UCG-09).
-     The interaction diagram is a view generated from the Steps table and Alternative flows; do not hand-edit it (MG-02). -->
+<!-- Use case mô hình hóa hành vi của product cho một mục tiêu của user, đạt được trong một lần ngồi (UCG-01).
+     Viết theo docs/spec/_STYLE.md. Viết intent và response, không viết interface (rule 11, UCG-09).
+     Interaction diagram là view được generate từ bảng Steps và Alternative flows; không sửa tay (MG-02). -->
 
 ## Interaction diagram
 
-<!-- Generated from the Steps table and Alternative flows. Do not edit between the markers. -->
+<!-- Generate từ bảng Steps và Alternative flows. Không sửa giữa hai marker. -->
 
 <!-- BEGIN generated: use-case-sequence -->
 ```mermaid
@@ -24,11 +24,11 @@ sequenceDiagram
 
 ## Steps
 
-<!-- This table is the source of truth; the diagram above is generated from it. One row per step S1, S2, ... in order.
-     User: intent ("Import a carrier statement"), not an action on a control.
-     System: what the user observes; no "if", no settings, no interface. Cite values with [BR-xxx]/[NFR-xxx]; not written yet: [BR-?: topic].
-     FR: the functional requirement ID for this response, or FR-? when there is no FR yet. A response can have several FRs. Leave blank when the step needs no FR of its own.
-     Evidence: a tag from _STYLE.md, only when the step claims something about the product. Leave blank if not. -->
+<!-- Bảng này là nguồn sự thật; diagram phía trên được generate từ nó. Mỗi step S1, S2, ... một dòng, theo thứ tự.
+     User: intent ("Import a carrier statement"), không phải thao tác trên một control.
+     System: điều user quan sát được; không có "if", không settings, không interface. Cite giá trị bằng [BR-xxx]/[NFR-xxx]; chưa viết thì dùng [BR-?: topic].
+     FR: ID functional requirement cho response này, hoặc FR-? khi chưa có FR. Một response có thể có nhiều FR. Để trống khi step không cần FR riêng.
+     Evidence: một tag từ _STYLE.md, chỉ khi step nhận định điều gì đó về product. Không thì để trống. -->
 
 | Step | User | System | FR | Evidence |
 |---|---|---|---|---|
@@ -36,11 +36,11 @@ sequenceDiagram
 
 ## Alternative flows
 
-<!-- One block per alternative. Stable IDs, never renumbered (UCG-06).
-     At: the step the alternative starts from, e.g. "S3". Ends: one of:
+<!-- Mỗi alternative một block. ID ổn định, không bao giờ đánh số lại (UCG-06).
+     At: step mà alternative bắt đầu, ví dụ "S3". Ends: một trong các giá trị:
        Back to Sx / Continue at Sx / Same step / End / To UC-xxx / To UC-? (topic)
-     When: a condition the system can detect, or a user intent (UCG-04).
-     Fixed fields in order: At, Ends, When, System, FR. -->
+     When: điều kiện hệ thống phát hiện được, hoặc một intent của user (UCG-04).
+     Các field cố định theo thứ tự: At, Ends, When, System, FR. -->
 
 ### A1 · alternative name
 
@@ -52,26 +52,26 @@ sequenceDiagram
 
 ## Situation and goal
 
-<!-- Who wants what, and why now, in the user's words. No feature or solution (UCG-02). -->
+<!-- Ai muốn gì, và vì sao là lúc này, bằng lời của user. Không có feature hay giải pháp (UCG-02). -->
 
 ## Trigger and precondition
 
-<!-- Trigger: what starts the case. Precondition: what is already true. Both observable, no settings, no interface. -->
+<!-- Trigger: điều gì bắt đầu case. Precondition: điều gì đã đúng sẵn. Cả hai đều quan sát được, không settings, không interface. -->
 
 - **Trigger:**
 - **Precondition:**
 
 ## Outcome and minimal guarantee
 
-<!-- Outcome: what is true after success, verifiable by observation. Minimal guarantee: what stays true after any branch fails (UCG-05). -->
+<!-- Outcome: điều gì đúng sau khi thành công, kiểm chứng được bằng quan sát. Minimal guarantee: điều gì vẫn đúng sau khi bất kỳ nhánh nào thất bại (UCG-05). -->
 
 - **Outcome:**
 - **Minimal guarantee:**
 
 ## Product evidence
 
-<!-- Coverage level only: observed | none | unverified. Raw observations live in docs/research/ (UCG-08).
-     Differences described in prose, not rule values. Add one block per reference product. -->
+<!-- Chỉ ghi mức coverage: observed | none | unverified. Quan sát thô nằm trong docs/research/ (UCG-08).
+     Khác biệt mô tả bằng văn xuôi, không bằng giá trị rule. Mỗi reference product một block. -->
 
 ### product name
 
@@ -81,8 +81,8 @@ sequenceDiagram
 
 ## Open questions
 
-<!-- Each question has "?". Omit this section if empty. -->
+<!-- Mỗi câu hỏi có "?". Bỏ section này nếu trống. -->
 
 ## Notes
 
-<!-- Why this case does not duplicate another; a design choice as an ADR proposal. Omit if empty. -->
+<!-- Vì sao case này không trùng case khác; một lựa chọn design dưới dạng đề xuất ADR. Bỏ nếu trống. -->

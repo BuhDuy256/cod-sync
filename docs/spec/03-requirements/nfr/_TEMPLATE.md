@@ -4,17 +4,17 @@ title: ""
 updated: YYYY-MM-DD
 ---
 
-<!-- An NFR is a product-level quality constraint under a stated condition (NFG-01).
-     Write it only when all four hold: a product commitment or risk needs it; it is measurable/checkable; it adds an independent constraint rather than repeating an FR; the target is meaningful to the user (NFG-02).
-     No behavior (that is an FR), no rule values (that is a BR, cite [BR-xxx]), no engineering metric, no interface, no architecture, no progress.
-     This file does not name a use case, step, branch, FR, or another NFR. Other files cite [NFR-xxx].
-     Write per docs/spec/_STYLE.md. -->
+<!-- NFR là một ràng buộc chất lượng cấp product dưới một điều kiện đã nêu (NFG-01).
+     Chỉ viết khi đủ cả bốn: một cam kết hay rủi ro của product cần nó; đo/kiểm tra được; thêm ràng buộc độc lập chứ không lặp lại FR; target có ý nghĩa với user (NFG-02).
+     Không hành vi (đó là FR), không giá trị rule (đó là BR, cite [BR-xxx]), không metric engineering, không interface, không architecture, không tiến độ.
+     File này không gọi tên use case, step, nhánh, FR hay NFR khác. File khác cite [NFR-xxx].
+     Viết theo docs/spec/_STYLE.md. -->
 
 ## Requirement
 
-<!-- Quality attribute: one, e.g. performance, reliability, data integrity, security, privacy.
-     Statement: the product quality that must hold, without a target.
-     Status: confirmed | proposed. Why optional, drop the line when no reason is needed. -->
+<!-- Quality attribute: một thuộc tính, ví dụ performance, reliability, data integrity, security, privacy.
+     Statement: chất lượng product phải giữ được, không kèm target.
+     Status: confirmed | proposed. Why không bắt buộc, bỏ dòng khi không cần lý do. -->
 
 - **Quality attribute:**
 - **Statement:**
@@ -23,11 +23,11 @@ updated: YYYY-MM-DD
 
 ## Verification
 
-<!-- At least one measure. One block per measure: "### M-n · name". IDs are not renumbered (NFG-08).
-     Condition: the state, input, and environment, enough to repeat; state the product-controlled or end-to-end boundary; state provider-dependent conditions, do not silently hide provider time.
-     Measure: the quantity measured or the property checked. How to measure: how it is measured/checked, in prose, no tool, no architecture.
-     Target: a value with unit and bound, or a required property (a security/privacy check may be a non-numeric property). "not set" while pending; do not guess a number.
-     Passes when: what counts as a pass. "not set" while pending. -->
+<!-- Ít nhất một measure. Mỗi measure một block: "### M-n · name". ID không đánh số lại (NFG-08).
+     Condition: trạng thái, input và môi trường, đủ để làm lại; nêu ranh giới product-controlled hay end-to-end; nêu điều kiện phụ thuộc provider, không giấu thời gian của provider.
+     Measure: đại lượng được đo hoặc thuộc tính được kiểm tra. How to measure: đo/kiểm tra thế nào, viết bằng văn xuôi, không tool, không architecture.
+     Target: một giá trị có đơn vị và giới hạn, hoặc một thuộc tính bắt buộc (kiểm tra bảo mật/riêng tư có thể là thuộc tính không phải số). "not set" khi chưa quyết; không đoán số.
+     Passes when: thế nào là pass. "not set" khi chưa quyết. -->
 
 ### M-1 · measure name
 
@@ -39,9 +39,9 @@ updated: YYYY-MM-DD
 
 ## Undecided
 
-<!-- An open aspect that is not a target, one line per item, ending "Pending decision." (or "Pending technical evidence." when evidence is missing to define it).
-     An undecided target is "not set", not an item here. Omit this section if empty. -->
+<!-- Khía cạnh còn mở mà không phải target, mỗi item một dòng, kết thúc bằng "Pending decision." (hoặc "Pending technical evidence." khi thiếu bằng chứng để định nghĩa).
+     Target chưa quyết là "not set", không phải item ở đây. Bỏ section này nếu trống. -->
 
 ## Notes
 
-<!-- Only what belongs in neither the statement nor a measure, e.g. a split or merge. Omit this section if empty. -->
+<!-- Chỉ những gì không thuộc statement hay measure, ví dụ một lần tách hoặc gộp. Bỏ section này nếu trống. -->

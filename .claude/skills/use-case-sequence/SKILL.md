@@ -38,7 +38,11 @@ The block is exactly these lines (each line inside the code block indented 2 spa
 ````
 <!-- BEGIN generated: use-case-sequence -->
 ```mermaid
-sequenceDiagram participant U as User participant S as System U->>S: <user> S-->>U: <system>
+sequenceDiagram
+  participant U as User
+  participant S as System
+  U->>S: <user>
+  S-->>U: <system>
 ```
 
 *Not drawn (alternative flows): <list>.*

@@ -1,6 +1,6 @@
 ---
 name: Flow tracker
-about: Root tracking issue for a build scope. One per scoped build.
+about: Issue gốc theo dõi một build scope. Mỗi build có scope một issue.
 title: "Flow tracker — "
 labels: flow-tracker
 ---
@@ -8,47 +8,47 @@ labels: flow-tracker
 ## Scope
 
 - **Use case:** UC-XXX
-- **Steps:** (e.g. S1-S2, or "all")
-- **Alternatives:** (e.g. A1, A3, or "all")
+- **Steps:** (ví dụ S1-S2, hoặc "all")
+- **Alternatives:** (ví dụ A1, A3, hoặc "all")
 - **FRs in scope:** FR-NNN, FR-NNN
 - **NFRs in scope:** NFR-NNN
 - **Plans:** plans/UC-XXX-short-label/
 
 ## Phase 1: Research
-<!-- Gate: all in-scope research tickets closed -->
+<!-- Gate: mọi research ticket trong scope đã đóng -->
 
-_Tickets added when the research question checklist is created._
+_Ticket được thêm vào khi tạo checklist research question._
 
 ## Phase 2: Testing plan
-<!-- Gate: all test stub tickets closed -->
+<!-- Gate: mọi test stub ticket đã đóng -->
 <!-- Blocked by: Phase 1 complete -->
 
-_Tickets added when the testing plan is created._
+_Ticket được thêm vào khi tạo testing plan._
 
 ## Phase 3: Implementation plan
-<!-- Gate: plan reviewed and approved -->
+<!-- Gate: plan đã được review và approve -->
 <!-- Blocked by: Phase 2 complete -->
 
-- [ ] Implementation plan reviewed and approved
+- [ ] Implementation plan đã được review và approve
 
 ## Phase 4: Implementation
-<!-- Gate: all impl tickets closed, tests green -->
+<!-- Gate: mọi impl ticket đã đóng, test xanh -->
 
-_Tickets added when the implementation plan is approved._
+_Ticket được thêm vào khi implementation plan được approve._
 
 ## Phase 5: Post-implementation testing
-<!-- Gate: all post-impl tickets closed -->
+<!-- Gate: mọi post-impl ticket đã đóng -->
 
-_Tickets added alongside the implementation tickets._
+_Ticket được thêm vào cùng lúc với implementation ticket._
 
 ## Phase 6: Verification
-<!-- Gate: this issue closed; every matrix row's Verified column is ticked -->
+<!-- Gate: issue này đã đóng; cột Verified của mọi dòng matrix đã tick -->
 <!-- Blocked by: Phase 5 complete -->
 
-- [ ] Full test suite passes
-- [ ] Smoke tests pass
+- [ ] Toàn bộ test suite pass
+- [ ] Smoke test pass
 
 ### Verified per AC
-<!-- One line per AC, taken from plans/UC-XXX/traceability-matrix.md -->
+<!-- Mỗi AC một dòng, lấy từ plans/UC-XXX/traceability-matrix.md -->
 
-_AC list added from the traceability matrix when Phase 6 is reached._
+_Danh sách AC được thêm từ traceability matrix khi tới Phase 6._

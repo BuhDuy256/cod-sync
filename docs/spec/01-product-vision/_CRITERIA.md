@@ -4,55 +4,54 @@ Template: `_TEMPLATE.md`. Style: `../_STYLE.md`. Children: `../02-use-cases/`, `
 
 ## 1. What the vision is, and is not
 
-**The vision defines what the product is, before any other spec file describes what it does.** It answers five questions: (1) What is the product? (2) What problem does it solve? (3) What main value does it give? (4) What principles guide choices? (5) What boundaries belong to the product's nature?
+**Vision định nghĩa product là gì, trước khi bất kỳ file spec nào khác mô tả nó làm gì.** Vision trả lời năm câu hỏi: (1) Product là gì? (2) Nó giải quyết vấn đề gì? (3) Giá trị chính nó mang lại là gì? (4) Nguyên tắc nào định hướng các lựa chọn? (5) Ranh giới nào thuộc về bản chất của product?
 
-**The vision is not a decision log, a feature list, or scope.** It keeps only what stays true when scope, interface, or architecture changes (VG-01).
+**Vision không phải decision log, danh sách feature hay scope.** Nó chỉ giữ những gì vẫn đúng khi scope, interface hay architecture thay đổi (VG-01).
 
-**The vision does not grow by inference.** Only you confirm a statement. Everything else is a proposal or an open question (VG-13). A gap is written as a gap (VG-14).
+**Vision không lớn lên bằng suy luận.** Một statement chỉ được confirm khi chủ product nói ra. Mọi thứ khác là đề xuất hoặc câu hỏi mở (VG-13). Chỗ trống được ghi là chỗ trống (VG-14).
 
 ### Where content belongs
 
 | If the content is... | Then it belongs |
 |---|---|
-| What the product is, why it exists, value, principles, durable boundaries | Here |
-| A capability the product provides | `../02-use-cases/`. Point here only when you say it is part of the product's nature |
-| A step, a response, or a branch of a goal | `../02-use-cases/` |
-| A testable statement of a system response | `../03-requirements/fr/` |
-| A wait time, a size target, or another quality target | `../03-requirements/nfr/`. The vision cites `[NFR-?: topic]` |
-| A limit, allow-list, file type, or other value a rule defines | `../04-business-rules/`. The vision cites `[BR-?: topic]` |
-| How code achieves something: engine, storage, framework, protocol | Decision record in `docs/decisions/` |
-| How the product is operated or looks | UI design work (no folder yet) |
-| Rules for writing spec files, or shared terminology | `../_STYLE.md` or `AGENTS.md` |
-| A raw observation of another product | `docs/research/` |
+| Product là gì, vì sao tồn tại, giá trị, nguyên tắc, ranh giới lâu dài | Ở đây |
+| Một năng lực mà product cung cấp | `../02-use-cases/`. Chỉ đưa vào đây khi đã khẳng định nó là một phần bản chất của product |
+| Một step, một response hay một nhánh của một mục tiêu | `../02-use-cases/` |
+| Một câu test được về system response | `../03-requirements/fr/` |
+| Thời gian chờ, chỉ tiêu kích thước hay chỉ tiêu chất lượng khác | `../03-requirements/nfr/`. Vision cite `[NFR-?: topic]` |
+| Giới hạn, allow-list, loại file hay giá trị khác do rule định nghĩa | `../04-business-rules/`. Vision cite `[BR-?: topic]` |
+| Code đạt được điều gì đó bằng cách nào: engine, storage, framework, protocol | Decision record trong `docs/decisions/` |
+| Product được thao tác ra sao hay trông thế nào | Công việc UI design (chưa có folder) |
+| Rule viết file spec, hoặc thuật ngữ dùng chung | `../_STYLE.md` hoặc `AGENTS.md` |
+| Quan sát thô về một product khác | `docs/research/` |
 
 ### A boundary is not a scope limit
 
-A boundary says what the product is NOT, by its nature. It holds in every release. A scope limit says what a release leaves out. Only the former belongs here.
+Boundary nói product KHÔNG phải là gì, theo bản chất của nó. Nó đúng ở mọi release. Scope limit nói một release bỏ ra ngoài những gì. Chỉ cái đầu tiên thuộc về đây.
 
-> Scope limit (not here): "V1 is web-only."
-> Boundary (here): "The product does not move real money; it simulates holding and
-> releasing it."
+> Scope limit (không ở đây): "V1 is web-only."
+> Boundary (ở đây): "The product does not move real money; it simulates holding and releasing it."
 
-Test: given infinite time, is the statement still true? If not, it is a scope limit.
+Kiểm tra: nếu có thời gian vô hạn, statement có còn đúng không? Nếu không, đó là scope limit.
 
 ### Confirmed, proposed, open
 
-Each statement has one of two statuses.
+Mỗi statement có một trong hai status.
 
 | Status | Meaning | Lower spec may rely on it |
 |---|---|---|
-| `confirmed` | You have said it | Yes |
-| `proposed` | AI suggests it, you have not decided | No |
+| `confirmed` | Chủ product đã nói ra | Yes |
+| `proposed` | Mới là đề xuất, chưa được quyết | No |
 
-An open question is a third state: not enough is known to decide.
+Câu hỏi mở là trạng thái thứ ba: chưa biết đủ để quyết.
 
 ### Link direction: top-down only
 
-The vision is the top of the chain. A lower spec file never names a vision block. To check a file against the vision, read the vision.
+Vision nằm trên cùng của chuỗi. File spec cấp dưới không bao giờ gọi tên một vision block. Muốn kiểm tra một file với vision thì đọc vision.
 
 ### One source of truth
 
-A fact is written in exactly one block. Other blocks point to it by ID. A term or region that `../_STYLE.md` defines is used here, not redefined (VG-06).
+Một sự thật được viết trong đúng một block. Các block khác trỏ tới nó bằng ID. Term hay region mà `../_STYLE.md` định nghĩa thì dùng ở đây, không định nghĩa lại (VG-06).
 
 ## 2. Sections, blocks, and IDs
 
@@ -65,45 +64,41 @@ A fact is written in exactly one block. Other blocks point to it by ID. A term o
 | Open questions | Any gap | `Q-x` | Question, Affects |
 | Removed | Removed IDs | none | One line per ID |
 
-- `Status` is `confirmed` or `proposed`. Always present.
-- `Source` appears only when `proposed` — says who proposed it and what it was inferred from.
-- `Why` gives the reason, or drop the line. Do not invent a reason.
-- `Spec implications` appears only on a `confirmed` block, and only what follows directly from the statement.
-- IDs are never renumbered or reused. A removed block is recorded under `Removed` (VG-05).
+- `Status` là `confirmed` hoặc `proposed`. Luôn có mặt.
+- `Source` chỉ xuất hiện khi `proposed`: nói đề xuất đến từ đâu và được suy ra từ cái gì.
+- `Why` ghi lý do, hoặc bỏ dòng. Không bịa lý do.
+- `Spec implications` chỉ xuất hiện ở block `confirmed`, và chỉ ghi những gì suy ra trực tiếp từ statement.
+- ID không bao giờ đánh số lại hay dùng lại. Block bị xóa được ghi trong `Removed` (VG-05).
 
 ## 3. Criteria
 
-"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment, *CI* = cross-check. There is no tool yet, so review does both Lint and CI.
+Cột "Check" là tầng kiểm tra dự kiến: *Lint* = máy kiểm tra được, *Review* = người phán đoán, *CI* = đối chiếu chéo. Chưa có tool, nên review làm cả Lint lẫn CI.
 
 | ID | Criterion | Prevents | Check |
 |---|---|---|---|
-| VG-01 | Each block says what the product is, why it exists, its value, a principle, or a durable boundary. It stays true when scope, interface, or architecture changes. A fact that only one feature or use case depends on belongs with that use case | The vision becoming a feature list | Review |
-| VG-02 | A block says what is true of the product or for the user. It never says how code achieves it. `Why` gives your reason, or drops the line | Architecture chosen by accident | Review |
-| VG-03 | A boundary says what the product is NOT by nature, via the test in section 1. A missing feature or a scope limit is not a boundary | A V1 limit turning into a permanent one | Review |
-| VG-04 | An open question has `Question` and `Affects`. `Affects` lists the spec items awaiting the answer by ID, or "none yet". No other block answers the question | A gap hidden inside a statement | Lint (fields) + Review |
-| VG-05 | IDs `I-x`, `W-x`, `P-x`, `B-x`, `Q-x` are never renumbered or reused. A removed block is recorded under `Removed` with where the content went | A citation pointing at the wrong block | Review |
-| VG-06 | Each fact is written once. Other blocks point by ID. The file does not redefine a term, region, or rule that `../_STYLE.md` defines | Two sources for one fact drifting apart | Review |
-| VG-07 | Each block has `Status: confirmed` or `proposed`. A `proposed` block has `Source` and no `Spec implications`. Lower spec does not rely on a `proposed` block | A proposal read as a rule | Lint (fields) + Review |
-| VG-08 | The file contains no scope, order, or priority. No use of MVP, V1, phase, roadmap | A scope decision put in the wrong place | Lint (words) + Review |
-| VG-09 | The file contains no rules or quality values. It cites `[BR-?: topic]` or `[NFR-?: topic]` for every limit or target | The same rule written in several places | Lint (numbers, markers) + CI (ID exists) |
-| VG-10 | Links are top-down only. Only `Affects` names a lower spec item, and each ID exists or is removed | A link pointing up; a dangling ID | CI (reference exists) |
-| VG-11 | Text follows `../_STYLE.md`: glossary words, no banned vague verbs, one fact per line, evidence on its own line | Text a reader reads two ways | Lint (banned words) + Review |
-| VG-12 | The file has no marketing. No praise words like powerful, smooth, intuitive, smart, best, easy | Marketing copy read as a commitment | Lint (words) + Review |
-| VG-13 | Only you confirm a statement. AI writes new content only as a `proposed` block or an open question. Content found in a use case, research link, or reference product is not confirmed because of that | Inference and borrowed features becoming product truth | Review |
-| VG-14 | A `W-x` block stating a human problem, need, or value has `Evidence` with a tag from `../_STYLE.md`. It does not overstate the evidence. With only `[assumed]`, write it as a belief ("I believe that..."). A part with nothing yet reads "Not written yet. See Q-x." | A made-up user problem; a vision that looks complete but is guesswork | Lint (fields, tags) + Review |
+| VG-01 | Mỗi block nói product là gì, vì sao tồn tại, giá trị của nó, một nguyên tắc, hoặc một ranh giới lâu dài. Nó vẫn đúng khi scope, interface hay architecture thay đổi. Sự thật chỉ một feature hay use case phụ thuộc thì đi theo use case đó | Vision biến thành danh sách feature | Review |
+| VG-02 | Block nói điều gì đúng về product hoặc với user. Nó không bao giờ nói code đạt được điều đó bằng cách nào. `Why` ghi lý do thật, hoặc bỏ dòng | Architecture bị chọn một cách tình cờ | Review |
+| VG-03 | Boundary nói product KHÔNG phải là gì theo bản chất, qua phép kiểm tra ở section 1. Feature còn thiếu hay scope limit không phải boundary | Giới hạn của V1 trở thành giới hạn vĩnh viễn | Review |
+| VG-04 | Câu hỏi mở có `Question` và `Affects`. `Affects` liệt kê bằng ID các spec item đang chờ câu trả lời, hoặc "none yet". Không block nào khác trả lời câu hỏi | Chỗ trống bị giấu trong một statement | Lint (fields) + Review |
+| VG-05 | ID `I-x`, `W-x`, `P-x`, `B-x`, `Q-x` không bao giờ đánh số lại hay dùng lại. Block bị xóa được ghi trong `Removed` kèm nội dung đã chuyển đi đâu | Citation trỏ sai block | Review |
+| VG-06 | Mỗi sự thật được viết một lần. Các block khác trỏ bằng ID. File không định nghĩa lại term, region hay rule mà `../_STYLE.md` đã định nghĩa | Hai nguồn cho một sự thật lệch nhau | Review |
+| VG-07 | Mỗi block có `Status: confirmed` hoặc `proposed`. Block `proposed` có `Source` và không có `Spec implications`. Spec cấp dưới không dựa vào block `proposed` | Đề xuất bị đọc như rule | Lint (fields) + Review |
+| VG-08 | File không chứa scope, thứ tự hay độ ưu tiên. Không dùng MVP, V1, phase, roadmap | Quyết định scope đặt sai chỗ | Lint (words) + Review |
+| VG-09 | File không chứa giá trị rule hay chất lượng. Nó cite `[BR-?: topic]` hoặc `[NFR-?: topic]` cho mọi giới hạn hay target | Cùng một rule viết ở nhiều chỗ | Lint (numbers, markers) + CI (ID exists) |
+| VG-10 | Link chỉ đi từ trên xuống. Chỉ `Affects` gọi tên spec item cấp dưới, và mỗi ID đều tồn tại hoặc đã bị xóa | Link trỏ ngược lên; ID treo | CI (reference exists) |
+| VG-11 | Text theo `../_STYLE.md`: từ trong glossary, không có động từ mơ hồ bị cấm, mỗi dòng một sự thật, evidence một dòng riêng | Text đọc hiểu hai kiểu | Lint (banned words) + Review |
+| VG-12 | File không có văn quảng cáo. Không dùng từ khen như powerful, smooth, intuitive, smart, best, easy | Văn quảng cáo bị đọc như cam kết | Lint (words) + Review |
+| VG-13 | Chỉ chủ product confirm một statement. Nội dung mới chỉ được viết dưới dạng block `proposed` hoặc câu hỏi mở. Nội dung tìm thấy trong use case, research link hay reference product không vì thế mà thành confirmed | Suy luận và feature đi mượn trở thành sự thật của product | Review |
+| VG-14 | Block `W-x` nêu một vấn đề, nhu cầu hay giá trị của con người có `Evidence` với tag từ `../_STYLE.md`. Nó không nói quá bằng chứng. Chỉ có `[assumed]` thì viết như một niềm tin ("I believe that..."). Phần chưa có gì ghi "Not written yet. See Q-x." | Vấn đề của user bị bịa ra; vision trông hoàn chỉnh nhưng toàn đoán | Lint (fields, tags) + Review |
 
 ## 4. Illustrations
 
-**VG-01: nature, not feature.**
+**VG-01: bản chất, không phải feature.**
 
-> Fail: "The product imports carrier statements." That is a capability; it belongs in a
-> use case.
-> Pass: "The product is a web-hosted system, with accounts, that reconciles
-> cash-on-delivery money for a shop sending parcels through two or more carriers."
+> Fail: "The product imports carrier statements." Đó là một năng lực; nó thuộc về use case.
+> Pass: "The product is a web-hosted system, with accounts, that reconciles cash-on-delivery money for a shop sending parcels through two or more carriers."
 
-**VG-03: boundary, not V1 limit.**
+**VG-03: boundary, không phải giới hạn của V1.**
 
-> Fail: "Boundary: no AI explanation of discrepancies." V1 chose not to do it; that is
-> scope.
-> Pass: "Boundary: the product does not keep inventory; it records only whether a return
-> arrived."
+> Fail: "Boundary: no AI explanation of discrepancies." V1 chọn không làm; đó là scope.
+> Pass: "Boundary: the product does not keep inventory; it records only whether a return arrived."

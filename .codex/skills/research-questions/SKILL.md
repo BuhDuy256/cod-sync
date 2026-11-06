@@ -72,8 +72,7 @@ The checklist has two main sections:
 
 ### Step 3 — Generate sequence diagrams for tickets
 
-When creating GitHub Issues for research questions (using `research-ticket` template),
-generate a Mermaid sequence diagram for each ticket that:
+When creating GitHub Issues for research questions (using `research-ticket` template), generate a Mermaid sequence diagram for each ticket that:
 
 1. Shows the full UC flow as a sequence diagram with the actual participants (User, Frontend, Backend, External services).
 2. Highlights the step(s) this question relates to using `rect rgb(255, 230, 150)` with a `note` pointing to the RQ number.

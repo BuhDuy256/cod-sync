@@ -4,77 +4,75 @@ Template: `_TEMPLATE.md`. Style: `../_STYLE.md`. Cited by: `../02-use-cases/`, `
 
 ## 1. What a BR is, and is not
 
-**A BR defines a value that product behavior depends on.** The value is an allow-set, limit, threshold, quota, retention time, or list that defines "what counts". The behavior that applies the value is an FR. The BR says what the value is.
+**BR định nghĩa một giá trị mà hành vi của product phụ thuộc vào.** Giá trị đó là allow-set, giới hạn, ngưỡng, quota, thời gian lưu, hoặc một danh sách định nghĩa "thế nào thì được tính". Hành vi áp dụng giá trị là FR. BR nói giá trị đó là gì.
 
 > FR: "The system rejects a carrier statement that does not match a known format [BR-xxx]."
 > BR-xxx: the accepted carriers, and the statement format of each carrier.
 
 | If the content is... | Then it belongs |
 |---|---|
-| What the system shows, keeps, changes, creates, or rejects, and when | `../03-requirements/fr/`. The FR cites this BR |
-| A rule with no value of its own, like "cannot close a period while an import is running" | `../03-requirements/fr/` |
-| A model judgment with no writable value | `../03-requirements/fr/`, with an evaluation criterion |
-| A wait time, reliability, security, privacy, or accessibility target | `../03-requirements/nfr/` |
-| A goal, journey, step, or user intent | `../02-use-cases/` |
-| How the system keeps or checks a value: code, storage, config | ADR or architecture work |
-| What the product looks like or how the user operates it | UI design work (no folder yet) |
+| Hệ thống show, giữ, đổi, tạo hay từ chối điều gì, và khi nào | `../03-requirements/fr/`. FR cite BR này |
+| Rule không có giá trị riêng, như "cannot close a period while an import is running" | `../03-requirements/fr/` |
+| Một phán đoán của model không có giá trị viết ra được | `../03-requirements/fr/`, kèm evaluation criterion |
+| Chỉ tiêu thời gian chờ, độ tin cậy, bảo mật, riêng tư hay khả năng tiếp cận | `../03-requirements/nfr/` |
+| Mục tiêu, hành trình, step hay intent của user | `../02-use-cases/` |
+| Hệ thống giữ hay kiểm tra giá trị bằng cách nào: code, storage, config | ADR hoặc công việc architecture |
+| Product trông ra sao hay user thao tác thế nào | Công việc UI design (chưa có folder) |
 
-The marker `[BR-?: topic]` names a topic, not a decision. Writing the rule may show the topic has no value of its own. The marker is replaced by a BR only when it fully covers the meaning; on partial coverage the marker stays and the missing part is reported.
+Marker `[BR-?: topic]` gọi tên một chủ đề, không phải một decision. Khi viết rule ra có thể thấy chủ đề đó không có giá trị riêng. Marker chỉ được thay bằng BR khi BR cover đầy đủ nghĩa; nếu chỉ cover một phần thì marker ở lại và phần thiếu được báo ra.
 
 ### Granularity and values
 
-- **One BR** is one cohesive rule. Its values govern one decision and change for related reasons.
-- **Several values** can share one BR. Do not split a cohesive rule just because it has several values; do not merge unrelated rules to save files.
-- **No duplicate.** Before writing, search the folder for existing statements and values.
+- **Một BR** là một rule thống nhất. Các giá trị của nó chi phối một quyết định và thay đổi vì những lý do liên quan.
+- **Nhiều giá trị** có thể chung một BR. Không tách một rule thống nhất chỉ vì nó có nhiều giá trị; không gộp các rule không liên quan để tiết kiệm file.
+- **Không trùng.** Trước khi viết, tìm trong folder các statement và giá trị đã có.
 
-Each value is a `### V-n · name` block with a Value field. Exact value: a number with unit; a bound saying inclusive or unbounded; a list saying closed or open. The value is precise enough for an FR criterion to test at and past the value. A value holds no behavior — what the system does at a limit is written in the FR.
+Mỗi giá trị là một block `### V-n · name` với field Value. Giá trị chính xác: số kèm đơn vị; giới hạn ghi rõ có tính biên hay không giới hạn; danh sách ghi rõ đóng hay mở. Giá trị đủ chính xác để một FR criterion test được tại và vượt quá giá trị đó. Giá trị không chứa hành vi, hệ thống làm gì khi chạm giới hạn được viết trong FR.
 
 ### IDs and files
 
-- One BR per file: `BR-xxx.md`. `xxx` is three digits. The `id` equals the file name.
-- A new ID follows the highest existing or removed ID. An ID does not change when the title, wording, or value changes; it is not reused and not renumbered.
-- An ID is dropped only when the rule leaves the behavior model or is merged into another BR. A dropped ID is recorded below with the date and the BR it merged into.
-- Value IDs are `V-1`, `V-2` within one BR, not renumbered.
+- Mỗi BR một file: `BR-xxx.md`. `xxx` là ba chữ số. `id` bằng tên file.
+- ID mới đi sau ID cao nhất đang có hoặc đã xóa. ID không đổi khi title, câu chữ hay giá trị đổi; không dùng lại, không đánh số lại.
+- ID chỉ bị bỏ khi rule rời khỏi behavior model hoặc được gộp vào BR khác. ID bị bỏ được ghi bên dưới kèm ngày và BR mà nó gộp vào.
+- ID của giá trị là `V-1`, `V-2` trong một BR, không đánh số lại.
 
 Removed BR IDs: none.
 
 ### Links
 
-Links are top-down only. A use case (System or When), an FR, an NFR, or the vision cites a BR with `[BR-xxx]`.
+Link chỉ đi từ trên xuống. Use case (System hoặc When), FR, NFR hoặc vision cite BR bằng `[BR-xxx]`.
 
-- A BR does not name a use case, step, branch, FR, or NFR. It does not cite another BR.
-- To find what cites a BR, search for its ID in the spec files.
+- BR không gọi tên use case, step, nhánh, FR hay NFR. Nó không cite BR khác.
+- Muốn tìm chỗ cite một BR, tìm ID của nó trong các file spec.
 
 ### One source of truth
 
-A value lives in exactly one BR. Other spec files never state it, interpret it into a number, or list the allowed items; they cite the ID. Changing a value changes only the BR; in the same change, find the files that cite the BR for text that relied on the old value, and report each one.
+Một giá trị chỉ nằm trong đúng một BR. Các file spec khác không bao giờ nêu nó, diễn giải nó thành con số hay liệt kê các item được phép; chúng cite ID. Đổi giá trị chỉ đổi BR; trong cùng thay đổi đó, tìm các file cite BR có câu chữ dựa vào giá trị cũ, và báo ra từng file.
 
 ## 2. Criteria
 
-"Check" is the intended layer: *Lint* = machine-checkable, *Review* = human judgment, *CI* = cross-check. There is no tool yet, so review does both Lint and CI.
+Cột "Check" là tầng kiểm tra dự kiến: *Lint* = máy kiểm tra được, *Review* = người phán đoán, *CI* = đối chiếu chéo. Chưa có tool, nên review làm cả Lint lẫn CI.
 
 | ID | Criterion | Prevents | Check |
 |---|---|---|---|
-| BRG-01 | The BR defines the value of a rule that product behavior depends on. No behavior, goal, journey, quality target, interface, architecture, progress, or version | A behavior written twice; a value hidden in behavior | Review |
-| BRG-02 | Granularity per section 1: one cohesive rule; related values allowed; split for unrelated behavior/reasons; no value defined twice | A giant rule file; the same value in two places | Review |
-| BRG-03 | Each value is exact: a number with unit; a bound inclusive or not; a list closed or open. An FR can test at and past the value | A value two people apply two ways | Review |
-| BRG-04 | The file follows `_TEMPLATE.md`: frontmatter `id` and `title`; the Rule fields in order; at least one value block. An empty `Why` drops its line. `Undecided` and `Notes` are omitted when empty | A file that cannot be compared or checked | Lint (fields, order) |
-| BRG-05 | A pending value reads `not set`. No guessed number, range, or "about". No file presents it as an approved limit | A made-up limit; an open value read as decided | Lint (`not set`) + Review |
-| BRG-06 | The `Undecided` section states an open aspect that is not a value, one line, ending "Pending decision.". An undecided value is `not set`, not an item here | An open question becoming a rule before it is decided | Review |
-| BRG-07 | A value lives in one BR. Use case, FR, NFR, and vision cite the ID, not the value again. A marker is replaced only when the BR fully covers the meaning | The same value in several files; a marker erased by a similar topic | Lint (numbers in citing files) + CI (ID exists) + Review |
-| BRG-08 | The file name `BR-xxx.md` is three digits, equal to the frontmatter `id`. The ID is unique and not renumbered. A dropped ID is recorded in section 1, not reused. The BR does not name a use case, step, branch, FR, NFR, or another BR | Two meanings for one ID; a link pointing up | Lint (name, format) + CI (unique) |
-| BRG-09 | Text follows `../_STYLE.md` rules 1–10 in Statement and Value. No interface (rule 11) | A rule read two ways; a design locked via a rule | Lint (banned words) + Review |
+| BRG-01 | BR định nghĩa giá trị của một rule mà hành vi product phụ thuộc vào. Không có hành vi, mục tiêu, hành trình, chỉ tiêu chất lượng, interface, architecture, tiến độ hay version | Hành vi bị viết hai lần; giá trị bị giấu trong hành vi | Review |
+| BRG-02 | Độ chi tiết theo section 1: một rule thống nhất; cho phép các giá trị liên quan; tách khi hành vi/lý do không liên quan; không giá trị nào được định nghĩa hai lần | File rule khổng lồ; cùng giá trị ở hai chỗ | Review |
+| BRG-03 | Mỗi giá trị chính xác: số kèm đơn vị; giới hạn có tính biên hay không; danh sách đóng hay mở. FR test được tại và vượt quá giá trị | Hai người áp dụng một giá trị theo hai kiểu | Review |
+| BRG-04 | File theo `_TEMPLATE.md`: frontmatter có `id` và `title`; các field của Rule theo thứ tự; ít nhất một value block. `Why` trống thì bỏ dòng. `Undecided` và `Notes` bỏ khi trống | File không so sánh hay kiểm tra được | Lint (fields, order) |
+| BRG-05 | Giá trị chưa quyết ghi `not set`. Không đoán số, khoảng hay "khoảng chừng". Không file nào trình bày nó như giới hạn đã duyệt | Giới hạn bịa ra; giá trị còn mở bị đọc như đã quyết | Lint (`not set`) + Review |
+| BRG-06 | Section `Undecided` nêu một khía cạnh còn mở mà không phải giá trị, một dòng, kết thúc bằng "Pending decision.". Giá trị chưa quyết là `not set`, không phải item ở đây | Câu hỏi còn mở biến thành rule trước khi được quyết | Review |
+| BRG-07 | Một giá trị nằm trong một BR. Use case, FR, NFR và vision cite ID, không nêu lại giá trị. Marker chỉ được thay khi BR cover đầy đủ nghĩa | Cùng giá trị trong nhiều file; marker bị xóa bởi một chủ đề na ná | Lint (numbers in citing files) + CI (ID exists) + Review |
+| BRG-08 | Tên file `BR-xxx.md` có ba chữ số, bằng `id` trong frontmatter. ID là duy nhất và không đánh số lại. ID bị bỏ được ghi ở section 1, không dùng lại. BR không gọi tên use case, step, nhánh, FR, NFR hay BR khác | Một ID mang hai nghĩa; link trỏ ngược lên | Lint (name, format) + CI (unique) |
+| BRG-09 | Text theo rule 1–10 của `../_STYLE.md` trong Statement và Value. Không interface (rule 11) | Rule đọc hiểu hai kiểu; design bị khóa qua một rule | Lint (banned words) + Review |
 
 ## 3. Illustrations
 
-**BRG-01: a judgment is not a value.**
+**BRG-01: phán đoán không phải giá trị.**
 
-> Fail: BR "the system asks when the source is unclear". That is behavior with a
-> judgment, which is an FR.
-> Pass: you decide there is a list of accepted source types. The BR lists those types.
+> Fail: BR "the system asks when the source is unclear". Đó là hành vi kèm phán đoán, tức là FR.
+> Pass: quyết định rằng có một danh sách các loại source được chấp nhận. BR liệt kê các loại đó.
 
-**BRG-07: one place for a value.**
+**BRG-07: một chỗ cho một giá trị.**
 
-> Fail: a use case says "The system backs off a few seconds on interruption [BR-000]."
-> Pass: "The system backs off by the back-off limit [BR-000]." The number lives in
-> BR-000.
+> Fail: use case ghi "The system backs off a few seconds on interruption [BR-000]."
+> Pass: "The system backs off by the back-off limit [BR-000]." Con số nằm trong BR-000.

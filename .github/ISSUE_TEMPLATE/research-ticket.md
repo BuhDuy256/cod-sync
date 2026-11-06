@@ -1,6 +1,6 @@
 ---
 name: Research ticket
-about: A technical or product question to answer before implementation.
+about: Một câu hỏi kỹ thuật hoặc sản phẩm cần trả lời trước implementation.
 title: "Research: "
 labels: phase:research
 ---
@@ -14,10 +14,10 @@ labels: phase:research
 
 ## Flow diagram
 
-<!-- Mermaid sequence diagram showing the runtime flow of the UC.
-     Highlight the step(s) this question relates to using `activate` / `note`.
-     The reader should see WHERE in the flow this question comes from
-     before reading the question itself. -->
+<!-- Mermaid sequence diagram thể hiện runtime flow của UC.
+     Highlight (các) step mà câu hỏi này liên quan bằng `activate` / `note`.
+     Người đọc cần thấy câu hỏi phát sinh từ CHỖ NÀO trong flow
+     trước khi đọc câu hỏi. -->
 
 ```mermaid
 sequenceDiagram
@@ -39,21 +39,21 @@ sequenceDiagram
     Frontend-->>User: feedback
 ```
 
-<!-- Replace the diagram above with the actual flow for this UC.
-     Use `rect rgb(255, 230, 150)` to highlight the step(s)
-     this research question comes from. -->
+<!-- Thay diagram trên bằng flow thật của UC.
+     Dùng `rect rgb(255, 230, 150)` để highlight (các) step
+     mà research question này phát sinh. -->
 
 ## Question
 
-<!-- The specific question to answer. One question per ticket. -->
+<!-- Câu hỏi cụ thể cần trả lời. Mỗi ticket một câu hỏi. -->
 
 ## Why this matters
 
-<!-- Which requirement or decision depends on this answer. Be specific. -->
+<!-- Requirement hoặc decision nào phụ thuộc vào câu trả lời này. Ghi cụ thể. -->
 
 ## Options (if technical)
 
-<!-- Fill this table when the question is a technology choice. Remove if not applicable. -->
+<!-- Điền bảng khi câu hỏi là lựa chọn công nghệ. Xóa nếu không áp dụng. -->
 
 | Option | Description | Fits requirements | Tradeoffs |
 |---|---|---|---|
@@ -63,8 +63,8 @@ sequenceDiagram
 
 ## Deliverable
 
-<!-- What closing this ticket produces. Use a clickable link so the reviewer
-     can open the file directly. Format:
+<!-- Đóng ticket này tạo ra gì. Dùng link bấm được để reviewer
+     mở file trực tiếp. Format:
 
      **Decision record:** [docs/decisions/DEC-NNN-topic.md](https://github.com/BuhDuy256/cod-sync/blob/main/docs/decisions/DEC-NNN-topic.md)
 
@@ -72,10 +72,10 @@ sequenceDiagram
 
 ## Acceptance
 
-- [ ] Question answered with evidence or reasoning
-- [ ] Deliverable file created or updated
-- [ ] Reviewed
+- [ ] Câu hỏi đã được trả lời kèm bằng chứng hoặc lập luận
+- [ ] File deliverable đã được tạo hoặc cập nhật
+- [ ] Đã review
 
 ## Blocked by
 
-<!-- List prerequisite tickets. Remove if none. -->
+<!-- Liệt kê ticket tiên quyết. Xóa nếu không có. -->
