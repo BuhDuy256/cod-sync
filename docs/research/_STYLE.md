@@ -1,34 +1,36 @@
 # Research notes — style guide
 
-Read this file before writing or editing any file in `docs/research/`. Also read the existing notes in the target file to match its voice before adding more.
+Đọc file này trước khi viết hoặc sửa bất kỳ file nào trong `docs/research/`. Đọc luôn các note đã có trong file đích để giữ cùng giọng văn trước khi viết thêm.
 
 ## Structure
 
-1. Use a numbered list as the main structure. Each number presents one idea or one question. Continue the numbering already in the file.
+1. Dùng numbered list làm cấu trúc chính. Mỗi số trình bày một ý hoặc một câu hỏi. Đánh số tiếp theo số đang có trong file.
 
-2. Use bullets inside a numbered item when you need to list details. Use a table only to compare against the same criteria (e.g. results across several URLs). Use a code block for commands or short response snippets.
+2. Dùng bullet bên trong một mục khi cần liệt kê chi tiết. Chỉ dùng bảng khi so sánh nhiều thứ theo cùng tiêu chí (ví dụ kết quả trên nhiều URL). Dùng code block cho command hoặc đoạn response ngắn.
 
-3. Do not use bold, italics, or sub-headings in ordinary text. Keep existing headings and metadata. Use inline code for URLs, commands, file names, headers, or technical values.
+3. Không dùng bold, italic hay sub-heading trong văn bản thường. Giữ nguyên heading và metadata đã có. Dùng inline code cho URL, command, tên file, header hoặc giá trị kỹ thuật.
+
+4. Mỗi đoạn văn hoặc mỗi list item nằm trên đúng 1 dòng. Không tự xuống dòng giữa câu, editor sẽ tự soft-wrap. Ngoại lệ: code block, bảng, các dòng metadata (`**Ticket:**`, `**Blocked by:**`, ...) mỗi field một dòng.
 
 ## Language
 
-4. Write clear, short, direct English. Keep familiar technical terms as they are (request, response, headers, fetch, backend, hosting, retry, ...).
+5. Viết câu tiếng Việt rõ, ngắn, trực tiếp. Giữ nguyên thuật ngữ kỹ thuật tiếng Anh quen thuộc (request, response, headers, fetch, backend, hosting, retry, ...), ID (FR, AC, UC, DEC) và tên field.
 
-5. When you introduce a new term, explain it immediately in terms of concrete behavior. Example: "Retry means sending the request again after a failure." Avoid vague phrasing like "handle appropriately" or "ensure it works reliably".
+6. Khi đưa ra một thuật ngữ mới, giải thích ngay bằng hành vi cụ thể. Ví dụ: "Retry là gửi lại request sau khi bị lỗi." Tránh câu mơ hồ kiểu "xử lý phù hợp" hay "đảm bảo hoạt động ổn định".
 
 ## Reasoning
 
-6. Explain in order: the problem to check → what was tried → what was observed → what it means for the project.
+7. Giải thích theo thứ tự: vấn đề cần kiểm tra → đã thử gì → quan sát được gì → điều đó có ý nghĩa gì cho project.
 
-7. Use a short question to lead into what needs understanding, when it fits. Example: "Does HTTP 200 mean the chapter was fetched?" — then explain right after.
+8. Dùng một câu hỏi ngắn để dẫn vào điều cần hiểu, khi phù hợp. Ví dụ: "HTTP 200 có nghĩa là đã fetch được chương truyện không?" — rồi giải thích ngay sau đó.
 
-8. Use `=>` to connect an observation to its explanation, consequence, or conclusion. Use it only when the relationship is clear, not after every sentence.
+9. Dùng `=>` để nối một quan sát với lời giải thích, hệ quả hoặc kết luận của nó. Chỉ dùng khi quan hệ rõ ràng, không đặt sau mọi câu.
 
-9. Tie evidence to the claim in the same item. Distinguish clearly:
-   - Observation: a measured fact (status, header, response body).
-   - Inference: what that result might indicate.
-   - Proposal: what the project should do based on the result.
+10. Gắn bằng chứng với nhận định trong cùng một mục. Phân biệt rõ:
+    - Observation: sự thật đo được (status, header, response body).
+    - Inference: kết quả đó có thể cho thấy điều gì.
+    - Proposal: project nên làm gì dựa trên kết quả.
 
-10. Keep the phrasing close to the existing notes, but fix a term if it is technically wrong. Do not copy an imprecise claim just to match the style.
+11. Giữ cách diễn đạt gần với các note đã có, nhưng sửa thuật ngữ nếu nó sai về kỹ thuật. Không chép lại một nhận định thiếu chính xác chỉ để khớp văn phong.
 
-11. Each source used in a note has its exact URL and the date it was read, in the same item as the claim it supports.
+12. Mỗi nguồn dùng trong note có URL chính xác và ngày đọc, đặt trong cùng mục với nhận định mà nó hỗ trợ.

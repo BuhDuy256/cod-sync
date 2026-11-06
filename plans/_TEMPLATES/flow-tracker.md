@@ -6,11 +6,11 @@ created: DD-MM-YYYY
 
 # Flow tracker — {scope}
 
-Local mirror of the GitHub flow tracker issue. Update this file when the issue is updated.
+Bản local của flow tracker issue trên GitHub. Cập nhật file này mỗi khi issue được cập nhật.
 
-<!-- Document rules (WORKFLOW.md "Document rules"): front-load the "At a glance" block,
-     keep the phase order below. Every #N must be a clickable link:
-     [#N](https://github.com/{owner}/{repo}/issues/N) — see WORKFLOW.md "Linking convention". -->
+<!-- Document rules (WORKFLOW.md "Document rules"): đặt block "At a glance" lên đầu,
+     giữ thứ tự phase bên dưới. Mọi #N phải là link bấm được:
+     [#N](https://github.com/{owner}/{repo}/issues/N) — xem WORKFLOW.md "Linking convention". -->
 
 ## At a glance
 
@@ -22,41 +22,41 @@ Local mirror of the GitHub flow tracker issue. Update this file when the issue i
 - **Spine:** [traceability-matrix.md](./traceability-matrix.md)
 
 ## Phase 1: Research
-<!-- Gate: all in-scope research tickets closed -->
+<!-- Gate: mọi research ticket trong scope đã đóng -->
 
 - [ ] [#N](https://github.com/{owner}/{repo}/issues/N) question title
 
 ## Phase 2: Testing plan
-<!-- Gate: all test stub tickets closed -->
+<!-- Gate: mọi test stub ticket đã đóng -->
 <!-- Blocked by: Phase 1 complete -->
 
 - [ ] [#N](https://github.com/{owner}/{repo}/issues/N) test stub title
 
 ## Phase 3: Implementation plan
-<!-- Gate: plan reviewed and approved -->
+<!-- Gate: plan đã được review và approve -->
 <!-- Blocked by: Phase 2 complete -->
 
 - [ ] [#N](https://github.com/{owner}/{repo}/issues/N) plan review
 
 ## Phase 4: Implementation
-<!-- Gate: all impl tickets closed, tests green -->
+<!-- Gate: mọi impl ticket đã đóng, test xanh -->
 
 - [ ] [#N](https://github.com/{owner}/{repo}/issues/N) module name (Blocked by: [#N](https://github.com/{owner}/{repo}/issues/N))
 
 ## Phase 5: Post-implementation testing
-<!-- Gate: all post-impl tickets closed -->
+<!-- Gate: mọi post-impl ticket đã đóng -->
 
 - [ ] [#N](https://github.com/{owner}/{repo}/issues/N) test name (Blocked by: [#N](https://github.com/{owner}/{repo}/issues/N))
 
 ## Phase 6: Verification
-<!-- Gate: flow tracker issue closed; every matrix row's Verified column is ticked -->
+<!-- Gate: flow tracker issue đã đóng; cột Verified của mọi dòng trong matrix đã tick -->
 <!-- Blocked by: Phase 5 complete -->
 
-- [ ] Full test suite passes
-- [ ] Smoke tests pass
+- [ ] Toàn bộ test suite pass
+- [ ] Smoke test pass
 
 ### Verified per AC
-<!-- One line per AC, taken from plans/UC-XXX/traceability-matrix.md -->
+<!-- Mỗi AC một dòng, lấy từ plans/UC-XXX/traceability-matrix.md -->
 
-- [ ] FR-NNN / AC-1 — confirmed on real code
-- [ ] FR-NNN / AC-2 — confirmed on real code
+- [ ] FR-NNN / AC-1 — đã xác nhận trên code thật
+- [ ] FR-NNN / AC-2 — đã xác nhận trên code thật

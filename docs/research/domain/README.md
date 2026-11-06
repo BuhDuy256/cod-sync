@@ -1,24 +1,24 @@
 # Domain discovery checklist
 
-Areas to research before choosing use cases. Each area has one note in this folder and one ticket that holds its questions. Process: [WORKFLOW.md, Phase 0](../../../WORKFLOW.md#phase-0--domain-discovery).
+Các mảng cần research trước khi chọn use case. Mỗi mảng có một note trong folder này và một ticket chứa các câu hỏi của nó. Quy trình: [WORKFLOW.md, Phase 0](../../../WORKFLOW.md#phase-0--domain-discovery).
 
 | Area | Note | Ticket | Unlocks | Status |
 |---|---|---|---|---|
-| A. COD cash flow | [cod-cash-flow.md](cod-cash-flow.md) | [#2](https://github.com/BuhDuy256/cod-sync/issues/2) | Glossary rows, the payout-schedule rule, the shape of the ledger | not started |
-| B. Carrier statements and fees | [carrier-statements.md](carrier-statements.md) | [#3](https://github.com/BuhDuy256/cod-sync/issues/3) | The fee-type list, the statement-format rule, the "import a carrier statement" use case | not started |
-| C. Order statuses and carrier events | [carrier-events.md](carrier-events.md) | [#4](https://github.com/BuhDuy256/cod-sync/issues/4) | The status list, the event-intake requirements, the idempotency check (P-5) | not started |
-| D. Bank statements and transfers | [bank-transfers.md](bank-transfers.md) | [#5](https://github.com/BuhDuy256/cod-sync/issues/5) | The transfer-matching use case and its tolerance rule | not started |
-| E. Discrepancies and complaints | [discrepancies.md](discrepancies.md) | [#6](https://github.com/BuhDuy256/cod-sync/issues/6) | The discrepancy-type catalog (P-6), complaint deadlines, the complaint use case | not started |
-| F. Ledger basics | [ledger-basics.md](ledger-basics.md) | [#7](https://github.com/BuhDuy256/cod-sync/issues/7) | The money-invariant rule (P-4), the ledger design decision | not started |
-| G. How shops reconcile today | [shop-practice.md](shop-practice.md) | [#8](https://github.com/BuhDuy256/cod-sync/issues/8) | Evidence on vision blocks W-1 to W-3, the use case actors and goals | not started |
-| H. Reference products | [reference-products.md](reference-products.md) | [#9](https://github.com/BuhDuy256/cod-sync/issues/9) | The Product evidence section of each use case | not started |
+| A. COD cash flow | [cod-cash-flow.md](cod-cash-flow.md) | [#2](https://github.com/BuhDuy256/cod-sync/issues/2) | Các dòng glossary, rule lịch trả tiền (payout schedule), hình dạng của ledger | not started |
+| B. Carrier statements and fees | [carrier-statements.md](carrier-statements.md) | [#3](https://github.com/BuhDuy256/cod-sync/issues/3) | Danh sách loại phí, rule định dạng bảng kê, use case "import bảng kê của carrier" | not started |
+| C. Order statuses and carrier events | [carrier-events.md](carrier-events.md) | [#4](https://github.com/BuhDuy256/cod-sync/issues/4) | Danh sách trạng thái, các requirement nhận event, kiểm tra idempotency (P-5) | not started |
+| D. Bank statements and transfers | [bank-transfers.md](bank-transfers.md) | [#5](https://github.com/BuhDuy256/cod-sync/issues/5) | Use case khớp giao dịch chuyển khoản và rule sai số cho phép (tolerance) | not started |
+| E. Discrepancies and complaints | [discrepancies.md](discrepancies.md) | [#6](https://github.com/BuhDuy256/cod-sync/issues/6) | Danh mục loại chênh lệch (P-6), hạn khiếu nại, use case khiếu nại | not started |
+| F. Ledger basics | [ledger-basics.md](ledger-basics.md) | [#7](https://github.com/BuhDuy256/cod-sync/issues/7) | Rule bất biến về tiền (P-4), decision về thiết kế ledger | not started |
+| G. How shops reconcile today | [shop-practice.md](shop-practice.md) | [#8](https://github.com/BuhDuy256/cod-sync/issues/8) | Evidence cho các vision block W-1 đến W-3, actor và mục tiêu của use case | not started |
+| H. Reference products | [reference-products.md](reference-products.md) | [#9](https://github.com/BuhDuy256/cod-sync/issues/9) | Phần Product evidence của mỗi use case | not started |
 
-Questions are numbered 1 to 36 across all tickets. A note refers to a question by its number.
+Câu hỏi được đánh số từ 1 đến 36 xuyên suốt các ticket. Note nhắc tới một câu hỏi bằng số của nó.
 
 ## Sources to start from
 
-- Carrier developer API docs: GHN, GHTK, J&T Express, Viettel Post.
-- Carrier help-center pages on reconciliation and complaints, and carrier terms of service.
-- Seller forums and Facebook groups for online shops.
-- Help pages of Sapo, Haravan, and Nhanh.vn.
-- Introductory material on double-entry bookkeeping.
+- API docs cho developer của các carrier: GHN, GHTK, J&T Express, Viettel Post.
+- Trang help center của carrier về đối soát và khiếu nại, và điều khoản dịch vụ của carrier.
+- Forum người bán và group Facebook của các shop online.
+- Trang hướng dẫn của Sapo, Haravan và Nhanh.vn.
+- Tài liệu nhập môn về kế toán kép (double-entry bookkeeping).

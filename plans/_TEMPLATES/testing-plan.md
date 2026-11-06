@@ -6,9 +6,9 @@ created: DD-MM-YYYY
 
 # Testing plan — {scope}
 
-<!-- Document rules (WORKFLOW.md "Document rules"): front-load the "At a glance" block,
-     reference matrix rows by FR/AC id (don't restate the requirement text), keep the
-     section order below, keep under ~1 page. -->
+<!-- Document rules (WORKFLOW.md "Document rules"): đặt block "At a glance" lên đầu,
+     nhắc tới dòng matrix bằng ID FR/AC (không chép lại nội dung requirement), giữ thứ tự
+     section bên dưới, dài không quá ~1 trang. -->
 
 ## At a glance
 
@@ -18,28 +18,28 @@ created: DD-MM-YYYY
 - **FRs in scope:** FR-NNN, FR-NNN
 - **NFRs in scope:** NFR-NNN
 - **Status:** _N of N ACs mapped to a test_
-- **Spine:** [traceability-matrix.md](./traceability-matrix.md) — every test here maps to a row there
+- **Spine:** [traceability-matrix.md](./traceability-matrix.md) — mỗi test ở đây map tới một dòng ở đó
 
 ## Test types
 
 | Type | Purpose | When |
 |---|---|---|
-| Acceptance | Check an FR's acceptance criteria directly | Before implementation |
-| Security | Check security-related ACs and the threat model | Before implementation |
-| Unit | Check a single function / module in isolation | With implementation |
-| Integration | Check modules working together | After implementation |
-| E2E | Check the whole UC flow end to end | After implementation |
-| Smoke | Minimal checks proving the build is not broken | After implementation |
-| Recovery / resilience | Check behavior under failure | After implementation |
-| Regression | Stop a fixed bug from returning | After implementation (ongoing) |
-| Performance | Check an NFR's performance target | After implementation |
+| Acceptance | Kiểm tra trực tiếp acceptance criteria của một FR | Trước implementation |
+| Security | Kiểm tra các AC liên quan tới bảo mật và threat model | Trước implementation |
+| Unit | Kiểm tra riêng một function / module | Cùng lúc với implementation |
+| Integration | Kiểm tra các module chạy cùng nhau | Sau implementation |
+| E2E | Kiểm tra toàn bộ flow của UC từ đầu tới cuối | Sau implementation |
+| Smoke | Kiểm tra tối thiểu để chứng minh build không bị hỏng | Sau implementation |
+| Recovery / resilience | Kiểm tra hành vi khi có lỗi xảy ra | Sau implementation |
+| Regression | Chặn một bug đã sửa quay lại | Sau implementation (liên tục) |
+| Performance | Kiểm tra chỉ tiêu performance của một NFR | Sau implementation |
 
 ## Pre-implementation tests
 
 ### Acceptance tests
 
-<!-- DEC column: the decision that shaped this test — so a changed decision points to the
-     tests that must be revisited. Leave blank if none. -->
+<!-- Cột DEC: decision đã định hình test này => khi decision đổi, biết ngay test nào
+     phải xem lại. Để trống nếu không có. -->
 
 | AC | FR | DEC | Test description | Ticket | Status |
 |---|---|---|---|---|---|
@@ -85,4 +85,4 @@ created: DD-MM-YYYY
 
 ### Regression tests
 
-Added when a bug is found and fixed. Not planned ahead.
+Thêm vào khi tìm ra và sửa một bug. Không lên kế hoạch trước.

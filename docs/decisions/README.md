@@ -1,6 +1,6 @@
 # Decisions
 
-Each file records one technical or product decision made during a build. A decision is the output of a research question — it records what was chosen, why, and what was rejected.
+Mỗi file ghi lại một decision kỹ thuật hoặc sản phẩm được đưa ra trong một build. Decision là đầu ra của một research question: nó ghi lại đã chọn gì, vì sao, và đã loại bỏ gì.
 
 ## Index
 
@@ -14,8 +14,8 @@ Each file records one technical or product decision made during a build. A decis
 
 ## Conventions
 
-- One file per decision: `DEC-NNN-short-topic.md`.
-- IDs increase and are never reused.
-- Status: `open` (not decided), `decided` (settled), or `revisiting` (reopened, with a reason).
-- Each decision links to its source research question.
-- Implementation tickets cite a decision by ID.
+- Mỗi decision một file: `DEC-NNN-short-topic.md`.
+- ID tăng dần và không bao giờ dùng lại.
+- Status: `open` (chưa quyết), `decided` (đã chốt), hoặc `revisiting` (mở lại, kèm lý do).
+- Mỗi decision link tới research question gốc của nó.
+- Implementation ticket nhắc tới decision bằng ID.

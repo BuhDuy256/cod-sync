@@ -6,10 +6,9 @@ created: DD-MM-YYYY
 
 # Traceability matrix — {scope}
 
-The build's traceability spine. One row per in-scope FR/AC (and per NFR), threading requirement → research/decision → test → implementation ticket → verification.
+Spine truy vết của build. Mỗi FR/AC trong scope (và mỗi NFR) có một dòng, nối requirement → research/decision → test → implementation ticket → verification.
 
-**No-orphan rule:** every deliverable must have a consumer downstream. No phase gate
-closes while a row is missing a link that phase was responsible for producing (see WORKFLOW.md "Traceability"). This matrix is the home for the spine — other plan documents link to its rows instead of restating requirements (WORKFLOW.md "Document rules").
+**No-orphan rule:** mỗi deliverable phải có nơi dùng nó ở phía sau. Không gate nào được đóng khi còn dòng thiếu link mà phase đó phải tạo ra (xem WORKFLOW.md "Traceability"). Matrix này là nơi duy nhất chứa spine. Các plan document khác link tới dòng của nó thay vì chép lại requirement (WORKFLOW.md "Document rules").
 
 ## At a glance
 
@@ -19,7 +18,7 @@ closes while a row is missing a link that phase was responsible for producing (s
 - **FRs in scope:** FR-NNN, FR-NNN
 - **NFRs in scope:** NFR-NNN
 
-<!-- Every #N and file path is a clickable link (WORKFLOW.md "Linking convention"). -->
+<!-- Mọi #N và đường dẫn file là link bấm được (WORKFLOW.md "Linking convention"). -->
 
 ## Matrix
 
@@ -30,17 +29,17 @@ closes while a row is missing a link that phase was responsible for producing (s
 
 ## Columns
 
-- **FR / AC** — one row per in-scope acceptance criterion. An NFR with no AC uses the NFR itself as the row.
-- **RQ** — the answered research question for this row (may be empty if none was needed).
-- **DEC** — the decision that shaped this row (may be empty if none).
-- **Test (ticket)** — the acceptance/security test that proves the AC. **Required:** every in-scope FR/AC and every NFR has at least one test.
-- **Impl (ticket)** — the implementation ticket that makes this row pass.
-- **Verified** — `[x]` once Phase 6 has confirmed this AC on the real code.
+- **FR / AC** — mỗi acceptance criterion trong scope một dòng. NFR không có AC thì dùng chính NFR làm dòng.
+- **RQ** — research question đã trả lời cho dòng này (để trống nếu không cần).
+- **DEC** — decision đã định hình dòng này (để trống nếu không có).
+- **Test (ticket)** — acceptance/security test chứng minh AC. **Required:** mọi FR/AC và NFR trong scope có ít nhất một test.
+- **Impl (ticket)** — implementation ticket làm cho dòng này pass.
+- **Verified** — `[x]` khi Phase 6 đã xác nhận AC này trên code thật.
 
 ## Orphan check (run at every gate)
 
-- [ ] Every in-scope FR/AC and NFR has a row.
-- [ ] Every row has at least one Test ticket (after Phase 2).
-- [ ] Every in-scope DEC is consumed by at least one row (test or impl).
-- [ ] Every answered RQ leads to a DEC or a row that uses its result.
-- [ ] No Test/Impl ticket exists without a matrix row.
+- [ ] Mọi FR/AC và NFR trong scope đều có dòng.
+- [ ] Mọi dòng có ít nhất một Test ticket (sau Phase 2).
+- [ ] Mọi DEC trong scope được ít nhất một dòng dùng tới (test hoặc impl).
+- [ ] Mọi RQ đã trả lời dẫn tới một DEC hoặc một dòng dùng kết quả của nó.
+- [ ] Không có Test/Impl ticket nào thiếu dòng trong matrix.

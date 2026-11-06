@@ -1,29 +1,29 @@
 # Plans
 
-One subfolder per use case build. Each subfolder contains the workflow artifacts for that UC, created as the phases progress.
+Mỗi build của một use case có một subfolder. Mỗi subfolder chứa các artifact của workflow cho UC đó, được tạo dần theo từng phase.
 
 ## Structure
 
 ```
 plans/
-├── _TEMPLATES/              Templates for plan documents
+├── _TEMPLATES/              Template cho các plan document
 │   ├── research-checklist.md
 │   ├── testing-plan.md
 │   ├── implementation-plan.md
 │   ├── traceability-matrix.md
 │   └── flow-tracker.md
-└── UC-XXX/                  One folder per UC build
+└── UC-XXX/                  Mỗi UC build một folder
     ├── research-checklist.md
     ├── testing-plan.md
     ├── implementation-plan.md
     ├── traceability-matrix.md  Spine: FR/AC → RQ/DEC → test → impl → verify
-    └── flow-tracker.md      Local mirror of the GitHub Issue
+    └── flow-tracker.md      Bản local của GitHub Issue
 ```
 
 ## Lifecycle
 
-- A UC folder is created at the start of Phase 1.
-- The traceability matrix is seeded in Phase 1 and filled in as each phase produces its links (test, impl, verification). See WORKFLOW.md "Traceability".
-- Files are added as each phase begins.
-- The flow tracker is updated as tickets close.
-- When the UC build is complete (Phase 6), all files remain as a record.
+- Folder của UC được tạo khi bắt đầu Phase 1.
+- Traceability matrix được tạo sẵn các dòng ở Phase 1, rồi điền dần khi mỗi phase tạo ra link của nó (test, impl, verification). Xem WORKFLOW.md "Traceability".
+- File được thêm vào khi mỗi phase bắt đầu.
+- Flow tracker được cập nhật khi ticket đóng.
+- Khi UC build hoàn tất (Phase 6), mọi file được giữ lại làm hồ sơ.

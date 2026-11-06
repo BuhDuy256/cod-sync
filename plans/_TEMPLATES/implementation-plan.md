@@ -7,9 +7,9 @@ status: draft
 
 # Implementation plan — {scope}
 
-<!-- Document rules (WORKFLOW.md "Document rules"): front-load the "At a glance" block,
-     reference matrix rows and tests by id (don't restate them), keep the section order
-     below, keep under ~1 page. -->
+<!-- Document rules (WORKFLOW.md "Document rules"): đặt block "At a glance" lên đầu,
+     nhắc tới dòng matrix và test bằng ID (không chép lại nội dung), giữ thứ tự section
+     bên dưới, dài không quá ~1 trang. -->
 
 ## At a glance
 
@@ -19,18 +19,18 @@ status: draft
 - **FRs in scope:** FR-NNN, FR-NNN
 - **Decisions needed:** DEC-NNN, DEC-NNN
 - **Status:** draft / reviewed / approved
-- **Spine:** [traceability-matrix.md](./traceability-matrix.md) — every step maps to a row there
+- **Spine:** [traceability-matrix.md](./traceability-matrix.md) — mỗi step map tới một dòng ở đó
 
 ## Entry conditions
 
-- [ ] All in-scope research tickets closed (Phase 1 gate)
-- [ ] All in-scope test stub tickets closed (Phase 2 gate)
+- [ ] Mọi research ticket trong scope đã đóng (gate Phase 1)
+- [ ] Mọi test stub ticket trong scope đã đóng (gate Phase 2)
 
 ## Steps
 
 ### Step 1 — name
 
-- **What to build:** module, function, file path to create or change
+- **What to build:** module, function, đường dẫn file cần tạo hoặc sửa
 - **Tests it makes pass:** #N (AC test), #N (unit test)
 - **Depends on decision:** DEC-NNN
 - **Depends on step:** none
@@ -55,4 +55,4 @@ graph LR
 ## Approval
 
 - [ ] Reviewed
-- [ ] Approved — proceed to create tickets
+- [ ] Approved — chuyển sang tạo ticket

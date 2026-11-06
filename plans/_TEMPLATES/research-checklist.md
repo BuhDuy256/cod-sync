@@ -6,9 +6,9 @@ created: DD-MM-YYYY
 
 # Research checklist — {scope}
 
-<!-- Document rules (WORKFLOW.md "Document rules"): front-load the "At a glance" block,
-     link to matrix rows instead of restating requirements, keep the section order below,
-     keep under ~1 page. Every #N and file path is a clickable link (WORKFLOW.md
+<!-- Document rules (WORKFLOW.md "Document rules"): đặt block "At a glance" lên đầu,
+     link tới dòng matrix thay vì chép lại requirement, giữ thứ tự section bên dưới,
+     dài không quá ~1 trang. Mọi #N và đường dẫn file là link bấm được (WORKFLOW.md
      "Linking convention"). -->
 
 ## At a glance
@@ -23,33 +23,33 @@ created: DD-MM-YYYY
 
 ## How to use
 
-Each question is tied to the FR/NFR it serves. **The user researches and answers** — the agent supplies only the questions and the options tables as raw material. The agent does not answer for the user and does not fill in `Choice`/`Why` of a decision record (see WORKFLOW.md "Division of labor"). The deliverable files are created ahead of time — open the file and fill the empty fields.
+Mỗi câu hỏi gắn với FR/NFR mà nó phục vụ. Bảng options đi kèm chỉ liệt kê lựa chọn và tradeoff, không chứa câu trả lời. Câu trả lời nằm trong file deliverable, còn `Choice`/`Why` nằm trong decision record. Ai làm phần nào: xem WORKFLOW.md "Division of labor". File deliverable được tạo sẵn => mở file và điền vào các field còn trống.
 
 ## Flow model
 
-<!-- Trace each technical step that happens when the UC runs. Each step shows what the
-     system does at runtime. A research question is pinned to the step it arises from. -->
+<!-- Lần theo từng bước kỹ thuật xảy ra khi UC chạy. Mỗi bước ghi hệ thống làm gì lúc
+     runtime. Research question được gắn vào bước mà nó phát sinh. -->
 
 ### {S1 — step name}
 
-1. **S1.1** — {specific technical action}
-2. **S1.2** — {next action} → **RQ-N** _(don't know how)_
-3. **S1.3** — {next action}
+1. **S1.1** — {hành động kỹ thuật cụ thể}
+2. **S1.2** — {hành động tiếp theo} → **RQ-N** _(chưa biết cách làm)_
+3. **S1.3** — {hành động tiếp theo}
 
 ### {S2 — step name}
 
-1. **S2.1** — {technical action}
-2. **S2.2** — {action} → **RQ-N** _(decision needed)_
+1. **S2.1** — {hành động kỹ thuật}
+2. **S2.2** — {hành động} → **RQ-N** _(cần ra decision)_
 
 ### Alternative flows
 
-#### {A1 — branch name} (splits from S1.2)
+#### {A1 — branch name} (tách ra từ S1.2)
 
-1. **A1.1** — {error / exception handling} → **RQ-N** _(don't know how to handle)_
+1. **A1.1** — {xử lý lỗi / ngoại lệ} → **RQ-N** _(chưa biết cách xử lý)_
 
 ## Deliverable map
 
-<!-- Link each RQ to its deliverable file. Use full Markdown links. -->
+<!-- Link mỗi RQ tới file deliverable của nó. Dùng link Markdown đầy đủ. -->
 
 | RQ | Type | File |
 |---|---|---|
@@ -71,7 +71,7 @@ Each question is tied to the FR/NFR it serves. **The user researches and answers
 
 ## Status values
 
-- `open` — not started
-- `researching` — in progress
-- `answered` — answered in docs/research/
-- `decided` — decided in docs/decisions/DEC-NNN
+- `open` — chưa bắt đầu
+- `researching` — đang làm
+- `answered` — đã trả lời trong docs/research/
+- `decided` — đã quyết trong docs/decisions/DEC-NNN

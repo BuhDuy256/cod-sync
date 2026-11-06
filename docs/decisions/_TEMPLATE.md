@@ -9,13 +9,13 @@ affects: "FR-NNN, NFR-NNN"
 
 ## Question
 
-<!-- The research question this decision answers. Include a link to the ticket:
+<!-- Research question mà decision này trả lời. Kèm link tới ticket:
      (RQ-N, ticket [#N](https://github.com/{owner}/{repo}/issues/N))
-     See WORKFLOW.md "Linking convention". -->
+     Xem WORKFLOW.md "Linking convention". -->
 
 ## Options considered
 
-<!-- One row per option. Fill the tradeoffs relative to the project's FRs/NFRs. -->
+<!-- Mỗi option một dòng. Ghi tradeoff so với FR/NFR của project. -->
 
 | Option | Description | Fits which requirements | Tradeoffs |
 |---|---|---|---|
@@ -25,16 +25,16 @@ affects: "FR-NNN, NFR-NNN"
 
 ## Choice
 
-<!-- Which option is chosen. One sentence. -->
+<!-- Chọn option nào. Một câu. -->
 
 ## Why
 
-<!-- Why this option over the others. Cite specific FRs, NFRs, or constraints. -->
+<!-- Vì sao chọn option này thay vì các option khác. Nêu cụ thể FR, NFR hoặc ràng buộc. -->
 
 ## Rejected options and why
 
-<!-- For each rejected option, one sentence on why. -->
+<!-- Với mỗi option bị loại, một câu giải thích vì sao. -->
 
 ## Consequences
 
-<!-- What this decision opens up or constrains for implementation. -->
+<!-- Decision này mở ra hoặc giới hạn điều gì cho phần implementation. -->
